@@ -1828,7 +1828,7 @@ function applyNormalResults(results) {
       !participant.eliminated &&
       participant.roundLosses >= gameConfig.lossLimit
     ) {
-      participant.eliminated = true;
+      markParticipantEliminated(participant);
       newlyEliminated.push(participant);
     }
   });
@@ -1852,7 +1852,7 @@ function eliminateFullyStrippedParticipants() {
   if (stripped.length < limit) return [];
 
   stripped.forEach(participant => {
-    participant.eliminated = true;
+    markParticipantEliminated(participant);
   });
   return stripped;
 }
@@ -2317,7 +2317,7 @@ function applyTeamResults(activeTeams, results) {
           participant.teamId === team.id &&
           !participant.eliminated
         ) {
-          participant.eliminated = true;
+          markParticipantEliminated(participant);
           eliminatedParticipants.push(participant);
         }
       });
@@ -5083,6 +5083,10 @@ function discardEquipment(participant, item) {
     timestamp: new Date().toISOString()
   };
 
+  if (participant.equipment.length === 0) {
+    queueGameEffect("stripped", "脫光全裸", participant.name);
+  }
+
   participant.equipmentHistory.push(record);
   return record;
 }
@@ -5498,5 +5502,65 @@ function appendEquipmentDiscardMessage(record) {
 // ============================================================
 // 啟用 Gamma 衣物設定
 // ============================================================
+
+// Event effects are transient: rendering and loading saved state never replay them.
+const gameEffectQueue = [];
+let gameEffectPlaying = false;
+let gameEffectScheduled = false;
+
+function markParticipantEliminated(participant) {
+  if (participant.eliminated) return;
+  participant.eliminated = true;
+  const penalty = gameConfig.eliminationPenalty?.trim();
+  if (penalty) queueGameEffect("penalty", penalty, participant.name);
+}
+
+function queueGameEffect(kind, text, name) {
+  gameEffectQueue.push({ kind, text, name });
+  if (gameEffectScheduled) return;
+  gameEffectScheduled = true;
+  // Collect synchronous events before playback so final equipment goes first.
+  queueMicrotask(() => {
+    gameEffectScheduled = false;
+    playNextGameEffect();
+  });
+}
+
+function playNextGameEffect() {
+  if (gameEffectPlaying || !gameEffectQueue.length) return;
+  gameEffectPlaying = true;
+  const event = gameEffectQueue.shift();
+  const overlay = document.createElement("div");
+  overlay.className = `game-event-effect game-event-effect--${event.kind}`;
+  overlay.setAttribute("role", "status");
+  const content = document.createElement("div");
+  content.className = "game-event-effect__content";
+  const name = document.createElement("div");
+  name.className = "game-event-effect__name";
+  name.textContent = event.name;
+  const text = document.createElement("div");
+  text.className = "game-event-effect__text";
+  text.textContent = event.text;
+  if (event.kind === "penalty") {
+    const cracks = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    cracks.setAttribute("viewBox", "0 0 600 180");
+    cracks.setAttribute("preserveAspectRatio", "none");
+    cracks.setAttribute("aria-hidden", "true");
+    cracks.classList.add("game-event-effect__cracks");
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", "M325 0L290 52L317 78L270 116L290 180 M317 78L390 65L426 95L490 78 M290 52L220 38L190 65 M270 116L205 110L160 150");
+    cracks.appendChild(path);
+    text.appendChild(cracks);
+  }
+  content.append(name, text);
+  overlay.appendChild(content);
+  document.body.appendChild(overlay);
+  // A timer also cleans up if CSS animations are disabled or interrupted.
+  setTimeout(() => {
+    overlay.remove();
+    gameEffectPlaying = false;
+    playNextGameEffect();
+  }, 1000);
+}
 
 initializeEquipmentControls();
