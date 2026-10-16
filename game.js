@@ -5084,9 +5084,10 @@ function discardEquipment(participant, item) {
   };
 
   if (participant.equipment.length === 0) {
-    queueGameEffect("stripped", "脫光全裸", participant.name);
+    queueGameEffect("stripped", "脫光全裸", participant);
   }
 
+  queueMicrotask(playNextGameEffect);
   participant.equipmentHistory.push(record);
   return record;
 }
@@ -5465,6 +5466,7 @@ function renderEquipmentDiscardPanel() {
 
         participant.pendingEquipmentLoss = false;
         participant.pendingEquipmentDiscards = 0;
+        queueMicrotask(playNextGameEffect);
 
         renderParticipantSettings();
         renderOperationPanel();
@@ -5512,11 +5514,11 @@ function markParticipantEliminated(participant) {
   if (participant.eliminated) return;
   participant.eliminated = true;
   const penalty = gameConfig.eliminationPenalty?.trim();
-  if (penalty) queueGameEffect("penalty", penalty, participant.name);
+  if (penalty) queueGameEffect("penalty", penalty, participant);
 }
 
-function queueGameEffect(kind, text, name) {
-  gameEffectQueue.push({ kind, text, name });
+function queueGameEffect(kind, text, participant) {
+  gameEffectQueue.push({ kind, text, name: participant.name, avatar: participant.avatar || "" });
   if (gameEffectScheduled) return;
   gameEffectScheduled = true;
   // Collect synchronous events before playback so final equipment goes first.
@@ -5528,8 +5530,12 @@ function queueGameEffect(kind, text, name) {
 
 function playNextGameEffect() {
   if (gameEffectPlaying || !gameEffectQueue.length) return;
+  // Manual equipment removal may finish after elimination is recorded.
+  // Play all stripped events first; hold penalties until discards are resolved.
+  const strippedIndex = gameEffectQueue.findIndex(event => event.kind === "stripped");
+  if (strippedIndex < 0 && hasPendingEquipment()) return;
+  const [event] = gameEffectQueue.splice(strippedIndex < 0 ? 0 : strippedIndex, 1);
   gameEffectPlaying = true;
-  const event = gameEffectQueue.shift();
   const overlay = document.createElement("div");
   overlay.className = `game-event-effect game-event-effect--${event.kind}`;
   overlay.setAttribute("role", "status");
@@ -5551,6 +5557,14 @@ function playNextGameEffect() {
     path.setAttribute("d", "M325 0L290 52L317 78L270 116L290 180 M317 78L390 65L426 95L490 78 M290 52L220 38L190 65 M270 116L205 110L160 150");
     cracks.appendChild(path);
     text.appendChild(cracks);
+  }
+  if (event.avatar) {
+    const avatar = document.createElement("img");
+    avatar.className = "game-event-effect__avatar";
+    avatar.src = event.avatar;
+    avatar.alt = event.name;
+    avatar.addEventListener("error", () => avatar.remove(), { once: true });
+    content.appendChild(avatar);
   }
   content.append(name, text);
   overlay.appendChild(content);
