@@ -2469,7 +2469,9 @@ function getEquipmentPatternResults(participant, equipmentHistory) {
 
   const results = [];
 
-  if (discarded.has("胸罩") && discarded.has("上衣")) {
+  if (discarded.has("胸罩") && 
+      (discarded.has("上衣") || discarded.has("洋裝")) 
+  ) {
     results.push("露奶");
   }
 
