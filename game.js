@@ -80,7 +80,7 @@ function renderStatsTable(
     const statusLines = [];
 
     if (item.eliminated) {
-      statusLines.push("淘汰！");
+      statusLines.push("淘汰");
     }
 
     if (isParticipant && !item.equipment.length) {
@@ -3882,7 +3882,7 @@ function addSourceRoundSelector(
         let text = ` ${participant.name}`;
 
         if (participant.eliminated) {
-          text += "（淘汰！）";
+          text += "（淘汰）";
         }
 
         participantLabel.appendChild(
