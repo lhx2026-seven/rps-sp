@@ -139,3 +139,12 @@ button {
   overflow-wrap: anywhere;
   text-shadow: 0 2px 8px #000;
 }
+
+.game-event-effect--upperExposure .game-event-effect__text {
+  color: #fff5a3;
+  text-shadow: 0 0 8px #ffe347, 0 0 24px #ffd000, 0 0 60px #ffd000;
+}
+.game-event-effect--lowerExposure .game-event-effect__text {
+  color: #ffd1a3;
+  text-shadow: 0 0 8px #ffab47, 0 0 24px #ff8000, 0 0 60px #ff8000;
+}

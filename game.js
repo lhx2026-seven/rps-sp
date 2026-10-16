@@ -89,14 +89,6 @@ function renderStatsTable(
       );
     }
 
-    if (isParticipant) {
-      statusLines.push(
-        ...getEquipmentPatternResults(
-          item,
-          getAccumulatedEquipmentHistory(item)
-        )
-      );
-    }
 
     const penalty =
       typeof gameConfig.eliminationPenalty === "string"
@@ -2597,14 +2589,6 @@ function getParticipantResultLines(
       );
     }
 
-    lines.push(
-      ...getEquipmentPatternResults(
-        participant,
-        Array.isArray(equipmentHistory)
-          ? equipmentHistory
-          : getAccumulatedEquipmentHistory(participant)
-      )
-    );
   }
 
   if (participant.eliminated && penalty) {
@@ -5061,6 +5045,10 @@ function discardEquipment(participant, item) {
     return null;
   }
 
+  const previousPatterns = getEquipmentPatternResults(
+    participant, getAccumulatedEquipmentHistory(participant)
+  );
+
   participant.equipment =
     participant.equipment.filter(value => value !== item);
 
@@ -5089,6 +5077,12 @@ function discardEquipment(participant, item) {
 
   queueMicrotask(playNextGameEffect);
   participant.equipmentHistory.push(record);
+  getEquipmentPatternResults(participant, getAccumulatedEquipmentHistory(participant))
+    .filter(pattern => !previousPatterns.includes(pattern))
+    .forEach(pattern => queueGameEffect(
+      pattern === "露奶" ? "upperExposure" : "lowerExposure",
+      pattern, participant
+    ));
   return record;
 }
 
@@ -5508,6 +5502,8 @@ function appendEquipmentDiscardMessage(record) {
 // Event effects are transient: rendering and loading saved state never replay them.
 // 動畫秒數：各事件獨立設定；CSS 特效與清除時間會自動同步。
 const GAME_EFFECT_DURATION_SECONDS = Object.freeze({
+  upperExposure: 1, // 露奶
+  lowerExposure: 1, // 露下體
   stripped: 2, // 脫光全裸
   penalty: 3   // 淘汰處罰（包含指令回應）
 });
@@ -5536,10 +5532,10 @@ function queueGameEffect(kind, text, participant) {
 function playNextGameEffect() {
   if (gameEffectPlaying || !gameEffectQueue.length) return;
   // Manual equipment removal may finish after elimination is recorded.
-  // Play all stripped events first; hold penalties until discards are resolved.
-  const strippedIndex = gameEffectQueue.findIndex(event => event.kind === "stripped");
-  if (strippedIndex < 0 && hasPendingEquipment()) return;
-  const [event] = gameEffectQueue.splice(strippedIndex < 0 ? 0 : strippedIndex, 1);
+  // Play equipment events first; hold penalties until discards are resolved.
+  const equipmentIndex = gameEffectQueue.findIndex(event => event.kind !== "penalty");
+  if (equipmentIndex < 0 && hasPendingEquipment()) return;
+  const [event] = gameEffectQueue.splice(equipmentIndex < 0 ? 0 : equipmentIndex, 1);
   gameEffectPlaying = true;
   const overlay = document.createElement("div");
   const durationMs = GAME_EFFECT_DURATION_SECONDS[event.kind] * 1000;
