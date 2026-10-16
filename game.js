@@ -5508,8 +5508,8 @@ function appendEquipmentDiscardMessage(record) {
 // Event effects are transient: rendering and loading saved state never replay them.
 // 動畫秒數：各事件獨立設定；CSS 特效與清除時間會自動同步。
 const GAME_EFFECT_DURATION_SECONDS = Object.freeze({
-  stripped: 1, // 脫光全裸
-  penalty: 1   // 淘汰處罰（包含指令回應）
+  stripped: 2, // 脫光全裸
+  penalty: 3   // 淘汰處罰（包含指令回應）
 });
 const gameEffectQueue = [];
 let gameEffectPlaying = false;
