@@ -5506,6 +5506,11 @@ function appendEquipmentDiscardMessage(record) {
 // ============================================================
 
 // Event effects are transient: rendering and loading saved state never replay them.
+// 動畫秒數：各事件獨立設定；CSS 特效與清除時間會自動同步。
+const GAME_EFFECT_DURATION_SECONDS = Object.freeze({
+  stripped: 1, // 脫光全裸
+  penalty: 1   // 淘汰處罰（包含指令回應）
+});
 const gameEffectQueue = [];
 let gameEffectPlaying = false;
 let gameEffectScheduled = false;
@@ -5537,6 +5542,8 @@ function playNextGameEffect() {
   const [event] = gameEffectQueue.splice(strippedIndex < 0 ? 0 : strippedIndex, 1);
   gameEffectPlaying = true;
   const overlay = document.createElement("div");
+  const durationMs = GAME_EFFECT_DURATION_SECONDS[event.kind] * 1000;
+  overlay.style.setProperty("--game-event-duration", `${durationMs}ms`);
   overlay.className = `game-event-effect game-event-effect--${event.kind}`;
   overlay.setAttribute("role", "status");
   const content = document.createElement("div");
@@ -5588,7 +5595,7 @@ function playNextGameEffect() {
     overlay.remove();
     gameEffectPlaying = false;
     playNextGameEffect();
-  }, 1000);
+  }, durationMs);
 }
 
 initializeEquipmentControls();
