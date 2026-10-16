@@ -5569,9 +5569,9 @@ function playNextGameEffect() {
   content.append(name, text);
   if (event.kind === "penalty") {
     const responses = new Map([
-      ["7676", "不可以啦...不可以...不可以不可以.........嗯...嗯...嗯嗯嗯..."],
-      ["7677", "什麼啦...............呃！"],
-      ["7678", "唔......啊...哼...啊...嗯哼...嗯哼..."]
+      ["被幹", "不可以啦...不可以...不可以不可以.........嗯...嗯...嗯嗯嗯..."],
+      ["插入", "什麼啦...............呃！"],
+      ["SEX", "唔......啊...哼...啊...嗯哼...嗯哼..."]
     ]);
     const response = responses.get(event.text.trim());
     if (response) {
