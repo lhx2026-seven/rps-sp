@@ -128,3 +128,14 @@ button {
   border-radius: 16px;
   filter: drop-shadow(0 0 14px rgba(255, 255, 255, .65));
 }
+
+.game-event-effect__response {
+  margin: 18px auto 0;
+  max-width: 42ch;
+  color: #fff;
+  font-size: clamp(16px, 3.5vw, 30px);
+  font-weight: 700;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  text-shadow: 0 2px 8px #000;
+}

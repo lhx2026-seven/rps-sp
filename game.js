@@ -5567,6 +5567,20 @@ function playNextGameEffect() {
     content.appendChild(avatar);
   }
   content.append(name, text);
+  if (event.kind === "penalty") {
+    const responses = new Map([
+      ["7676", "不可以啦...不可以...不可以不可以.........嗯...嗯...嗯嗯嗯..."],
+      ["7677", "什麼啦...............呃！"],
+      ["7678", "唔......啊...哼...啊...嗯哼...嗯哼..."]
+    ]);
+    const response = responses.get(event.text.trim());
+    if (response) {
+      const reply = document.createElement("div");
+      reply.className = "game-event-effect__response";
+      reply.textContent = response;
+      content.appendChild(reply);
+    }
+  }
   overlay.appendChild(content);
   document.body.appendChild(overlay);
   // A timer also cleans up if CSS animations are disabled or interrupted.
