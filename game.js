@@ -5578,7 +5578,10 @@ function playNextGameEffect() {
       ["插入", "什麼啦...............呃！"],
       ["SEX", "唔......啊...哼...啊...嗯哼...嗯哼..."]
     ]);
-    const response = responses.get(event.text.trim());
+    // If multiple keywords match, use the first configured response.
+    const response = [...responses].find(([keyword]) =>
+      event.text.includes(keyword)
+    )?.[1];
     if (response) {
       const reply = document.createElement("div");
       reply.className = "game-event-effect__response";
