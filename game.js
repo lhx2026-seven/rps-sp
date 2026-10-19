@@ -5574,9 +5574,9 @@ function playNextGameEffect() {
   content.append(name, text);
   if (event.kind === "penalty") {
     const responses = new Map([
-      ["被幹", "不可以啦...不可以...不可以不可以.........嗯...嗯...嗯嗯嗯..."],
-      ["插入", "什麼啦...............呃！"],
-      ["SEX", "唔......啊...哼...啊...嗯哼...嗯哼..."]
+      ["被幹", "什麼啦.........嗯...嗯..."],
+      ["插入", "呃...嗯...嗯嗯...嗯哼嗯哼"],
+      ["中出", "不可以......不可以啦...呃！"]
     ]);
     // If multiple keywords match, use the first configured response.
     const response = [...responses].find(([keyword]) =>
