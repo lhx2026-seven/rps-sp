@@ -5576,7 +5576,7 @@ function playNextGameEffect() {
     const responses = new Map([
       ["幹", "什麼啦.........嗯...嗯..."],
       ["插", "呃...嗯...嗯嗯...嗯哼嗯哼"],
-      ["中出", "不可以......不可以啦...呃！"]
+      ["中出", "不可以......不可以啦...呃！"],
       ["陰道", "色狼！......啊啊啊啊啊！"]
     ]);
     // If multiple keywords match, use the first configured response.
