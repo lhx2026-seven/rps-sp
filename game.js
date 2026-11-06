@@ -945,13 +945,14 @@ async function createGame() {
 
   participants = [];
 const randomNames = createRandomParticipantNames(playerCount);
+const randomAvatars = createRandomParticipantAvatars(playerCount);
 
   for (let i = 0; i < playerCount; i++) {
     participants.push({
       id: i + 1,
       participantKey: createParticipantKey(),
       name: randomNames[i],
-      avatar: "",
+      avatar: randomAvatars[i],
       teamId: null,
       controlled: false,
       winRate: 33,
@@ -4229,13 +4230,14 @@ if (createNew) {
 
   const randomNames =
     createRandomParticipantNames(nextPlayerCount);
+  const randomAvatars = createRandomParticipantAvatars(nextPlayerCount);
 
   for (let i = 0; i < nextPlayerCount; i++) {
     newParticipants.push({
       id: i + 1,
       participantKey: createParticipantKey(),
       name: randomNames[i],
-      avatar: "",
+      avatar: randomAvatars[i],
       teamId: null,
       controlled: false,
       winRate: 33,
@@ -5066,6 +5068,22 @@ const EQUIPMENT_TYPES = [
 const DEFAULT_EQUIPMENT = [
   "上衣", "裙子", "胸罩", "內褲"
 ];
+
+// AI-generated fictional adult portraits, bundled locally for reliable loading.
+const DEFAULT_PARTICIPANT_AVATARS = Object.freeze(
+  Array.from({ length: 64 }, (_, index) =>
+    `assets/avatars/avatar-${String(index + 1).padStart(2, "0")}.webp`
+  )
+);
+
+function createRandomParticipantAvatars(count) {
+  const avatars = [...DEFAULT_PARTICIPANT_AVATARS];
+  for (let i = avatars.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [avatars[i], avatars[j]] = [avatars[j], avatars[i]];
+  }
+  return avatars.slice(0, count);
+}
 
 const PARTICIPANT_SURNAMES = [
   "陳", "林", "黃", "張", "王", "吳", "劉", "蔡",
