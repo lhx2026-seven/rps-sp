@@ -45,7 +45,7 @@ function renderStatsTable(
       row.style.color = "red";
     }
 
-    const cells = [item.name];
+    const cells = [isParticipant ? getParticipantDisplayName(item) : item.name];
 
     if (withTeam) {
       cells.push(
@@ -953,6 +953,7 @@ const randomAvatars = createRandomParticipantAvatars(playerCount);
       participantKey: createParticipantKey(),
       name: randomNames[i],
       avatar: randomAvatars[i],
+      age: createRandomParticipantAge(randomAvatars[i]),
       teamId: null,
       controlled: false,
       winRate: 33,
@@ -1094,13 +1095,13 @@ function renderParticipantSettings() {
       participant.avatar ||
       createDefaultAvatar(participant.name);
 
-    avatar.alt = participant.name;
+    avatar.alt = getParticipantDisplayName(participant);
 
     const info =
       element("div", undefined, "participant-info");
 
     info.appendChild(
-      element("div", participant.name, "participant-name")
+      element("div", getParticipantDisplayName(participant), "participant-name")
     );
 
     info.appendChild(
@@ -1149,6 +1150,30 @@ function renderParticipantSettings() {
     });
 
     field("姓名", name);
+
+    const age = element("input");
+    age.type = "number";
+    age.min = "18";
+    age.max = "120";
+    age.step = "1";
+    age.value = normalizeParticipantAge(participant.age);
+    age.placeholder = "可留空";
+    age.className = "participant-age-input";
+    age.addEventListener("input", () => {
+      participant.age = normalizeParticipantAge(age.value);
+      info.querySelector(".participant-name").textContent = getParticipantDisplayName(participant);
+      renderOperationPanel();
+      renderTeamControls();
+      renderStats();
+    });
+    age.addEventListener("change", async () => {
+      participant.age = normalizeParticipantAge(age.value);
+      age.value = participant.age;
+      saveCurrentTournamentRoundSnapshot();
+      await saveGameState();
+    });
+    field("年紀", age);
+
 
     const controlled = element("input");
     controlled.type = "checkbox";
@@ -1442,7 +1467,7 @@ function renderTeamControls() {
       memberList.textContent =
         "成員：" +
         members.map(function (participant) {
-          return participant.name;
+          return getParticipantDisplayName(participant);
         }).join("、");
     }
 
@@ -1520,10 +1545,10 @@ function renderNormalOperation() {
       participant.avatar ||
       createDefaultAvatar(participant.name);
 
-    avatar.alt = participant.name;
+    avatar.alt = getParticipantDisplayName(participant);
 
     const title = document.createElement("strong");
-    title.textContent = participant.name;
+    title.textContent = getParticipantDisplayName(participant);
 
     header.appendChild(avatar);
     header.appendChild(title);
@@ -1624,7 +1649,7 @@ function renderTeamOperation() {
     members.forEach(function (member) {
       const option = document.createElement("option");
       option.value = member.id;
-      option.textContent = member.name;
+      option.textContent = getParticipantDisplayName(member);
       select.appendChild(option);
     });
 
@@ -1764,7 +1789,7 @@ async function startNormalRound() {
       participant.controlled &&
       !playerThrows[participant.id]
     ) {
-      alert(`${participant.name} 尚未選擇出拳。`);
+      alert(`${getParticipantDisplayName(participant)} 尚未選擇出拳。`);
       return;
     }
   }
@@ -2116,7 +2141,7 @@ async function resolveHeadcountHandAfterDiscards() {
     const message = element(
       "div",
       "淘汰者：" +
-        eliminatedNow.map(participant => participant.name).join("、"),
+        eliminatedNow.map(participant => getParticipantDisplayName(participant)).join("、"),
       "danger"
     );
 
@@ -2169,7 +2194,7 @@ function renderNormalResults(
       participant.avatar ||
       createDefaultAvatar(participant.name);
 
-    avatar.alt = participant.name;
+    avatar.alt = getParticipantDisplayName(participant);
 
     const fist = document.createElement("div");
     fist.className = "result-fist";
@@ -2177,7 +2202,7 @@ function renderNormalResults(
 
     const info = document.createElement("div");
     const name = document.createElement("strong");
-    name.textContent = participant.name;
+    name.textContent = getParticipantDisplayName(participant);
 
     const status = document.createElement("div");
 
@@ -2216,7 +2241,7 @@ eliminatedBox.style.cssText =
     eliminatedBox.textContent =
       "淘汰者：" +
       newlyEliminated.map(function (participant) {
-        return participant.name;
+        return getParticipantDisplayName(participant);
       }).join("、");
 
     resultList.appendChild(eliminatedBox);
@@ -2507,7 +2532,7 @@ function renderTeamResults(
     const title = document.createElement("strong");
 
     title.textContent = representative
-      ? `${team.name}｜${representative.name}`
+      ? `${team.name}｜${getParticipantDisplayName(representative)}`
       : team.name;
 
     const status = document.createElement("div");
@@ -2791,7 +2816,7 @@ const output = tournamentRounds.map(snapshot => {
 
           const label = [
             team?.name ? `${team.name}隊` : "",
-            representative?.name || ""
+            representative ? getParticipantDisplayName(representative) : ""
           ].join("");
 
           if (label) {
@@ -2808,7 +2833,7 @@ const output = tournamentRounds.map(snapshot => {
 
           if (participant) {
             competitors.push({
-              label: participant.name,
+              label: getParticipantDisplayName(participant),
               result: record.results?.[participantId]
             });
           }
@@ -2959,7 +2984,7 @@ const output = tournamentRounds.map(snapshot => {
         ? `，接受${snapshot.gameConfig.eliminationPenalty}的處罰`
         : "";
 
-    return `${participant.name}在${title}${discardText}，${clothingText}${penalty}。`;
+    return `${getParticipantDisplayName(participant)}在${title}${discardText}，${clothingText}${penalty}。`;
   });
 
   return [
@@ -2980,7 +3005,7 @@ const output = tournamentRounds.map(snapshot => {
 );
     const rate = calculateActualWinRate(aggregate);
     return [
-      aggregate.name,
+      getParticipantDisplayName(aggregate.latestParticipant),
       `總勝 ${aggregate.wins}／總敗 ${aggregate.losses}／總平 ${aggregate.ties}`,
       `實際勝率 ${rate}`,
       `最終結果：${finalStatus.join("、") || "—"}`
@@ -4003,7 +4028,7 @@ function addSourceRoundSelector(
 
         participantLabel.appendChild(checkbox);
 
-        let text = ` ${participant.name}`;
+        let text = ` ${getParticipantDisplayName(participant)}`;
 
         if (participant.eliminated) {
           text += "（淘汰）";
@@ -4238,6 +4263,7 @@ if (createNew) {
       participantKey: createParticipantKey(),
       name: randomNames[i],
       avatar: randomAvatars[i],
+      age: createRandomParticipantAge(randomAvatars[i]),
       teamId: null,
       controlled: false,
       winRate: 33,
@@ -4337,6 +4363,7 @@ if (importExisting) {
         participantKey: permanentKey,
         name: sourceParticipant.name,
         avatar: sourceParticipant.avatar || "",
+        age: normalizeParticipantAge(sourceParticipant.age),
         teamId: null,
         controlled: !!sourceParticipant.controlled,
 
@@ -4387,6 +4414,8 @@ target.equipment =
 
       target.name =
         sourceParticipant.name;
+
+      target.age = normalizeParticipantAge(sourceParticipant.age);
 
       target.avatar =
         sourceParticipant.avatar || "";
@@ -4678,7 +4707,7 @@ function checkGameEnd() {
     const strong = document.createElement("strong");
 
     strong.textContent =
-      `獲勝者：${winner.name}`;
+      `獲勝者：${getParticipantDisplayName(winner)}`;
 
     message.appendChild(strong);
     resultList.appendChild(message);
@@ -5076,6 +5105,25 @@ const DEFAULT_PARTICIPANT_AVATARS = Object.freeze(
   )
 );
 
+function normalizeParticipantAge(value) {
+  if (value == null || String(value).trim() === "") return "";
+  const age = Number(value);
+  return Number.isInteger(age) && age >= 18 && age <= 120 ? age : "";
+}
+
+function getParticipantDisplayName(participant) {
+  const age = normalizeParticipantAge(participant.age);
+  return age === "" ? participant.name : `${participant.name}（${age}）`;
+}
+
+function createRandomParticipantAge(avatar) {
+  const match = /avatar-(\d+)\.webp$/.exec(avatar || "");
+  const index = match ? Number(match[1]) : 0;
+  if (index < 1 || index > 64) return "";
+  const minimum = 18 + Math.floor((index - 1) / 16) * 7;
+  return minimum + Math.floor(Math.random() * 7);
+}
+
 function createRandomParticipantAvatars(count) {
   const avatars = [...DEFAULT_PARTICIPANT_AVATARS];
   for (let i = avatars.length - 1; i > 0; i--) {
@@ -5226,7 +5274,7 @@ function discardEquipment(participant, item) {
   const record = {
     participantId: participant.id,
     participantKey: participant.participantKey,
-    participantName: participant.name,
+    participantName: getParticipantDisplayName(participant),
     equipment: item,
     round: roundNumber,
     timestamp: new Date().toISOString()
@@ -5496,7 +5544,7 @@ function renderEquipmentDiscardPanel() {
   pending.forEach(participant => {
     const box = element("div");
     box.style.marginTop = "14px";
-    box.appendChild(element("strong", participant.name));
+    box.appendChild(element("strong", getParticipantDisplayName(participant)));
 
     if (gameConfig.equipmentRule === "unlimited") {
       box.appendChild(
@@ -5680,7 +5728,7 @@ function markParticipantEliminated(participant) {
 }
 
 function queueGameEffect(kind, text, participant) {
-  gameEffectQueue.push({ kind, text, name: participant.name, avatar: participant.avatar || "" });
+  gameEffectQueue.push({ kind, text, name: getParticipantDisplayName(participant), avatar: participant.avatar || "" });
   if (gameEffectScheduled) return;
   gameEffectScheduled = true;
   // Collect synchronous events before playback so final equipment goes first.
