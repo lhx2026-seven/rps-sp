@@ -1243,6 +1243,7 @@ function renderParticipantSettings() {
           participant.avatar = avatar;
           renderParticipantSettings();
           renderOperationPanel();
+          renderTeamControls();
           saveCurrentTournamentRoundSnapshot();
           await saveGameState();
         } catch (error) {
@@ -1464,11 +1465,20 @@ function renderTeamControls() {
     if (members.length === 0) {
       memberList.textContent = "尚無成員";
     } else {
-      memberList.textContent =
-        "成員：" +
-        members.map(function (participant) {
-          return getParticipantDisplayName(participant);
-        }).join("、");
+      memberList.classList.add("team-member-portraits");
+      members.forEach(participant => {
+        const member = element("figure", undefined, "team-member-portrait");
+        const name = getParticipantDisplayName(participant);
+        const avatar = element("img", undefined, "team-member-avatar");
+        avatar.src = participant.avatar || createDefaultAvatar(participant.name);
+        avatar.alt = name;
+        avatar.width = avatar.height = 48;
+        avatar.addEventListener("error", () => {
+          avatar.src = createDefaultAvatar(participant.name);
+        }, { once: true });
+        member.append(avatar, element("figcaption", name));
+        memberList.appendChild(member);
+      });
     }
 
     card.appendChild(memberList);
