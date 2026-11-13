@@ -229,3 +229,37 @@ button {
   border: 1px solid #ddd;
 }
 .team-member-portrait figcaption { overflow-wrap: anywhere; }
+
+.operation-matchup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 20px 0 16px;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fafafa;
+}
+.operation-matchup__participant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  min-width: 0;
+  max-width: 140px;
+  text-align: center;
+}
+.operation-matchup__avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+.operation-matchup figcaption { overflow-wrap: anywhere; }
+.operation-matchup figcaption span,
+.operation-matchup figcaption strong { display: block; }
+.operation-matchup__vs { font-size: 20px; font-weight: 900; color: #777; }

@@ -1682,6 +1682,7 @@ function renderTeamOperation() {
     select.addEventListener("change", function () {
       teamRepresentatives[`team-${team.id}`] =
         parseInt(select.value, 10);
+      renderOperationPanel();
     });
 
     label.appendChild(select);
@@ -4728,7 +4729,46 @@ function checkGameEnd() {
 // 開始與重設按鍵
 // ============================================================
 
+function renderOperationMatchup() {
+  document.getElementById("operationMatchup")?.remove();
+  const entries = gameConfig.teamMode
+    ? teams.filter(team => !team.eliminated).map(team => ({
+        team,
+        participant: participants.find(participant =>
+          participant.teamId === team.id && !participant.eliminated &&
+          participant.id === teamRepresentatives[`team-${team.id}`]
+        )
+      })).filter(entry => entry.participant)
+    : participants.filter(participant => !participant.eliminated)
+        .map(participant => ({ participant }));
+  if (!entries.length) return;
+  const matchup = element("div", undefined, "operation-matchup");
+  matchup.id = "operationMatchup";
+  matchup.setAttribute("aria-label", "本回合對戰陣容");
+  entries.forEach(({ participant, team }, index) => {
+    if (entries.length === 2 && index === 1) {
+      matchup.appendChild(element("span", "VS", "operation-matchup__vs"));
+    }
+    const figure = element("figure", undefined, "operation-matchup__participant");
+    const name = getParticipantDisplayName(participant);
+    const avatar = element("img", undefined, "operation-matchup__avatar");
+    avatar.src = participant.avatar || createDefaultAvatar(participant.name);
+    avatar.alt = name;
+    avatar.width = avatar.height = 80;
+    avatar.addEventListener("error", () => {
+      avatar.src = createDefaultAvatar(participant.name);
+    }, { once: true });
+    const caption = element("figcaption");
+    if (team) caption.appendChild(element("strong", team.name));
+    caption.appendChild(element("span", name));
+    figure.append(avatar, caption);
+    matchup.appendChild(figure);
+  });
+  operationPanel.appendChild(matchup);
+}
+
 function addStartButton() {
+  renderOperationMatchup();
   let start =
     document.getElementById("startRoundBtn");
 
