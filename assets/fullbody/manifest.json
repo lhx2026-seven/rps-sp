@@ -34,8 +34,9 @@
       "fullbody": "avatar-04.png",
       "outfit": "褲裝",
       "hemline": null,
-      "footwear": "有跟鞋",
-      "croppedTop": false
+      "footwear": "平底鞋",
+      "croppedTop": false,
+      "style": "牛仔外套、休閒長褲、平底樂福鞋"
     },
     {
       "id": "avatar-05",
@@ -50,10 +51,11 @@
       "id": "avatar-06",
       "avatar": "../avatars/avatar-06.webp",
       "fullbody": "avatar-06.png",
-      "outfit": "連身裙裝",
-      "hemline": "膝上",
-      "footwear": "有跟鞋",
-      "croppedTop": false
+      "outfit": "褲裝",
+      "hemline": null,
+      "footwear": "帆布鞋",
+      "croppedTop": false,
+      "style": "帽衫、牛仔長褲、平底帆布鞋"
     },
     {
       "id": "avatar-07",
@@ -503,10 +505,11 @@
       "id": "avatar-56",
       "avatar": "../avatars/avatar-56.webp",
       "fullbody": "avatar-56.png",
-      "outfit": "褲裝",
-      "hemline": null,
-      "footwear": "帆布鞋",
-      "croppedTop": false
+      "outfit": "連身裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false,
+      "style": "酒紅連身裙、較纖細腿型、跟鞋"
     },
     {
       "id": "avatar-57",

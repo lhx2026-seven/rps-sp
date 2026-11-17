@@ -4,9 +4,9 @@
 
 ## 配置
 
-- 裙裝／連身裙裝：47 人（73.4%）；褲裝：17 人（26.6%），依後續指定將 27 改為牛仔短褲。
+- 裙裝／連身裙裝：47 人（73.4%）；褲裝：17 人（26.6%），已依後續指定更新。
 - 裙裝中膝上：42 人（89.4%）；其餘 5 人為及膝以下。
-- 有跟鞋：59 人（92.2%）；帆布鞋／運動鞋：4 人（08、24、40、56）；平底鞋：1 人（05）。
+- 有跟鞋：58 人（90.6%）；帆布鞋／運動鞋：4 人（06、08、24、40）；其他平底鞋：2 人（04、05）。
 - 01～32 中短版露腰上衣：8 人（25%），編號 01、03、05、07、09、11、13、15。
 
 各圖為 AI 延伸創作，保留參考人物特徵，但並非真實人物攝影，也不保證臉部像素完全相同。服裝及對應資料見 [manifest.json](manifest.json)。
@@ -18,9 +18,9 @@
 | avatar-01 | ![頭像](../avatars/avatar-01.webp) | [查看全身照](avatar-01.png) | 裙裝・膝上・短版露腰 | 有跟鞋 |
 | avatar-02 | ![頭像](../avatars/avatar-02.webp) | [查看全身照](avatar-02.png) | 裙裝・膝上 | 有跟鞋 |
 | avatar-03 | ![頭像](../avatars/avatar-03.webp) | [查看全身照](avatar-03.png) | 裙裝・膝上・短版露腰 | 有跟鞋 |
-| avatar-04 | ![頭像](../avatars/avatar-04.webp) | [查看全身照](avatar-04.png) | 褲裝 | 有跟鞋 |
+| avatar-04 | ![頭像](../avatars/avatar-04.webp) | [查看全身照](avatar-04.png) | 褲裝 | 平底鞋 |
 | avatar-05 | ![頭像](../avatars/avatar-05.webp) | [查看全身照](avatar-05.png) | 裙裝・膝上・短版露腰 | 平底鞋 |
-| avatar-06 | ![頭像](../avatars/avatar-06.webp) | [查看全身照](avatar-06.png) | 連身裙裝・膝上 | 有跟鞋 |
+| avatar-06 | ![頭像](../avatars/avatar-06.webp) | [查看全身照](avatar-06.png) | 褲裝 | 帆布鞋 |
 | avatar-07 | ![頭像](../avatars/avatar-07.webp) | [查看全身照](avatar-07.png) | 裙裝・膝上・短版露腰 | 有跟鞋 |
 | avatar-08 | ![頭像](../avatars/avatar-08.webp) | [查看全身照](avatar-08.png) | 褲裝 | 帆布鞋 |
 | avatar-09 | ![頭像](../avatars/avatar-09.webp) | [查看全身照](avatar-09.png) | 裙裝・膝上・短版露腰 | 有跟鞋 |
@@ -70,7 +70,7 @@
 | avatar-53 | ![頭像](../avatars/avatar-53.webp) | [查看全身照](avatar-53.png) | 裙裝・膝上 | 有跟鞋 |
 | avatar-54 | ![頭像](../avatars/avatar-54.webp) | [查看全身照](avatar-54.png) | 連身裙裝・膝上 | 有跟鞋 |
 | avatar-55 | ![頭像](../avatars/avatar-55.webp) | [查看全身照](avatar-55.png) | 裙裝・膝上 | 有跟鞋 |
-| avatar-56 | ![頭像](../avatars/avatar-56.webp) | [查看全身照](avatar-56.png) | 褲裝 | 帆布鞋 |
+| avatar-56 | ![頭像](../avatars/avatar-56.webp) | [查看全身照](avatar-56.png) | 連身裙裝・膝上 | 有跟鞋 |
 | avatar-57 | ![頭像](../avatars/avatar-57.webp) | [查看全身照](avatar-57.png) | 連身裙裝・膝上 | 有跟鞋 |
 | avatar-58 | ![頭像](../avatars/avatar-58.webp) | [查看全身照](avatar-58.png) | 裙裝・膝上 | 有跟鞋 |
 | avatar-59 | ![頭像](../avatars/avatar-59.webp) | [查看全身照](avatar-59.png) | 裙裝・及膝以下 | 有跟鞋 |
@@ -87,3 +87,5 @@
 ## 指定服裝調整
 
 57 改為深藍連身裙、較纖細腿型與跟鞋；27 改為牛仔短褲；05 改為奶油色平底鞋。三人的原頭像保持不變。
+
+56 更新為酒紅連身裙、較纖細腿型與跟鞋；06 更新為帽衫、牛仔長褲與平底帆布鞋；04 更新為牛仔外套、休閒長褲與平底樂福鞋。原頭像維持不變。
