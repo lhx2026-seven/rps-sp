@@ -81,8 +81,9 @@
       "fullbody": "avatar-09.png",
       "outfit": "裙裝",
       "hemline": "膝上",
-      "footwear": "有跟鞋",
-      "croppedTop": true
+      "footwear": "平底鞋",
+      "croppedTop": true,
+      "style": "奶油色短版上衣、深藍膝上裙、深藍平底鞋"
     },
     {
       "id": "avatar-10",
@@ -100,7 +101,8 @@
       "outfit": "裙裝",
       "hemline": "膝上",
       "footwear": "有跟鞋",
-      "croppedTop": true
+      "croppedTop": true,
+      "style": "淺藍短版上衣與膝上裙、較豐滿胸型、跟鞋"
     },
     {
       "id": "avatar-12",
@@ -117,8 +119,9 @@
       "fullbody": "avatar-13.png",
       "outfit": "裙裝",
       "hemline": "膝上",
-      "footwear": "有跟鞋",
-      "croppedTop": true
+      "footwear": "帆布鞋",
+      "croppedTop": false,
+      "style": "學院風：完整白襯衫、海軍藍針織背心、米色膝上裙、帆布鞋，不露腰"
     },
     {
       "id": "avatar-14",
@@ -172,7 +175,8 @@
       "outfit": "裙裝",
       "hemline": "膝上",
       "footwear": "有跟鞋",
-      "croppedTop": false
+      "croppedTop": false,
+      "style": "象牙白貼身細針織毛衣、較豐滿胸型、淺藍膝上裙、跟鞋"
     },
     {
       "id": "avatar-20",
@@ -226,7 +230,8 @@
       "outfit": "裙裝",
       "hemline": "膝上",
       "footwear": "有跟鞋",
-      "croppedTop": false
+      "croppedTop": false,
+      "style": "白襯衫與深藍針織背心、較豐滿胸型、深藍膝上裙、跟鞋"
     },
     {
       "id": "avatar-26",
