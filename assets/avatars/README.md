@@ -12,3 +12,10 @@ Each is a 320 × 320 WebP image. Age ranges describe generation prompts, not ver
 New participants receive a shuffled, non-repeating selection of these images (up to 64 per batch). Existing/imported participants retain their saved avatar. Players can replace any assigned portrait using the existing upload and crop controls.
 
 Keep the numbered filenames stable: saved games may refer to these relative paths.
+
+## Regenerated identities
+
+- `avatar-35.webp`: distinctive angular face, short black pixie with burgundy streaks, alternative rock style.
+- `avatar-38.webp`: round face, blunt bangs, high ponytail and thin round eyeglasses.
+
+These two portraits were regenerated individually, replacing the original sheet-derived versions to distinguish them from avatar-33 and each other. Matching full-body images are in `../fullbody/`.
