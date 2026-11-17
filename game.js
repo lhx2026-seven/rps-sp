@@ -134,7 +134,12 @@ function renderStatsTable(
   });
 
   table.append(head, body);
-  statsList.appendChild(table);
+  const scroll = element("div", undefined, "stats-table-scroll");
+  scroll.tabIndex = 0;
+  scroll.setAttribute("role", "region");
+  scroll.setAttribute("aria-label", "統計表，可左右捲動");
+  scroll.appendChild(table);
+  statsList.appendChild(scroll);
 }
 
 function getThrowHistoryText(item, isParticipant) {
@@ -701,6 +706,7 @@ function createStorageControls() {
 
   const exportJsonBtn = document.createElement("button");
   exportJsonBtn.type = "button";
+  exportJsonBtn.className = "button-secondary";
   exportJsonBtn.textContent = "匯出 JSON 到檔案";
   exportJsonBtn.style.marginLeft = "8px";
 
@@ -710,6 +716,7 @@ function createStorageControls() {
 
   importJsonBtn = document.createElement("button");
   importJsonBtn.type = "button";
+  importJsonBtn.className = "button-secondary";
   importJsonBtn.textContent = "匯入 JSON 紀錄";
   importJsonBtn.style.marginLeft = "8px";
 
@@ -1559,6 +1566,7 @@ function renderNormalOperation() {
 
     const title = document.createElement("strong");
     title.textContent = getParticipantDisplayName(participant);
+    title.className = "participant-name";
 
     header.appendChild(avatar);
     header.appendChild(title);
@@ -1624,6 +1632,7 @@ function renderTeamOperation() {
 
     const title = document.createElement("h3");
     title.textContent = team.name;
+    title.className = "team-name";
     card.appendChild(title);
 
     const members = participants.filter(
@@ -2214,6 +2223,7 @@ function renderNormalResults(
     const info = document.createElement("div");
     const name = document.createElement("strong");
     name.textContent = getParticipantDisplayName(participant);
+    name.className = "participant-name";
 
     const status = document.createElement("div");
 
@@ -2541,6 +2551,7 @@ function renderTeamResults(
 
     const info = document.createElement("div");
     const title = document.createElement("strong");
+    title.className = "team-name";
 
     title.textContent = representative
       ? `${team.name}｜${getParticipantDisplayName(representative)}`
@@ -4759,8 +4770,8 @@ function renderOperationMatchup() {
       avatar.src = createDefaultAvatar(participant.name);
     }, { once: true });
     const caption = element("figcaption");
-    if (team) caption.appendChild(element("strong", team.name));
-    caption.appendChild(element("span", name));
+    if (team) caption.appendChild(element("span", team.name, "matchup-team-name"));
+    caption.appendChild(element("span", name, "participant-name"));
     figure.append(avatar, caption);
     matchup.appendChild(figure);
   });
@@ -5644,7 +5655,7 @@ function renderEquipmentDiscardPanel() {
 
     box.appendChild(choices);
 
-    const confirm = element("button", "脫");
+    const confirm = element("button", "脫", "button-secondary button-discard");
     confirm.type = "button";
     confirm.disabled = roundBusy;
 

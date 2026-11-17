@@ -263,3 +263,80 @@ button {
 .operation-matchup figcaption span,
 .operation-matchup figcaption strong { display: block; }
 .operation-matchup__vs { font-size: 20px; font-weight: 900; color: #777; }
+
+
+/* Everyday form typography; stage headings and event effects keep their styling. */
+button, input, select, textarea { font-family: inherit; }
+
+#gameSettingsPanel, #roundManagementPanel, #nextRoundSettingsPanel,
+.participant-controls, #equipmentGlobalSettings, .participant-card > .inherit-box {
+  font-size: 14px;
+  font-weight: 400;
+}
+.setting-title { font-size: 14px; font-weight: 400; }
+input[type="text"], input[type="number"], input[type="file"], select, textarea {
+  font-size: 14px;
+  font-weight: 400;
+}
+.participant-name { font-size: 17px; font-weight: 700; }
+.team-control, .team-control input[type="text"], .team-member-list,
+.team-name, .representative-select, .representative-select select,
+.matchup-team-name {
+  font-size: 16px;
+  font-weight: 400;
+}
+.operation-card, .result-card, #resultList { font-size: 14px; }
+.result-fist { font-size: 32px; }
+
+/* Three button tiers, with matching outer dimensions for throws and START. */
+button {
+  box-sizing: border-box;
+  min-height: 36px;
+  padding: 7px 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  color: #222;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  vertical-align: middle;
+}
+button:hover:not(:disabled) { background: #f3f3f3; }
+button:focus-visible { outline: 2px solid #555; outline-offset: 3px; }
+button:disabled { opacity: .5; cursor: default; }
+#createGameBtn, #createNextRoundBtn, #confirmNextRoundBtn, .button-secondary {
+  min-height: 40px;
+  padding: 8px 16px;
+  font-size: 16px;
+}
+#startRoundBtn, .throw-btn {
+  width: 144px;
+  height: 64px;
+  min-height: 64px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1;
+}
+.throw-buttons { flex-wrap: wrap; }
+#createGameBtn:hover:not(:disabled), #createNextRoundBtn:hover:not(:disabled),
+#confirmNextRoundBtn:hover:not(:disabled), #startRoundBtn:hover:not(:disabled) {
+  background: #333;
+}
+.button-discard { background: #9c2431; border-color: #9c2431; color: #fff; font-weight: 700; }
+.button-discard:hover:not(:disabled) { background: #7f1d28; }
+#deleteCurrentRoundBtn { color: #a4262c; }
+
+/* Explicit line breaks remain; narrow screens scroll instead of splitting words. */
+.stats-table-scroll { max-width: 100%; overflow-x: auto; }
+#statsList table { font-size: 14px; }
+#statsList th, #statsList td { white-space: nowrap; }
+
+/* Help copy is always the smallest text tier. */
+.setting-description, .small, .avatar-editor p {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
