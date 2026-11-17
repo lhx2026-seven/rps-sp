@@ -1,0 +1,581 @@
+{
+  "description": "AI-generated full-body extensions of fictional adult avatar portraits; outfit fields record the generation and visual review plan.",
+  "participants": [
+    {
+      "id": "avatar-01",
+      "avatar": "../avatars/avatar-01.webp",
+      "fullbody": "avatar-01.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": true
+    },
+    {
+      "id": "avatar-02",
+      "avatar": "../avatars/avatar-02.webp",
+      "fullbody": "avatar-02.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-03",
+      "avatar": "../avatars/avatar-03.webp",
+      "fullbody": "avatar-03.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": true
+    },
+    {
+      "id": "avatar-04",
+      "avatar": "../avatars/avatar-04.webp",
+      "fullbody": "avatar-04.png",
+      "outfit": "褲裝",
+      "hemline": null,
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-05",
+      "avatar": "../avatars/avatar-05.webp",
+      "fullbody": "avatar-05.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": true
+    },
+    {
+      "id": "avatar-06",
+      "avatar": "../avatars/avatar-06.webp",
+      "fullbody": "avatar-06.png",
+      "outfit": "連身裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-07",
+      "avatar": "../avatars/avatar-07.webp",
+      "fullbody": "avatar-07.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": true
+    },
+    {
+      "id": "avatar-08",
+      "avatar": "../avatars/avatar-08.webp",
+      "fullbody": "avatar-08.png",
+      "outfit": "褲裝",
+      "hemline": null,
+      "footwear": "帆布鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-09",
+      "avatar": "../avatars/avatar-09.webp",
+      "fullbody": "avatar-09.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": true
+    },
+    {
+      "id": "avatar-10",
+      "avatar": "../avatars/avatar-10.webp",
+      "fullbody": "avatar-10.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-11",
+      "avatar": "../avatars/avatar-11.webp",
+      "fullbody": "avatar-11.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": true
+    },
+    {
+      "id": "avatar-12",
+      "avatar": "../avatars/avatar-12.webp",
+      "fullbody": "avatar-12.png",
+      "outfit": "褲裝",
+      "hemline": null,
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-13",
+      "avatar": "../avatars/avatar-13.webp",
+      "fullbody": "avatar-13.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": true
+    },
+    {
+      "id": "avatar-14",
+      "avatar": "../avatars/avatar-14.webp",
+      "fullbody": "avatar-14.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-15",
+      "avatar": "../avatars/avatar-15.webp",
+      "fullbody": "avatar-15.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": true
+    },
+    {
+      "id": "avatar-16",
+      "avatar": "../avatars/avatar-16.webp",
+      "fullbody": "avatar-16.png",
+      "outfit": "褲裝",
+      "hemline": null,
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-17",
+      "avatar": "../avatars/avatar-17.webp",
+      "fullbody": "avatar-17.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-18",
+      "avatar": "../avatars/avatar-18.webp",
+      "fullbody": "avatar-18.png",
+      "outfit": "連身裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-19",
+      "avatar": "../avatars/avatar-19.webp",
+      "fullbody": "avatar-19.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-20",
+      "avatar": "../avatars/avatar-20.webp",
+      "fullbody": "avatar-20.png",
+      "outfit": "褲裝",
+      "hemline": null,
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-21",
+      "avatar": "../avatars/avatar-21.webp",
+      "fullbody": "avatar-21.png",
+      "outfit": "連身裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-22",
+      "avatar": "../avatars/avatar-22.webp",
+      "fullbody": "avatar-22.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-23",
+      "avatar": "../avatars/avatar-23.webp",
+      "fullbody": "avatar-23.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-24",
+      "avatar": "../avatars/avatar-24.webp",
+      "fullbody": "avatar-24.png",
+      "outfit": "褲裝",
+      "hemline": null,
+      "footwear": "運動鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-25",
+      "avatar": "../avatars/avatar-25.webp",
+      "fullbody": "avatar-25.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-26",
+      "avatar": "../avatars/avatar-26.webp",
+      "fullbody": "avatar-26.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-27",
+      "avatar": "../avatars/avatar-27.webp",
+      "fullbody": "avatar-27.png",
+      "outfit": "連身裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-28",
+      "avatar": "../avatars/avatar-28.webp",
+      "fullbody": "avatar-28.png",
+      "outfit": "褲裝",
+      "hemline": null,
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-29",
+      "avatar": "../avatars/avatar-29.webp",
+      "fullbody": "avatar-29.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-30",
+      "avatar": "../avatars/avatar-30.webp",
+      "fullbody": "avatar-30.png",
+      "outfit": "連身裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-31",
+      "avatar": "../avatars/avatar-31.webp",
+      "fullbody": "avatar-31.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-32",
+      "avatar": "../avatars/avatar-32.webp",
+      "fullbody": "avatar-32.png",
+      "outfit": "褲裝",
+      "hemline": null,
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-33",
+      "avatar": "../avatars/avatar-33.webp",
+      "fullbody": "avatar-33.png",
+      "outfit": "連身裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-34",
+      "avatar": "../avatars/avatar-34.webp",
+      "fullbody": "avatar-34.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-35",
+      "avatar": "../avatars/avatar-35.webp",
+      "fullbody": "avatar-35.png",
+      "outfit": "裙裝",
+      "hemline": "及膝以下",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-36",
+      "avatar": "../avatars/avatar-36.webp",
+      "fullbody": "avatar-36.png",
+      "outfit": "褲裝",
+      "hemline": null,
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-37",
+      "avatar": "../avatars/avatar-37.webp",
+      "fullbody": "avatar-37.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-38",
+      "avatar": "../avatars/avatar-38.webp",
+      "fullbody": "avatar-38.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-39",
+      "avatar": "../avatars/avatar-39.webp",
+      "fullbody": "avatar-39.png",
+      "outfit": "連身裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-40",
+      "avatar": "../avatars/avatar-40.webp",
+      "fullbody": "avatar-40.png",
+      "outfit": "褲裝",
+      "hemline": null,
+      "footwear": "帆布鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-41",
+      "avatar": "../avatars/avatar-41.webp",
+      "fullbody": "avatar-41.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-42",
+      "avatar": "../avatars/avatar-42.webp",
+      "fullbody": "avatar-42.png",
+      "outfit": "連身裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-43",
+      "avatar": "../avatars/avatar-43.webp",
+      "fullbody": "avatar-43.png",
+      "outfit": "裙裝",
+      "hemline": "及膝以下",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-44",
+      "avatar": "../avatars/avatar-44.webp",
+      "fullbody": "avatar-44.png",
+      "outfit": "褲裝",
+      "hemline": null,
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-45",
+      "avatar": "../avatars/avatar-45.webp",
+      "fullbody": "avatar-45.png",
+      "outfit": "連身裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-46",
+      "avatar": "../avatars/avatar-46.webp",
+      "fullbody": "avatar-46.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-47",
+      "avatar": "../avatars/avatar-47.webp",
+      "fullbody": "avatar-47.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-48",
+      "avatar": "../avatars/avatar-48.webp",
+      "fullbody": "avatar-48.png",
+      "outfit": "褲裝",
+      "hemline": null,
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-49",
+      "avatar": "../avatars/avatar-49.webp",
+      "fullbody": "avatar-49.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-50",
+      "avatar": "../avatars/avatar-50.webp",
+      "fullbody": "avatar-50.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-51",
+      "avatar": "../avatars/avatar-51.webp",
+      "fullbody": "avatar-51.png",
+      "outfit": "裙裝",
+      "hemline": "及膝以下",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-52",
+      "avatar": "../avatars/avatar-52.webp",
+      "fullbody": "avatar-52.png",
+      "outfit": "褲裝",
+      "hemline": null,
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-53",
+      "avatar": "../avatars/avatar-53.webp",
+      "fullbody": "avatar-53.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-54",
+      "avatar": "../avatars/avatar-54.webp",
+      "fullbody": "avatar-54.png",
+      "outfit": "連身裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-55",
+      "avatar": "../avatars/avatar-55.webp",
+      "fullbody": "avatar-55.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-56",
+      "avatar": "../avatars/avatar-56.webp",
+      "fullbody": "avatar-56.png",
+      "outfit": "褲裝",
+      "hemline": null,
+      "footwear": "帆布鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-57",
+      "avatar": "../avatars/avatar-57.webp",
+      "fullbody": "avatar-57.png",
+      "outfit": "連身裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-58",
+      "avatar": "../avatars/avatar-58.webp",
+      "fullbody": "avatar-58.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-59",
+      "avatar": "../avatars/avatar-59.webp",
+      "fullbody": "avatar-59.png",
+      "outfit": "裙裝",
+      "hemline": "及膝以下",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-60",
+      "avatar": "../avatars/avatar-60.webp",
+      "fullbody": "avatar-60.png",
+      "outfit": "褲裝",
+      "hemline": null,
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-61",
+      "avatar": "../avatars/avatar-61.webp",
+      "fullbody": "avatar-61.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-62",
+      "avatar": "../avatars/avatar-62.webp",
+      "fullbody": "avatar-62.png",
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-63",
+      "avatar": "../avatars/avatar-63.webp",
+      "fullbody": "avatar-63.png",
+      "outfit": "裙裝",
+      "hemline": "及膝以下",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-64",
+      "avatar": "../avatars/avatar-64.webp",
+      "fullbody": "avatar-64.png",
+      "outfit": "褲裝",
+      "hemline": null,
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    }
+  ]
+}
