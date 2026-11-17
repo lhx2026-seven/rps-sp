@@ -43,7 +43,7 @@
       "fullbody": "avatar-05.png",
       "outfit": "裙裝",
       "hemline": "膝上",
-      "footwear": "有跟鞋",
+      "footwear": "平底鞋",
       "croppedTop": true
     },
     {
@@ -239,10 +239,11 @@
       "id": "avatar-27",
       "avatar": "../avatars/avatar-27.webp",
       "fullbody": "avatar-27.png",
-      "outfit": "連身裙裝",
-      "hemline": "膝上",
+      "outfit": "褲裝",
+      "hemline": null,
       "footwear": "有跟鞋",
-      "croppedTop": false
+      "croppedTop": false,
+      "style": "淺藍短袖上衣、牛仔短褲、藍色跟鞋"
     },
     {
       "id": "avatar-28",
@@ -514,7 +515,8 @@
       "outfit": "連身裙裝",
       "hemline": "膝上",
       "footwear": "有跟鞋",
-      "croppedTop": false
+      "croppedTop": false,
+      "style": "深藍連身裙、較纖細腿型、深藍跟鞋"
     },
     {
       "id": "avatar-58",
