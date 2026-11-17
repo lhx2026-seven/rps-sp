@@ -706,7 +706,6 @@ function createStorageControls() {
 
   const exportJsonBtn = document.createElement("button");
   exportJsonBtn.type = "button";
-  exportJsonBtn.className = "button-secondary";
   exportJsonBtn.textContent = "匯出 JSON 到檔案";
   exportJsonBtn.style.marginLeft = "8px";
 
@@ -716,7 +715,6 @@ function createStorageControls() {
 
   importJsonBtn = document.createElement("button");
   importJsonBtn.type = "button";
-  importJsonBtn.className = "button-secondary";
   importJsonBtn.textContent = "匯入 JSON 紀錄";
   importJsonBtn.style.marginLeft = "8px";
 

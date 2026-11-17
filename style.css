@@ -288,7 +288,7 @@ input[type="text"], input[type="number"], input[type="file"], select, textarea {
 .operation-card, .result-card, #resultList { font-size: 14px; }
 .result-fist { font-size: 32px; }
 
-/* Three button tiers, with matching outer dimensions for throws and START. */
+/* Three button tiers; START shares the compact action tier with discard. */
 button {
   box-sizing: border-box;
   min-height: 36px;
@@ -305,12 +305,12 @@ button {
 button:hover:not(:disabled) { background: #f3f3f3; }
 button:focus-visible { outline: 2px solid #555; outline-offset: 3px; }
 button:disabled { opacity: .5; cursor: default; }
-#createGameBtn, #createNextRoundBtn, #confirmNextRoundBtn, .button-secondary {
+#createGameBtn, #createNextRoundBtn, #confirmNextRoundBtn, #startRoundBtn, .button-secondary {
   min-height: 40px;
   padding: 8px 16px;
   font-size: 16px;
 }
-#startRoundBtn, .throw-btn {
+.throw-btn {
   width: 144px;
   height: 64px;
   min-height: 64px;
@@ -322,11 +322,11 @@ button:disabled { opacity: .5; cursor: default; }
 }
 .throw-buttons { flex-wrap: wrap; }
 #createGameBtn:hover:not(:disabled), #createNextRoundBtn:hover:not(:disabled),
-#confirmNextRoundBtn:hover:not(:disabled), #startRoundBtn:hover:not(:disabled) {
+#confirmNextRoundBtn:hover:not(:disabled) {
   background: #333;
 }
-.button-discard { background: #9c2431; border-color: #9c2431; color: #fff; font-weight: 700; }
-.button-discard:hover:not(:disabled) { background: #7f1d28; }
+#startRoundBtn, .button-discard { background: #9c2431; border-color: #9c2431; color: #fff; font-weight: 700; }
+#startRoundBtn:hover:not(:disabled), .button-discard:hover:not(:disabled) { background: #7f1d28; }
 #deleteCurrentRoundBtn { color: #a4262c; }
 
 /* Explicit line breaks remain; narrow screens scroll instead of splitting words. */
