@@ -15,7 +15,7 @@ Keep the numbered filenames stable: saved games may refer to these relative path
 
 ## Regenerated identities
 
-- `avatar-35.webp`: distinctive angular face, short black pixie with burgundy streaks, alternative rock style.
-- `avatar-38.webp`: round face, blunt bangs, high ponytail and thin round eyeglasses.
+- `avatar-35.webp`: refined feminine face, long black layered hair with wine-red highlights, glamorous rock-chic style.
+- `avatar-38.webp`: delicate face, chestnut wispy bangs and low side ponytail, pearl earrings, fresh elegant style.
 
 These two portraits were regenerated individually, replacing the original sheet-derived versions to distinguish them from avatar-33 and each other. Matching full-body images are in `../fullbody/`.
