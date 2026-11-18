@@ -55,7 +55,7 @@
       "hemline": null,
       "footwear": "帆布鞋",
       "croppedTop": false,
-      "style": "帽衫、牛仔長褲、平底帆布鞋"
+      "style": "淺灰色帽衫（比照頭像）、牛仔長褲、帆布鞋"
     },
     {
       "id": "avatar-07",
@@ -163,10 +163,11 @@
       "id": "avatar-18",
       "avatar": "../avatars/avatar-18.webp",
       "fullbody": "avatar-18.png",
-      "outfit": "連身裙裝",
+      "outfit": "裙裝",
       "hemline": "膝上",
       "footwear": "有跟鞋",
-      "croppedTop": false
+      "croppedTop": false,
+      "style": "米色西裝外套、白襯衫、黑皮革膝上裙、跟鞋"
     },
     {
       "id": "avatar-19",
@@ -191,10 +192,11 @@
       "id": "avatar-21",
       "avatar": "../avatars/avatar-21.webp",
       "fullbody": "avatar-21.png",
-      "outfit": "連身裙裝",
+      "outfit": "裙裝",
       "hemline": "膝上",
       "footwear": "有跟鞋",
-      "croppedTop": false
+      "croppedTop": false,
+      "style": "乾燥玫瑰色翻領襯衫、米色膝上裙、跟鞋"
     },
     {
       "id": "avatar-22",
@@ -307,7 +309,8 @@
       "outfit": "連身裙裝",
       "hemline": "膝上",
       "footwear": "有跟鞋",
-      "croppedTop": false
+      "croppedTop": false,
+      "style": "灰綠色膝上連身裙、跟鞋"
     },
     {
       "id": "avatar-34",
@@ -389,8 +392,9 @@
       "fullbody": "avatar-42.png",
       "outfit": "連身裙裝",
       "hemline": "膝上",
-      "footwear": "有跟鞋",
-      "croppedTop": false
+      "footwear": "平底鞋",
+      "croppedTop": false,
+      "style": "淡紫針織上衣搭綠色裙裝、較纖細腿型、平底鞋"
     },
     {
       "id": "avatar-43",
@@ -471,7 +475,8 @@
       "outfit": "裙裝",
       "hemline": "及膝以下",
       "footwear": "有跟鞋",
-      "croppedTop": false
+      "croppedTop": false,
+      "style": "米白花紋立領無袖上衣、無外套、淺藍中長裙、跟鞋"
     },
     {
       "id": "avatar-52",
@@ -536,7 +541,8 @@
       "outfit": "裙裝",
       "hemline": "膝上",
       "footwear": "有跟鞋",
-      "croppedTop": false
+      "croppedTop": false,
+      "style": "紅色斜領無袖上衣、無外套、綠色膝上裙、露趾露跟細跟涼鞋"
     },
     {
       "id": "avatar-59",
