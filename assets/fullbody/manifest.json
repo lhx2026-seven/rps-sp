@@ -16,7 +16,7 @@
       "fullbody": "avatar-02.png",
       "outfit": "裙裝",
       "hemline": "膝上",
-      "footwear": "有跟鞋",
+      "footwear": "平底鞋",
       "croppedTop": false
     },
     {
@@ -214,7 +214,7 @@
       "fullbody": "avatar-23.png",
       "outfit": "裙裝",
       "hemline": "膝上",
-      "footwear": "有跟鞋",
+      "footwear": "平底鞋",
       "croppedTop": false
     },
     {
@@ -357,7 +357,7 @@
       "hemline": "膝上",
       "footwear": "有跟鞋",
       "croppedTop": false,
-      "style": "清新優雅風：栗色瀏海側馬尾、珍珠耳環、奶油白襯衫、淺藍膝上裙"
+      "style": "清新優雅風：栗色瀏海側馬尾、珍珠耳環、奶油白襯衫、淺藍膝上裙、豐滿上圍"
     },
     {
       "id": "avatar-39",
@@ -365,7 +365,7 @@
       "fullbody": "avatar-39.png",
       "outfit": "連身裙裝",
       "hemline": "膝上",
-      "footwear": "有跟鞋",
+      "footwear": "平底鞋",
       "croppedTop": false
     },
     {
@@ -476,7 +476,7 @@
       "hemline": "及膝以下",
       "footwear": "有跟鞋",
       "croppedTop": false,
-      "style": "米白花紋立領無袖上衣、無外套、淺藍中長裙、跟鞋"
+      "style": "米白花紋立領無袖上衣、無外套、淺藍中長裙、跟鞋、豐滿上圍"
     },
     {
       "id": "avatar-52",
