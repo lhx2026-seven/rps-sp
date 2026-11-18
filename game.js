@@ -1245,7 +1245,9 @@ function renderParticipantSettings() {
         try {
           const avatar = await editParticipantAvatar(event.target.result, participant.name);
           if (!avatar) return;
-          participant.avatar = avatar;
+          participant.avatar = avatar.avatar;
+          participant.stageImage = avatar.stageImage;
+          participant.onStage = avatar.onStage;
           renderParticipantSettings();
           renderOperationPanel();
           renderTeamControls();
@@ -1266,6 +1268,16 @@ function renderParticipantSettings() {
     });
 
     field("頭像", file);
+    const stageToggle = element("input");
+    stageToggle.type = "checkbox";
+    stageToggle.checked = isOnStage(participant);
+    stageToggle.addEventListener("change", async () => {
+      participant.onStage = stageToggle.checked;
+      renderStage();
+      saveCurrentTournamentRoundSnapshot();
+      await saveGameState();
+    });
+    field("on stage", stageToggle);
 
     card.appendChild(controls);
     renderEquipmentSettings(participant, card);
@@ -1361,6 +1373,11 @@ function editParticipantAvatar(source, name) {
       canvas.addEventListener("lostpointercapture", () => { drag = null; });
       canvas.addEventListener("pointerup", () => { drag = null; });
       canvas.addEventListener("pointercancel", () => { drag = null; });
+      const stageLabel = document.createElement("label");
+      stageLabel.className = "checkbox-setting";
+      const stageToggle = document.createElement("input");
+      stageToggle.type = "checkbox";
+      stageLabel.append(stageToggle, document.createTextNode("on stage（在舞台顯示原圖）"));
       const actions = document.createElement("div");
       actions.className = "avatar-editor__actions";
       function button(text, action) {
@@ -1386,13 +1403,19 @@ function editParticipantAvatar(source, name) {
         const output = document.createElement("canvas");
         output.width = output.height = 512;
         output.getContext("2d").drawImage(canvas, 0, 0, 512, 512);
-        finish(output.toDataURL("image/png"));
+        const stageCanvas = document.createElement("canvas");
+        const scale = Math.min(1, 1600 / Math.max(image.naturalWidth, image.naturalHeight));
+        stageCanvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
+        stageCanvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
+        stageCanvas.getContext("2d").drawImage(image, 0, 0, stageCanvas.width, stageCanvas.height);
+        finish({ avatar: output.toDataURL("image/png"), onStage: stageToggle.checked,
+          stageImage: stageCanvas.toDataURL("image/webp", 0.9) });
       });
       dialog.addEventListener("cancel", event => {
         event.preventDefault();
         finish(null);
       });
-      dialog.append(title, help, preview, ...sliders, actions);
+      dialog.append(title, help, preview, ...sliders, stageLabel, actions);
       document.body.appendChild(dialog);
       draw();
       dialog.showModal();
@@ -1512,6 +1535,7 @@ function renderOperationPanel() {
   }
 
   renderEquipmentDiscardPanel();
+  renderStage();
 }
 
 function isHeadcountFrozen(participant) {
@@ -1852,6 +1876,7 @@ async function startNormalRound() {
   renderParticipantSettings();
   renderOperationPanel();
   renderStats();
+  animateStage(activeParticipants.map(p => p.id), "glow");
 
   await saveRoundToHistory({
     mode: "normal",
@@ -2357,6 +2382,7 @@ async function startTeamRound() {
   renderTeamControls();
   renderOperationPanel();
   renderStats();
+  animateStage(activeTeams.map(t => teamRepresentatives[`team-${t.id}`]), "glow");
 
   await saveRoundToHistory({
     mode: "team",
@@ -4439,6 +4465,8 @@ target.equipment =
 
       target.avatar =
         sourceParticipant.avatar || "";
+      target.onStage = sourceParticipant.onStage;
+      target.stageImage = sourceParticipant.stageImage || "";
 
       target.controlled =
         !!sourceParticipant.controlled;
@@ -5704,6 +5732,7 @@ function renderEquipmentDiscardPanel() {
       renderOperationPanel();
       renderStats();
       renderEquipmentDiscardPanel();
+      animateStage([participant.id], "shake");
 
       saveCurrentTournamentRoundSnapshot();
       await saveGameState();
@@ -5867,3 +5896,95 @@ function playNextGameEffect() {
 }
 
 initializeEquipmentControls();
+
+// Stage preferences travel with participant snapshots and exported game data.
+function getStageImage(participant) {
+  if (participant.stageImage) return participant.stageImage;
+  const match = (participant.avatar || "").match(/(?:^|\/)assets\/avatars\/(avatar-\d{2})\.webp$/);
+  return match ? `assets/fullbody/${match[1]}.png` : participant.avatar || "";
+}
+
+function isOnStage(participant) {
+  if (typeof participant.onStage === "boolean") return participant.onStage;
+  return /(?:^|\/)assets\/avatars\/avatar-\d{2}\.webp$/.test(participant.avatar || "");
+}
+
+function renderStage() {
+  let stage = document.getElementById("participantStage");
+  if (!stage) {
+    stage = element("section", undefined, "participant-stage");
+    stage.id = "participantStage";
+    stage.setAttribute("aria-label", "參賽者舞台");
+    // Inside the game panel, it follows the round's visibility automatically.
+    operationPanel.appendChild(stage);
+  }
+  operationPanel.appendChild(stage);
+  const previousScroll = stage.querySelector(".participant-stage__track")?.scrollLeft || 0;
+  stage.replaceChildren();
+  const cast = participants.filter(p => isOnStage(p) && getStageImage(p));
+  stage.hidden = cast.length === 0;
+  if (!cast.length) return;
+  const header = element("div", undefined, "participant-stage__header");
+  header.appendChild(element("h3", "舞台"));
+  const navigation = element("div", undefined, "participant-stage__navigation");
+  const track = element("div", undefined, "participant-stage__track");
+  track.tabIndex = 0;
+  track.setAttribute("role", "group");
+  track.setAttribute("aria-label", "參賽者，可左右捲動");
+  for (const [text, direction] of [["←", -1], ["→", 1]]) {
+    const button = element("button", text);
+    button.type = "button";
+    button.setAttribute("aria-label", direction < 0 ? "舞台向左捲動" : "舞台向右捲動");
+    button.addEventListener("click", () => track.scrollBy({left: direction * track.clientWidth * 0.75,
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"}));
+    navigation.appendChild(button);
+  }
+  header.appendChild(navigation);
+  cast.forEach(p => {
+    const figure = element("figure", undefined, "participant-stage__person");
+    figure.dataset.participantId = String(p.id);
+    const portrait = element("div", undefined, "participant-stage__portrait");
+    const image = element("img");
+    image.src = getStageImage(p);
+    image.alt = getParticipantDisplayName(p);
+    image.loading = "lazy";
+    image.addEventListener("error", () => { figure.hidden = true; }, {once: true});
+    portrait.appendChild(image);
+    figure.append(portrait, element("figcaption", getParticipantDisplayName(p)));
+    track.appendChild(figure);
+  });
+  stage.append(header, track);
+  track.scrollLeft = previousScroll;
+  const updateNavigation = () => {
+    const overflow = track.scrollWidth > track.clientWidth + 1;
+    navigation.hidden = !overflow;
+    navigation.children[0].disabled = track.scrollLeft <= 1;
+    navigation.children[1].disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+  };
+  track.addEventListener("scroll", updateNavigation, {passive: true});
+  stageResizeObserver ||= new ResizeObserver(updateNavigation);
+  stageResizeObserver.disconnect();
+  stageResizeObserver.observe(track);
+  requestAnimationFrame(updateNavigation);
+}
+var stageResizeObserver;
+
+function animateStage(ids, effect) {
+  const targets = new Set(ids.map(String));
+  const figures = [...document.querySelectorAll(".participant-stage__person")]
+    .filter(node => targets.has(node.dataset.participantId));
+  if (!figures.length) return;
+  const track = figures[0].parentElement;
+  const first = figures[0];
+  if (first.offsetLeft < track.scrollLeft || first.offsetLeft + first.offsetWidth > track.scrollLeft + track.clientWidth) {
+    track.scrollTo({left: Math.max(0, first.offsetLeft - (track.clientWidth - first.offsetWidth) / 2),
+      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+  }
+  figures.forEach(node => {
+    node.classList.remove("is-glowing", "is-shaking");
+    void node.offsetWidth;
+    const className = effect === "shake" ? "is-shaking" : "is-glowing";
+    node.classList.add(className);
+    node.addEventListener("animationend", () => node.classList.remove(className), {once: true});
+  });
+}

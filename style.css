@@ -340,3 +340,31 @@ button:disabled { opacity: .5; cursor: default; }
   font-weight: 400;
   line-height: 1.5;
 }
+
+/* Quiet white studio stage; only the relevant participant animates. */
+.participant-stage { margin-top: 24px; padding: 16px 0 4px; border-top: 1px solid #e5e7eb; background: #fff; }
+.participant-stage[hidden], .participant-stage [hidden] { display: none; }
+.participant-stage__header { display: flex; align-items: center; justify-content: space-between; padding: 0 12px; }
+.participant-stage__header h3 { margin: 0; font-size: 16px; font-weight: 500; color: #667085; }
+.participant-stage__navigation { display: flex; gap: 6px; }
+.participant-stage__navigation button { padding: 4px 12px; font-size: 14px; }
+.participant-stage__track { position: relative; display: flex; overflow-x: auto; overscroll-behavior-x: contain; gap: 8px; padding: 18px 8px 12px; scroll-snap-type: x proximity; }
+.participant-stage__person { position: relative; flex: 1 0 170px; max-width: 240px; margin: 0; text-align: center; scroll-snap-align: center; }
+.participant-stage__person:first-child { margin-left: auto; }
+.participant-stage__person:last-child { margin-right: auto; }
+.participant-stage__portrait { position: relative; isolation: isolate; height: 350px; }
+.participant-stage__portrait::before { content: ""; position: absolute; inset: 5% 0 0; border-radius: 50%; background: radial-gradient(ellipse, #fff0b3 0%, #fff9e4 40%, transparent 72%); opacity: 0; z-index: -1; }
+.participant-stage__portrait img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.participant-stage__person figcaption { margin-top: 8px; font-size: 14px; overflow-wrap: anywhere; }
+.is-glowing .participant-stage__portrait::before { animation: stage-glow 1100ms ease-out; }
+.is-shaking .participant-stage__portrait { animation: stage-shake 360ms ease-out; }
+@keyframes stage-glow { 0%,100% {opacity: 0;} 25%,65% {opacity: .85;} }
+@keyframes stage-shake { 0%,100% {transform: translateX(0);} 20% {transform: translateX(-4px);} 45% {transform: translateX(4px);} 70% {transform: translateX(-2px);} }
+@media (max-width: 600px) {
+ .participant-stage__person { flex-basis: 140px; max-width: 170px; }
+ .participant-stage__portrait { height: 280px; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .is-shaking .participant-stage__portrait { animation: stage-glow 200ms linear; }
+ .is-glowing .participant-stage__portrait::before { animation-duration: 200ms; }
+}
