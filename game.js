@@ -1268,17 +1268,6 @@ function renderParticipantSettings() {
     });
 
     field("頭像", file);
-    const stageToggle = element("input");
-    stageToggle.type = "checkbox";
-    stageToggle.checked = isOnStage(participant);
-    stageToggle.addEventListener("change", async () => {
-      participant.onStage = stageToggle.checked;
-      renderStage();
-      saveCurrentTournamentRoundSnapshot();
-      await saveGameState();
-    });
-    field("on stage", stageToggle);
-
     card.appendChild(controls);
     renderEquipmentSettings(participant, card);
     participantList.appendChild(card);
@@ -3390,9 +3379,7 @@ function importGameData(event) {
           participant.name = `參賽者 ${index + 1}`;
         }
 
-        if (typeof participant.avatar !== "string") {
-          participant.avatar = "";
-        }
+        participant.avatar = normalizeImportedAvatar(participant.avatar);
 
         participant.controlled =
           !!participant.controlled;
@@ -3468,6 +3455,8 @@ function importGameData(event) {
 
           roundItem.participants.forEach(
             function (participant, index) {
+              participant.avatar = normalizeImportedAvatar(participant.avatar);
+
               if (participant.id == null) {
                 participant.id = index + 1;
               }
@@ -5188,9 +5177,15 @@ const DEFAULT_EQUIPMENT = [
 // AI-generated fictional adult portraits, bundled locally for reliable loading.
 const DEFAULT_PARTICIPANT_AVATARS = Object.freeze(
   Array.from({ length: 64 }, (_, index) =>
-    `assets/avatars/avatar-${String(index + 1).padStart(2, "0")}.webp`
+    `assets/profile/avatar-${String(index + 1).padStart(2, "0")}.webp`
   )
 );
+
+function normalizeImportedAvatar(avatar) {
+  if (typeof avatar !== "string") return "";
+  const legacy = avatar.match(/(?:^|\/)assets\/avatars\/(avatar-\d{2}\.webp)$/);
+  return legacy ? `assets/profile/${legacy[1]}` : avatar;
+}
 
 function normalizeParticipantAge(value) {
   if (value == null || String(value).trim() === "") return "";
@@ -5816,7 +5811,14 @@ function markParticipantEliminated(participant) {
 }
 
 function queueGameEffect(kind, text, participant) {
-  gameEffectQueue.push({ kind, text, name: getParticipantDisplayName(participant), avatar: participant.avatar || "" });
+  const avatar = participant.avatar || "";
+  const stageImage = kind !== "stripped" && isOnStage(participant)
+    ? getStageImage(participant)
+    : "";
+  gameEffectQueue.push({
+    kind, text, name: getParticipantDisplayName(participant), avatar,
+    fullbody: stageImage !== avatar ? stageImage : ""
+  });
   if (gameEffectScheduled) return;
   gameEffectScheduled = true;
   // Collect synchronous events before playback so final equipment goes first.
@@ -5858,13 +5860,24 @@ function playNextGameEffect() {
     cracks.appendChild(path);
     text.appendChild(cracks);
   }
-  if (event.avatar) {
-    const avatar = document.createElement("img");
-    avatar.className = "game-event-effect__avatar";
-    avatar.src = event.avatar;
-    avatar.alt = event.name;
-    avatar.addEventListener("error", () => avatar.remove(), { once: true });
-    content.appendChild(avatar);
+  if (event.fullbody || event.avatar) {
+    const portrait = document.createElement("img");
+    portrait.className = "game-event-effect__avatar";
+    portrait.alt = event.name;
+    if (event.fullbody) {
+      portrait.classList.add("game-event-effect__avatar--fullbody");
+    }
+    portrait.addEventListener("error", () => {
+      if (event.fullbody && event.avatar &&
+          portrait.classList.contains("game-event-effect__avatar--fullbody")) {
+        portrait.classList.remove("game-event-effect__avatar--fullbody");
+        portrait.src = event.avatar;
+      } else {
+        portrait.remove();
+      }
+    });
+    portrait.src = event.fullbody || event.avatar;
+    content.appendChild(portrait);
   }
   content.append(name, text);
   if (event.kind === "penalty") {
@@ -5900,13 +5913,13 @@ initializeEquipmentControls();
 // Stage preferences travel with participant snapshots and exported game data.
 function getStageImage(participant) {
   if (participant.stageImage) return participant.stageImage;
-  const match = (participant.avatar || "").match(/(?:^|\/)assets\/avatars\/(avatar-\d{2})\.webp$/);
+  const match = (participant.avatar || "").match(/(?:^|\/)assets\/profile\/(avatar-\d{2})\.webp$/);
   return match ? `assets/fullbody/${match[1]}.webp` : participant.avatar || "";
 }
 
 function isOnStage(participant) {
   if (typeof participant.onStage === "boolean") return participant.onStage;
-  return /(?:^|\/)assets\/avatars\/avatar-\d{2}\.webp$/.test(participant.avatar || "");
+  return /(?:^|\/)assets\/profile\/avatar-\d{2}\.webp$/.test(participant.avatar || "");
 }
 
 function renderStage() {

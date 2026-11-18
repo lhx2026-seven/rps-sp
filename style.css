@@ -129,6 +129,12 @@ button {
   filter: drop-shadow(0 0 14px rgba(255, 255, 255, .65));
 }
 
+.game-event-effect__avatar--fullbody {
+  width: min(240px, 70vw);
+  height: min(340px, 42vh);
+  max-height: none;
+}
+
 .game-event-effect__response {
   margin: 18px auto 0;
   max-width: 42ch;
