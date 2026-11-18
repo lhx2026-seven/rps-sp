@@ -236,28 +236,34 @@ button {
 }
 .team-member-portrait figcaption { overflow-wrap: anywhere; }
 
+.operation-matchup:empty { display: none; }
 .operation-matchup {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 16px;
-  margin: 20px 0 16px;
-  padding: 16px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  background: #fafafa;
+  gap: 10px;
+  margin: 12px 0;
 }
 .operation-matchup__participant {
   display: flex;
+  flex: 1 1 132px;
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  margin: 0;
   min-width: 0;
-  max-width: 140px;
+  max-width: 230px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fafafa;
   text-align: center;
+  overflow-wrap: anywhere;
 }
+.operation-matchup .representative-select { width: 100%; margin: 0; }
+.operation-matchup select { display: block; width: 100%; margin-top: 4px; }
+.operation-matchup .throw-buttons { justify-content: center; gap: 4px; width: 100%; }
+.operation-matchup .throw-btn { width: min(42px, 31%); height: 36px; padding: 0; }
 .operation-matchup__avatar {
   width: 80px;
   height: 80px;
@@ -265,11 +271,12 @@ button {
   object-fit: cover;
   border: 2px solid #ddd;
 }
-.operation-matchup figcaption { overflow-wrap: anywhere; }
-.operation-matchup figcaption span,
-.operation-matchup figcaption strong { display: block; }
-.operation-matchup__vs { font-size: 20px; font-weight: 900; color: #777; }
-
+.operation-matchup__vs { align-self: center; font-size: 20px; font-weight: 900; color: #777; }
+@media (max-width: 420px) {
+  .operation-matchup { gap: 5px; }
+  .operation-matchup__participant { flex-basis: 105px; padding: 7px; }
+  .operation-matchup__vs { font-size: 15px; }
+}
 
 /* Everyday form typography; stage headings and event effects keep their styling. */
 button, input, select, textarea { font-family: inherit; }
@@ -286,12 +293,11 @@ input[type="text"], input[type="number"], input[type="file"], select, textarea {
 }
 .participant-name { font-size: 17px; font-weight: 700; }
 .team-control, .team-control input[type="text"], .team-member-list,
-.team-name, .representative-select, .representative-select select,
-.matchup-team-name {
+.team-name, .representative-select, .representative-select select {
   font-size: 16px;
   font-weight: 400;
 }
-.operation-card, .result-card, #resultList { font-size: 14px; }
+.operation-matchup__participant, .result-card, #resultList { font-size: 14px; }
 .result-fist { font-size: 32px; }
 
 /* Three button tiers; START shares the compact action tier with discard. */

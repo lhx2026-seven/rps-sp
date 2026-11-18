@@ -139,20 +139,6 @@
     .team-control-header label { margin: 0; white-space: nowrap; }
     .team-member-list { color: #555; font-size: 14px; }
 
-    .operation-card {
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 12px;
-    }
-
-    .operation-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 15px;
-    }
-
     .throw-buttons { display: flex; gap: 10px; }
 
     .throw-btn {
@@ -166,8 +152,6 @@
     }
 
     .throw-btn:hover { background: #f3f3f3; }
-    .representative-select { margin-bottom: 15px; }
-    .representative-select select { margin-left: 5px; }
 
     .result-card {
       display: flex;
@@ -772,7 +756,7 @@
     <div id="operationPanel" class="panel hidden">
       <h2>比賽</h2>
 
-      <div id="operationList"></div>
+      <div id="operationList" class="operation-matchup" role="group" aria-label="本回合對戰陣容"></div>
 
       <div id="roundActions">
         <button type="button" id="startRoundBtn">

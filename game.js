@@ -1523,6 +1523,10 @@ function renderOperationPanel() {
     renderNormalOperation();
   }
 
+  if (operationList.children.length === 2) {
+    operationList.firstElementChild.after(element("span", "VS", "operation-matchup__vs"));
+  }
+  addStartButton();
   renderEquipmentDiscardPanel();
   renderStage();
 }
@@ -1553,201 +1557,72 @@ function isParticipantEligibleToAct(participant) {
   return true;
 }
 
-function renderNormalOperation() {
-  const activeParticipants =
-    participants.filter(function (participant) {
-      return !participant.eliminated;
+function createMatchupCard(participant, team) {
+  const card = element("div", undefined, "operation-matchup__participant");
+  if (team) card.appendChild(element("strong", team.name, "team-name"));
+  const name = getParticipantDisplayName(participant);
+  const avatar = element("img", undefined, "operation-matchup__avatar");
+  avatar.src = participant.avatar || createDefaultAvatar(participant.name);
+  avatar.alt = name;
+  avatar.width = avatar.height = 80;
+  avatar.addEventListener("error", () => {
+    avatar.src = createDefaultAvatar(participant.name);
+  }, { once: true });
+  card.append(avatar, element("strong", name, "participant-name"));
+  return card;
+}
+
+function createMatchupThrowButtons(throwKey) {
+  const buttons = element("div", undefined, "throw-buttons");
+  for (const fist of ["rock", "paper", "scissors"]) {
+    const button = createThrowButton(fist, () => {
+      playerThrows[throwKey] = fist;
+      renderOperationPanel();
     });
+    if (playerThrows[throwKey] === fist) button.style.outline = "3px solid #222";
+    buttons.appendChild(button);
+  }
+  return buttons;
+}
 
-  activeParticipants.forEach(function (participant) {
-    const card = document.createElement("div");
-    card.className = "operation-card";
-
-    const header = document.createElement("div");
-    header.className = "operation-header";
-
-    const avatar = document.createElement("img");
-    avatar.className = "operation-avatar";
-
-    avatar.src =
-      participant.avatar ||
-      createDefaultAvatar(participant.name);
-
-    avatar.alt = getParticipantDisplayName(participant);
-
-    const title = document.createElement("strong");
-    title.textContent = getParticipantDisplayName(participant);
-    title.className = "participant-name";
-
-    header.appendChild(avatar);
-    header.appendChild(title);
-    card.appendChild(header);
-
-    if (participant.controlled) {
-      const buttons = document.createElement("div");
-      buttons.className = "throw-buttons";
-
-      ["rock", "paper", "scissors"].forEach(
-        function (fist) {
-          const button = createThrowButton(
-            fist,
-            function () {
-              playerThrows[participant.id] = fist;
-              renderOperationPanel();
-            }
-          );
-
-          if (playerThrows[participant.id] === fist) {
-            button.style.outline = "3px solid #222";
-          }
-
-          buttons.appendChild(button);
-        }
-      );
-
-      card.appendChild(buttons);
-    } else {
-      const computerText =
-        document.createElement("div");
-
-      computerText.className = "small";
-
-      computerText.textContent =
-        `電腦將依照勝率 ${participant.winRate}% 自動出拳`;
-
-      card.appendChild(computerText);
-    }
-
+function renderNormalOperation() {
+  for (const participant of participants.filter(person => !person.eliminated)) {
+    const card = createMatchupCard(participant);
+    card.appendChild(participant.controlled
+      ? createMatchupThrowButtons(participant.id)
+      : element("div", `電腦將依照勝率 ${participant.winRate}% 自動出拳`, "small"));
     operationList.appendChild(card);
-  });
-
-  addStartButton();
+  }
 }
 
 function renderTeamOperation() {
-  const activeTeams = teams.filter(function (team) {
-    return (
-      !team.eliminated &&
-      participants.some(function (participant) {
-        return (
-          participant.teamId === team.id &&
-          !participant.eliminated
-        );
-      })
-    );
-  });
+  for (const team of teams.filter(team => !team.eliminated)) {
+    const members = participants.filter(person => person.teamId === team.id && !person.eliminated);
+    if (!members.length) continue;
 
-  activeTeams.forEach(function (team) {
-    const card = document.createElement("div");
-    card.className = "operation-card";
+    const key = `team-${team.id}`;
+    const representative = members.find(member => member.id === teamRepresentatives[key]) || members[0];
+    teamRepresentatives[key] = representative.id;
 
-    const title = document.createElement("h3");
-    title.textContent = team.name;
-    title.className = "team-name";
-    card.appendChild(title);
-
-    const members = participants.filter(
-      function (participant) {
-        return (
-          participant.teamId === team.id &&
-          !participant.eliminated
-        );
-      }
-    );
-
-    if (members.length === 0) {
-      const text = document.createElement("div");
-      text.className = "small";
-      text.textContent = "此隊沒有可參賽成員。";
-
-      card.appendChild(text);
-      operationList.appendChild(card);
-      return;
-    }
-
-    const representativeBox =
-      document.createElement("div");
-
-    representativeBox.className =
-      "representative-select";
-
-    const label = document.createElement("label");
-    label.textContent = "本回合代表：";
-
-    const select = document.createElement("select");
-
-    members.forEach(function (member) {
-      const option = document.createElement("option");
+    const card = createMatchupCard(representative, team);
+    const label = element("label", "本回合代表", "representative-select");
+    const select = element("select");
+    for (const member of members) {
+      const option = element("option", getParticipantDisplayName(member));
       option.value = member.id;
-      option.textContent = getParticipantDisplayName(member);
       select.appendChild(option);
-    });
-
-    let currentRepresentative =
-      teamRepresentatives[`team-${team.id}`];
-
-    if (
-      !members.some(function (member) {
-        return member.id === currentRepresentative;
-      })
-    ) {
-      currentRepresentative = members[0].id;
-
-      teamRepresentatives[`team-${team.id}`] =
-        currentRepresentative;
     }
-
-    select.value = currentRepresentative;
-
-    select.addEventListener("change", function () {
-      teamRepresentatives[`team-${team.id}`] =
-        parseInt(select.value, 10);
+    select.value = representative.id;
+    select.addEventListener("change", () => {
+      teamRepresentatives[key] = Number(select.value);
       renderOperationPanel();
     });
-
     label.appendChild(select);
-    representativeBox.appendChild(label);
-    card.appendChild(representativeBox);
-
-    if (team.controlled) {
-      const buttons = document.createElement("div");
-      buttons.className = "throw-buttons";
-
-      ["rock", "paper", "scissors"].forEach(
-        function (fist) {
-          const button = createThrowButton(
-            fist,
-            function () {
-              playerThrows[`team-${team.id}`] = fist;
-              renderOperationPanel();
-            }
-          );
-
-          if (
-            playerThrows[`team-${team.id}`] === fist
-          ) {
-            button.style.outline = "3px solid #222";
-          }
-
-          buttons.appendChild(button);
-        }
-      );
-
-      card.appendChild(buttons);
-    } else {
-      const text = document.createElement("div");
-      text.className = "small";
-
-      text.textContent =
-        "電腦將自動依照隊伍成員平均勝率出拳";
-
-      card.appendChild(text);
-    }
-
+    card.append(label, team.controlled
+      ? createMatchupThrowButtons(key)
+      : element("div", `電腦依隊伍平均勝率 ${Number(getTeamAverageWinRate(team).toFixed(1))}% 自動出拳`, "small"));
     operationList.appendChild(card);
-  });
-
-  addStartButton();
+  }
 }
 
 // ============================================================
@@ -4755,46 +4630,7 @@ function checkGameEnd() {
 // 開始與重設按鍵
 // ============================================================
 
-function renderOperationMatchup() {
-  document.getElementById("operationMatchup")?.remove();
-  const entries = gameConfig.teamMode
-    ? teams.filter(team => !team.eliminated).map(team => ({
-        team,
-        participant: participants.find(participant =>
-          participant.teamId === team.id && !participant.eliminated &&
-          participant.id === teamRepresentatives[`team-${team.id}`]
-        )
-      })).filter(entry => entry.participant)
-    : participants.filter(participant => !participant.eliminated)
-        .map(participant => ({ participant }));
-  if (!entries.length) return;
-  const matchup = element("div", undefined, "operation-matchup");
-  matchup.id = "operationMatchup";
-  matchup.setAttribute("aria-label", "本回合對戰陣容");
-  entries.forEach(({ participant, team }, index) => {
-    if (entries.length === 2 && index === 1) {
-      matchup.appendChild(element("span", "VS", "operation-matchup__vs"));
-    }
-    const figure = element("figure", undefined, "operation-matchup__participant");
-    const name = getParticipantDisplayName(participant);
-    const avatar = element("img", undefined, "operation-matchup__avatar");
-    avatar.src = participant.avatar || createDefaultAvatar(participant.name);
-    avatar.alt = name;
-    avatar.width = avatar.height = 80;
-    avatar.addEventListener("error", () => {
-      avatar.src = createDefaultAvatar(participant.name);
-    }, { once: true });
-    const caption = element("figcaption");
-    if (team) caption.appendChild(element("span", team.name, "matchup-team-name"));
-    caption.appendChild(element("span", name, "participant-name"));
-    figure.append(avatar, caption);
-    matchup.appendChild(figure);
-  });
-  operationList.after(matchup);
-}
-
 function addStartButton() {
-  renderOperationMatchup();
   let start =
     document.getElementById("startRoundBtn");
 
