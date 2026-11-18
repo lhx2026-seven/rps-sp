@@ -297,7 +297,9 @@
       "hemline": "膝上",
       "footwear": "有跟鞋",
       "croppedTop": false,
-      "hosiery": "黑色薄絲襪"
+      "hosiery": "黑色薄絲襪",
+      "faceReference": "../profile/avatar-31.webp",
+      "faceCorrection": "以原始頭像修正全身照臉部，保留自然五官與表情，減少過度拉提感。"
     },
     {
       "id": "avatar-32",
