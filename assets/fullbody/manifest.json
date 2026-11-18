@@ -613,12 +613,16 @@
       "fullbody": "avatar-jp.webp",
       "nationality": "日本人",
       "surname": "佐藤",
-      "age": 25,
       "outfit": "OL 套裝（深灰西裝外套、白襯衫、窄裙、黑絲襪）",
       "hemline": "及膝",
       "footwear": "黑色有跟鞋",
       "croppedTop": false,
-      "appearance": "尖臉、深色長髮與薄瀏海"
+      "appearance": "尖臉、深色長髮與薄瀏海",
+      "generationAge": 25,
+      "ageRange": [
+        22,
+        30
+      ]
     },
     {
       "id": "avatar-kr",
@@ -626,12 +630,16 @@
       "fullbody": "avatar-kr.webp",
       "nationality": "韓國人",
       "surname": "金",
-      "age": 25,
       "outfit": "淡紫水鑽單肩短版舞台上衣、黑色水鑽邊包覆式褲裙（內層褲不外露）",
       "hemline": "膝上",
       "footwear": "銀色繫踝高跟涼鞋",
       "croppedTop": true,
-      "appearance": "黑色高馬尾、清新舞台妝、水鑽垂墜耳環"
+      "appearance": "黑色高馬尾、清新舞台妝、水鑽垂墜耳環",
+      "generationAge": 25,
+      "ageRange": [
+        22,
+        30
+      ]
     },
     {
       "id": "avatar-vn",
@@ -639,12 +647,16 @@
       "fullbody": "avatar-vn.webp",
       "nationality": "越南人",
       "surname": "阮",
-      "age": 25,
       "outfit": "純白無袖方領連身裙",
       "hemline": "膝上",
       "footwear": "白色有跟涼鞋",
       "croppedTop": false,
-      "appearance": "非常白皙、清新大學生風格、柔和五官與淡妝、薄瀏海及肩直髮"
+      "appearance": "非常白皙、清新大學生風格、柔和五官與淡妝、薄瀏海及肩直髮",
+      "generationAge": 25,
+      "ageRange": [
+        22,
+        30
+      ]
     },
     {
       "id": "avatar-us",
@@ -652,12 +664,16 @@
       "fullbody": "avatar-us.webp",
       "nationality": "美國白人",
       "surname": "史密斯",
-      "age": 25,
       "outfit": "翡翠綠露肩緞面短版晚禮服",
       "hemline": "膝上",
       "footwear": "銀色有跟鞋",
       "croppedTop": false,
-      "appearance": "金色直髮、薄唇、微笑酒窩"
+      "appearance": "金色直髮、薄唇、微笑酒窩",
+      "generationAge": 25,
+      "ageRange": [
+        22,
+        30
+      ]
     }
   ]
 }

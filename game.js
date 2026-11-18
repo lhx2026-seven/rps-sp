@@ -5015,10 +5015,10 @@ const DEFAULT_EQUIPMENT = [
 
 // Fixed identity details for the additional international characters.
 const INTERNATIONAL_PARTICIPANT_IDENTITIES = Object.freeze({
-  "avatar-jp": Object.freeze({ nationality: "日本人", surname: "佐藤", age: 25 }),
-  "avatar-kr": Object.freeze({ nationality: "韓國人", surname: "金", age: 25 }),
-  "avatar-vn": Object.freeze({ nationality: "越南人", surname: "阮", age: 25 }),
-  "avatar-us": Object.freeze({ nationality: "美國白人", surname: "史密斯", age: 25 })
+  "avatar-jp": Object.freeze({ nationality: "日本人", surname: "佐藤", minAge: 22, maxAge: 30 }),
+  "avatar-kr": Object.freeze({ nationality: "韓國人", surname: "金", minAge: 22, maxAge: 30 }),
+  "avatar-vn": Object.freeze({ nationality: "越南人", surname: "阮", minAge: 22, maxAge: 30 }),
+  "avatar-us": Object.freeze({ nationality: "美國白人", surname: "史密斯", minAge: 22, maxAge: 30 })
 });
 
 function getInternationalParticipantIdentity(avatar) {
@@ -5054,7 +5054,9 @@ function getParticipantDisplayName(participant) {
 
 function createRandomParticipantAge(avatar) {
   const identity = getInternationalParticipantIdentity(avatar);
-  if (identity) return identity.age;
+  if (identity) {
+    return identity.minAge + Math.floor(Math.random() * (identity.maxAge - identity.minAge + 1));
+  }
   const match = /avatar-(\d+)\.webp$/.exec(avatar || "");
   const index = match ? Number(match[1]) : 0;
   if (index < 1 || index > 64) return "";
