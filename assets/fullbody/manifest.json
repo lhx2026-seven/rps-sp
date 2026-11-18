@@ -35,8 +35,8 @@
       "outfit": "褲裝",
       "hemline": null,
       "footwear": "平底鞋",
-      "croppedTop": false,
-      "style": "牛仔外套、休閒長褲、平底樂福鞋"
+      "croppedTop": true,
+      "style": "牛仔外套維持原樣、奶油色短版露腰內搭、休閒長褲、平底樂福鞋"
     },
     {
       "id": "avatar-05",
@@ -357,7 +357,7 @@
       "hemline": "膝上",
       "footwear": "有跟鞋",
       "croppedTop": false,
-      "style": "清新優雅風：栗色瀏海側馬尾、珍珠耳環、奶油白襯衫、淺藍膝上裙、豐滿上圍、適度加寬腰圍與協調胸腰比例"
+      "style": "清新優雅風：栗色瀏海側馬尾、珍珠耳環、奶油白襯衫、淺藍膝上裙、肩線稍窄、自然胸型與協調腰圍"
     },
     {
       "id": "avatar-39",
@@ -522,7 +522,7 @@
       "hemline": "膝上",
       "footwear": "有跟鞋",
       "croppedTop": false,
-      "style": "酒紅連身裙、較高挑頭身比例、較豐滿胸型、纖細腿型、跟鞋"
+      "style": "酒紅連身裙、較高挑頭身比例、自然胸型、纖細腿型、跟鞋"
     },
     {
       "id": "avatar-57",
