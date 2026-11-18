@@ -5063,7 +5063,18 @@ function createRandomParticipantAge(avatar) {
 }
 
 function createRandomParticipantAvatars(count) {
-  const avatars = [...DEFAULT_PARTICIPANT_AVATARS];
+  // International characters share one slot alongside the 64 local portraits.
+  const internationalAvatars = DEFAULT_PARTICIPANT_AVATARS.filter(avatar =>
+    getInternationalParticipantIdentity(avatar)
+  );
+  const avatars = DEFAULT_PARTICIPANT_AVATARS.filter(avatar =>
+    !getInternationalParticipantIdentity(avatar)
+  );
+  if (internationalAvatars.length) {
+    avatars.push(internationalAvatars[
+      Math.floor(Math.random() * internationalAvatars.length)
+    ]);
+  }
   for (let i = avatars.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [avatars[i], avatars[j]] = [avatars[j], avatars[i]];
