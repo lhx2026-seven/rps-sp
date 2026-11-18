@@ -374,10 +374,11 @@
       "id": "avatar-40",
       "avatar": "../avatars/avatar-40.webp",
       "fullbody": "avatar-40.png",
-      "outfit": "褲裝",
-      "hemline": null,
-      "footwear": "帆布鞋",
-      "croppedTop": false
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false,
+      "style": "奶油白蝴蝶結襯衫、米色膝上裙、裸色跟鞋"
     },
     {
       "id": "avatar-41",
@@ -525,7 +526,7 @@
       "footwear": "有跟鞋",
       "croppedTop": false,
       "style": "酒紅連身裙、自然頭身比例、腿部適度縮短、自然胸型、纖細腿型、跟鞋",
-      "faceSource": "對應原頭像直接擷取、雙眼對齊與接縫光影融合"
+      "faceSource": "原頭像臉部直接擷取、雙眼對齊、均勻色調校正與窄範圍柔邊貼合"
     },
     {
       "id": "avatar-57",
