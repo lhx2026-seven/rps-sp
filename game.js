@@ -5063,23 +5063,26 @@ function createRandomParticipantAge(avatar) {
 }
 
 function createRandomParticipantAvatars(count) {
-  // International characters share one slot alongside the 64 local portraits.
-  const internationalAvatars = DEFAULT_PARTICIPANT_AVATARS.filter(avatar =>
+  // Local portraits weigh 1 each; international portraits share total weight 1.
+  const internationalCount = DEFAULT_PARTICIPANT_AVATARS.filter(avatar =>
     getInternationalParticipantIdentity(avatar)
-  );
-  const avatars = DEFAULT_PARTICIPANT_AVATARS.filter(avatar =>
-    !getInternationalParticipantIdentity(avatar)
-  );
-  if (internationalAvatars.length) {
-    avatars.push(internationalAvatars[
-      Math.floor(Math.random() * internationalAvatars.length)
-    ]);
+  ).length;
+  const pool = DEFAULT_PARTICIPANT_AVATARS.map(avatar => ({
+    avatar,
+    weight: getInternationalParticipantIdentity(avatar) ? 1 / internationalCount : 1
+  }));
+  const selected = [];
+  while (selected.length < count && pool.length) {
+    const totalWeight = pool.reduce((sum, item) => sum + item.weight, 0);
+    let ticket = Math.random() * totalWeight;
+    let index = 0;
+    while (index < pool.length - 1 && ticket >= pool[index].weight) {
+      ticket -= pool[index].weight;
+      index++;
+    }
+    selected.push(pool.splice(index, 1)[0].avatar);
   }
-  for (let i = avatars.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [avatars[i], avatars[j]] = [avatars[j], avatars[i]];
-  }
-  return avatars.slice(0, count);
+  return selected;
 }
 
 const PARTICIPANT_SURNAMES = [

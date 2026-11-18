@@ -9,7 +9,7 @@
 
 Each is a 320 × 320 WebP image. Age ranges describe generation prompts, not verified ages of real people. Source artwork was generated as four 4 × 4 portrait sheets, then extracted into individual assets.
 
-New participants are drawn without replacement from 65 slots: 64 numbered portraits and one shared international slot. The shared slot selects one of the four international characters uniformly, so each batch contains at most one international character (up to 64 participants per batch). Existing/imported participants retain their saved avatar. Players can replace any assigned portrait using the existing upload and crop controls.
+New participants are drawn without replacement using weights: each of the 64 numbered portraits has weight 1, and each of the four international characters has weight 1/4. Initial total weight is 65. Each draw removes the selected character and recalculates the remaining weights. A batch can include multiple distinct international characters (up to all four; up to 64 participants per batch). Existing/imported participants retain their saved avatar. Players can replace any assigned portrait using the existing upload and crop controls.
 
 Keep the numbered filenames stable: saved games may refer to these relative paths.
 
@@ -37,7 +37,7 @@ These two portraits were regenerated individually, replacing the original sheet-
 | avatar-vn | 越南人 | 阮 |
 | avatar-us | 美國白人 | 史密斯 |
 
-共 68 位角色，抽選時視為 65 個名額：64 位台灣人物各占 1 名額，4 位外國人物共享 1 名額；外國名額內等機率選 1 位，同批最多出現 1 位外國人物。每個新人物位置抽到外國人物合計為 1/65，指定外國人物為 1/260。新建參賽者與新回合的新人物會依頭像帶入上述姓氏及 25 歲，姓名沿用「姓氏＋小姐」格式。既有／匯入人物保留已存姓名及年齡，仍可手動編輯。
+共 68 位角色，採加權不重複抽選：每位台灣人物權重為 1，4 位外國人物各為 1/4，初始總權重為 65。第一抽的外國人物合計機率為 1/65，指定外國人物為 1/260；每抽移除已選人物，後續依剩餘權重重新計算。同批可抽到多位不同外國人物，最多 4 位。新建參賽者與新回合的新人物會依頭像帶入上述姓氏及 25 歲，姓名沿用「姓氏＋小姐」格式。既有／匯入人物保留已存姓名及年齡，仍可手動編輯。
 
 ### 佐藤與史密斯造型更新
 
