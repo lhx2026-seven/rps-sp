@@ -36,7 +36,7 @@
       "hemline": null,
       "footwear": "平底鞋",
       "croppedTop": true,
-      "style": "牛仔外套維持原樣、奶油色短版露腰內搭、休閒長褲、平底樂福鞋",
+      "style": "牛仔外套維持原樣、奶油色短版露腰內搭、牛仔熱褲、平底樂福鞋",
       "faceSource": "原頭像臉部直接擷取、雙眼對齊、均勻色調校正及柔邊貼合；不使用梯度光影重建"
     },
     {
@@ -205,11 +205,11 @@
       "id": "avatar-22",
       "avatar": "../avatars/avatar-22.webp",
       "fullbody": "avatar-22.png",
-      "outfit": "褲裝",
-      "hemline": null,
+      "outfit": "裙裝",
+      "hemline": "膝上",
       "footwear": "平底鞋",
       "croppedTop": true,
-      "style": "橄欖綠短版帽衫與白色短版內搭、牛仔短褲、自然腰臀胯腿曲線、平底鞋"
+      "style": "橄欖綠短版帽衫與白色短版內搭、炭灰色一般短裙、平底鞋"
     },
     {
       "id": "avatar-23",
@@ -358,9 +358,9 @@
       "fullbody": "avatar-38.png",
       "outfit": "裙裝",
       "hemline": "膝上",
-      "footwear": "有跟鞋",
+      "footwear": "運動鞋",
       "croppedTop": false,
-      "style": "清新優雅風：栗色瀏海側馬尾、珍珠耳環、奶油白襯衫、淺藍膝上裙、肩線稍窄、自然胸型與協調腰圍",
+      "style": "清新優雅風：栗色瀏海側馬尾、珍珠耳環、奶油白襯衫、淺藍膝上裙、肩線稍窄、自然胸型與協調腰圍、白色運動鞋",
       "faceSource": "對應原頭像直接擷取、雙眼對齊與接縫光影融合"
     },
     {

@@ -4,9 +4,9 @@
 
 ## 配置
 
-- 裙裝／連身裙裝：45 人（70.3%）；褲裝：19 人（29.7%），依後續指定更新。
-- 裙裝中膝上：40 人（88.9%）；其餘 5 人為及膝以下。
-- 有跟鞋：51 人（79.7%）；帆布鞋／運動鞋：5 人（06、08、13、24、27）；其他平底鞋：8 人（02、04、05、09、22、23、39、42）。
+- 裙裝／連身裙裝：46 人（71.9%）；褲裝：18 人（28.1%），依後續指定更新。
+- 裙裝中膝上：41 人（89.1%）；其餘 5 人為及膝以下。
+- 有跟鞋：50 人（78.1%）；帆布鞋／運動鞋：6 人（06、08、13、24、27、38）；其他平底鞋：8 人（02、04、05、09、22、23、39、42）。
 - 01～32 中短版露腰上衣：10 人（31.25%），編號 01、03、04、05、07、09、11、15、22、30。
 
 各圖為 AI 延伸創作，保留參考人物特徵，但並非真實人物攝影，也不保證臉部像素完全相同。服裝及對應資料見 [manifest.json](manifest.json)。
@@ -18,7 +18,7 @@
 | avatar-01 | ![頭像](../avatars/avatar-01.webp) | [查看全身照](avatar-01.png) | 裙裝・膝上・短版露腰 | 有跟鞋 |
 | avatar-02 | ![頭像](../avatars/avatar-02.webp) | [查看全身照](avatar-02.png) | 裙裝・膝上 | 平底鞋 |
 | avatar-03 | ![頭像](../avatars/avatar-03.webp) | [查看全身照](avatar-03.png) | 裙裝・膝上・短版露腰 | 有跟鞋 |
-| avatar-04 | ![頭像](../avatars/avatar-04.webp) | [查看全身照](avatar-04.png) | 褲裝・短版露腰內搭 | 平底鞋 |
+| avatar-04 | ![頭像](../avatars/avatar-04.webp) | [查看全身照](avatar-04.png) | 牛仔熱褲・短版露腰內搭 | 平底鞋 |
 | avatar-05 | ![頭像](../avatars/avatar-05.webp) | [查看全身照](avatar-05.png) | 裙裝・膝上・短版露腰 | 平底鞋 |
 | avatar-06 | ![頭像](../avatars/avatar-06.webp) | [查看全身照](avatar-06.png) | 褲裝 | 帆布鞋 |
 | avatar-07 | ![頭像](../avatars/avatar-07.webp) | [查看全身照](avatar-07.png) | 裙裝・膝上・短版露腰 | 有跟鞋 |
@@ -36,7 +36,7 @@
 | avatar-19 | ![頭像](../avatars/avatar-19.webp) | [查看全身照](avatar-19.png) | 裙裝・及膝以下 | 有跟鞋 |
 | avatar-20 | ![頭像](../avatars/avatar-20.webp) | [查看全身照](avatar-20.png) | 褲裝 | 有跟鞋 |
 | avatar-21 | ![頭像](../avatars/avatar-21.webp) | [查看全身照](avatar-21.png) | 裙裝・膝上 | 有跟鞋 |
-| avatar-22 | ![頭像](../avatars/avatar-22.webp) | [查看全身照](avatar-22.png) | 牛仔短褲・短版露腰 | 平底鞋 |
+| avatar-22 | ![頭像](../avatars/avatar-22.webp) | [查看全身照](avatar-22.png) | 一般短裙・膝上・短版露腰 | 平底鞋 |
 | avatar-23 | ![頭像](../avatars/avatar-23.webp) | [查看全身照](avatar-23.png) | 裙裝・膝上 | 平底鞋 |
 | avatar-24 | ![頭像](../avatars/avatar-24.webp) | [查看全身照](avatar-24.png) | 褲裝 | 運動鞋 |
 | avatar-25 | ![頭像](../avatars/avatar-25.webp) | [查看全身照](avatar-25.png) | 裙裝・膝上 | 有跟鞋 |
@@ -52,7 +52,7 @@
 | avatar-35 | ![頭像](../avatars/avatar-35.webp) | [查看全身照](avatar-35.png) | 裙裝・及膝以下 | 有跟鞋 |
 | avatar-36 | ![頭像](../avatars/avatar-36.webp) | [查看全身照](avatar-36.png) | 褲裝 | 有跟鞋 |
 | avatar-37 | ![頭像](../avatars/avatar-37.webp) | [查看全身照](avatar-37.png) | 裙裝・膝上 | 有跟鞋 |
-| avatar-38 | ![頭像](../avatars/avatar-38.webp) | [查看全身照](avatar-38.png) | 裙裝・膝上 | 有跟鞋 |
+| avatar-38 | ![頭像](../avatars/avatar-38.webp) | [查看全身照](avatar-38.png) | 裙裝・膝上 | 運動鞋 |
 | avatar-39 | ![頭像](../avatars/avatar-39.webp) | [查看全身照](avatar-39.png) | 連身裙裝・膝上 | 平底鞋 |
 | avatar-40 | ![頭像](../avatars/avatar-40.webp) | [查看全身照](avatar-40.png) | 裙裝・膝上 | 有跟鞋 |
 | avatar-41 | ![頭像](../avatars/avatar-41.webp) | [查看全身照](avatar-41.png) | 裙裝・膝上 | 有跟鞋 |
@@ -128,3 +128,5 @@
 最新調整：10、22 改牛仔短褲；14 改牛仔短裙；59 改牛仔長褲。保留原上衣、鞋款與頭像。
 
 22 已修整腰臀、胯部與腿部銜接及牛仔短褲剪裁；10 改為牛仔短裙。原上衣、鞋款與頭像保留。
+
+- 依指定更新：22 換回炭灰色一般短裙；04 換牛仔熱褲；38 換白色運動鞋。保留原始頭像。
