@@ -42,5 +42,5 @@ These two portraits were regenerated individually, replacing the original sheet-
 ### 佐藤與史密斯造型更新
 
 - `avatar-jp`：尖臉、深色長髮與薄瀏海；深灰 OL 裙裝套裝、白襯衫、黑絲襪及黑色有跟鞋。
-- `avatar-us`：金色直髮、薄唇、微笑酒窩；翡翠綠露肩緞面及地晚禮服及銀色有跟鞋。
+- `avatar-us`：金色直髮、薄唇、微笑酒窩；翡翠綠露肩緞面膝上短版晚禮服及銀色有跟鞋。
 - 先更新頭像，再以新版頭像生成對應全身照；兩位仍為 25 歲，姓氏綁定不變。
