@@ -169,9 +169,10 @@
       "fullbody": "avatar-18.webp",
       "outfit": "裙裝",
       "hemline": "膝上",
-      "footwear": "有跟鞋",
+      "footwear": "黑色粗跟鞋",
       "croppedTop": false,
-      "style": "米色西裝外套、白襯衫、黑皮革膝上裙、跟鞋"
+      "style": "米色西裝外套、白襯衫、黑皮革膝上裙、跟鞋",
+      "hosiery": "黑色薄絲襪"
     },
     {
       "id": "avatar-19",
@@ -295,7 +296,8 @@
       "outfit": "裙裝",
       "hemline": "膝上",
       "footwear": "有跟鞋",
-      "croppedTop": false
+      "croppedTop": false,
+      "hosiery": "黑色薄絲襪"
     },
     {
       "id": "avatar-32",
