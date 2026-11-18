@@ -627,11 +627,11 @@
       "nationality": "韓國人",
       "surname": "金",
       "age": 25,
-      "outfit": "淡紫短版上衣、黑色熱舞褲裙",
+      "outfit": "淡紫水鑽單肩短版舞台上衣、黑色水鑽邊包覆式褲裙（內層褲不外露）",
       "hemline": "膝上",
-      "footwear": "白色運動鞋",
+      "footwear": "銀色繫踝高跟涼鞋",
       "croppedTop": true,
-      "appearance": "年輕活潑風格、清新妝容、黑色高馬尾"
+      "appearance": "黑色高馬尾、清新舞台妝、水鑽垂墜耳環"
     },
     {
       "id": "avatar-vn",
@@ -644,7 +644,7 @@
       "hemline": "膝上",
       "footwear": "白色有跟涼鞋",
       "croppedTop": false,
-      "appearance": "非常白皙的膚色、清秀柔和五官、深色微捲長髮"
+      "appearance": "非常白皙、清新大學生風格、柔和五官與淡妝、薄瀏海及肩直髮"
     },
     {
       "id": "avatar-us",
