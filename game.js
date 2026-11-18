@@ -5812,7 +5812,7 @@ function markParticipantEliminated(participant) {
 
 function queueGameEffect(kind, text, participant) {
   const avatar = participant.avatar || "";
-  const stageImage = kind !== "stripped" && isOnStage(participant)
+  const stageImage = isOnStage(participant)
     ? getStageImage(participant)
     : "";
   gameEffectQueue.push({
