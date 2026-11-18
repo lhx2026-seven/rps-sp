@@ -627,10 +627,11 @@
       "nationality": "韓國人",
       "surname": "金",
       "age": 25,
-      "outfit": "裙裝",
+      "outfit": "淡紫短版上衣、黑色熱舞褲裙",
       "hemline": "膝上",
-      "footwear": "有跟鞋",
-      "croppedTop": false
+      "footwear": "白色運動鞋",
+      "croppedTop": true,
+      "appearance": "年輕活潑風格、清新妝容、黑色高馬尾"
     },
     {
       "id": "avatar-vn",
@@ -639,10 +640,11 @@
       "nationality": "越南人",
       "surname": "阮",
       "age": 25,
-      "outfit": "裙裝",
+      "outfit": "純白無袖方領連身裙",
       "hemline": "膝上",
-      "footwear": "有跟鞋",
-      "croppedTop": false
+      "footwear": "白色有跟涼鞋",
+      "croppedTop": false,
+      "appearance": "非常白皙的膚色、清秀柔和五官、深色微捲長髮"
     },
     {
       "id": "avatar-us",
