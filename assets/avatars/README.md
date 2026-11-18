@@ -19,3 +19,9 @@ Keep the numbered filenames stable: saved games may refer to these relative path
 - `avatar-38.webp`: delicate face, chestnut wispy bangs and low side ponytail, pearl earrings, fresh elegant style.
 
 These two portraits were regenerated individually, replacing the original sheet-derived versions to distinguish them from avatar-33 and each other. Matching full-body images are in `../fullbody/`.
+
+## Clothing and framing alignment
+
+- 19, 27, 30, 56 and 57: visible headshot clothing updated to match their current full-body outfits.
+- 17 and 33: reframed closer to align face scale with the other avatars.
+- Full-body assets remain unchanged by this update.
