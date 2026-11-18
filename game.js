@@ -5770,6 +5770,15 @@ function renderStage() {
   const previousScroll = stage.querySelector(".participant-stage__track")?.scrollLeft || 0;
   stage.replaceChildren();
   const cast = participants.filter(p => isOnStage(p) && getStageImage(p));
+  if (gameConfig.teamMode) {
+    const teamOrder = new Map(teams.map((team, index) => [team.id, index]));
+    // Sort only the stage cast; stable sorting preserves each team's member order.
+    // Unassigned participants stay in their original order after the known teams.
+    cast.sort((a, b) =>
+      (teamOrder.get(a.teamId) ?? teams.length) -
+      (teamOrder.get(b.teamId) ?? teams.length)
+    );
+  }
   stage.hidden = cast.length === 0;
   if (!cast.length) return;
   const header = element("div", undefined, "participant-stage__header");
