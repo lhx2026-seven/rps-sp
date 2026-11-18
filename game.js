@@ -5901,7 +5901,7 @@ initializeEquipmentControls();
 function getStageImage(participant) {
   if (participant.stageImage) return participant.stageImage;
   const match = (participant.avatar || "").match(/(?:^|\/)assets\/avatars\/(avatar-\d{2})\.webp$/);
-  return match ? `assets/fullbody/${match[1]}.png` : participant.avatar || "";
+  return match ? `assets/fullbody/${match[1]}.webp` : participant.avatar || "";
 }
 
 function isOnStage(participant) {
@@ -5914,7 +5914,7 @@ function renderStage() {
   if (!stage) {
     stage = element("section", undefined, "participant-stage");
     stage.id = "participantStage";
-    stage.setAttribute("aria-label", "參賽者舞台");
+    stage.setAttribute("aria-label", "Game Stage");
     // Inside the game panel, it follows the round's visibility automatically.
     operationPanel.appendChild(stage);
   }
@@ -5925,7 +5925,7 @@ function renderStage() {
   stage.hidden = cast.length === 0;
   if (!cast.length) return;
   const header = element("div", undefined, "participant-stage__header");
-  header.appendChild(element("h3", "舞台"));
+  header.appendChild(element("h3", "Game Stage"));
   const navigation = element("div", undefined, "participant-stage__navigation");
   const track = element("div", undefined, "participant-stage__track");
   track.tabIndex = 0;
