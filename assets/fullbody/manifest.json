@@ -606,6 +606,54 @@
       "hemline": null,
       "footwear": "有跟鞋",
       "croppedTop": false
+    },
+    {
+      "id": "avatar-jp",
+      "avatar": "../profile/avatar-jp.webp",
+      "fullbody": "avatar-jp.webp",
+      "nationality": "日本人",
+      "surname": "佐藤",
+      "age": 25,
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-kr",
+      "avatar": "../profile/avatar-kr.webp",
+      "fullbody": "avatar-kr.webp",
+      "nationality": "韓國人",
+      "surname": "金",
+      "age": 25,
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-vn",
+      "avatar": "../profile/avatar-vn.webp",
+      "fullbody": "avatar-vn.webp",
+      "nationality": "越南人",
+      "surname": "阮",
+      "age": 25,
+      "outfit": "裙裝",
+      "hemline": "膝上",
+      "footwear": "有跟鞋",
+      "croppedTop": false
+    },
+    {
+      "id": "avatar-us",
+      "avatar": "../profile/avatar-us.webp",
+      "fullbody": "avatar-us.webp",
+      "nationality": "美國白人",
+      "surname": "史密斯",
+      "age": 25,
+      "outfit": "褲裝",
+      "hemline": "不適用",
+      "footwear": "運動鞋",
+      "croppedTop": false
     }
   ]
 }

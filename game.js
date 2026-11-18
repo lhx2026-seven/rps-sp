@@ -949,8 +949,8 @@ async function createGame() {
   };
 
   participants = [];
-const randomNames = createRandomParticipantNames(playerCount);
 const randomAvatars = createRandomParticipantAvatars(playerCount);
+const randomNames = createRandomParticipantNames(playerCount, randomAvatars);
 
   for (let i = 0; i < playerCount; i++) {
     participants.push({
@@ -4163,9 +4163,9 @@ if (createNew) {
     return;
   }
 
-  const randomNames =
-    createRandomParticipantNames(nextPlayerCount);
   const randomAvatars = createRandomParticipantAvatars(nextPlayerCount);
+  const randomNames =
+    createRandomParticipantNames(nextPlayerCount, randomAvatars);
 
   for (let i = 0; i < nextPlayerCount; i++) {
     newParticipants.push({
@@ -5013,11 +5013,26 @@ const DEFAULT_EQUIPMENT = [
   "上衣", "裙子", "胸罩", "內褲"
 ];
 
+// Fixed identity details for the additional international characters.
+const INTERNATIONAL_PARTICIPANT_IDENTITIES = Object.freeze({
+  "avatar-jp": Object.freeze({ nationality: "日本人", surname: "佐藤", age: 25 }),
+  "avatar-kr": Object.freeze({ nationality: "韓國人", surname: "金", age: 25 }),
+  "avatar-vn": Object.freeze({ nationality: "越南人", surname: "阮", age: 25 }),
+  "avatar-us": Object.freeze({ nationality: "美國白人", surname: "史密斯", age: 25 })
+});
+
+function getInternationalParticipantIdentity(avatar) {
+  const match = /(?:^|\/)assets\/profile\/(avatar-(?:jp|kr|vn|us))\.webp$/.exec(avatar || "");
+  return match ? INTERNATIONAL_PARTICIPANT_IDENTITIES[match[1]] : undefined;
+}
+
 // AI-generated fictional adult portraits, bundled locally for reliable loading.
 const DEFAULT_PARTICIPANT_AVATARS = Object.freeze(
   Array.from({ length: 64 }, (_, index) =>
     `assets/profile/avatar-${String(index + 1).padStart(2, "0")}.webp`
-  )
+  ).concat(Object.keys(INTERNATIONAL_PARTICIPANT_IDENTITIES).map(id =>
+    `assets/profile/${id}.webp`
+  ))
 );
 
 function normalizeImportedAvatar(avatar) {
@@ -5038,6 +5053,8 @@ function getParticipantDisplayName(participant) {
 }
 
 function createRandomParticipantAge(avatar) {
+  const identity = getInternationalParticipantIdentity(avatar);
+  if (identity) return identity.age;
   const match = /avatar-(\d+)\.webp$/.exec(avatar || "");
   const index = match ? Number(match[1]) : 0;
   if (index < 1 || index > 64) return "";
@@ -5069,7 +5086,7 @@ const PARTICIPANT_SURNAMES = [
   "傅", "侯", "曹", "薛", "丁", "張簡"
 ];
 
-function createRandomParticipantNames(count) {
+function createRandomParticipantNames(count, avatars = []) {
   const surnames = [...PARTICIPANT_SURNAMES];
 
   for (let i = surnames.length - 1; i > 0; i--) {
@@ -5079,7 +5096,9 @@ function createRandomParticipantNames(count) {
 
   return surnames
     .slice(0, count)
-    .map(surname => `${surname}小姐`);
+    .map((surname, index) =>
+      `${getInternationalParticipantIdentity(avatars[index])?.surname || surname}小姐`
+    );
 }
 
 const EQUIPMENT_BLOCKERS = {
@@ -5750,13 +5769,13 @@ initializeEquipmentControls();
 // Stage preferences travel with participant snapshots and exported game data.
 function getStageImage(participant) {
   if (participant.stageImage) return participant.stageImage;
-  const match = (participant.avatar || "").match(/(?:^|\/)assets\/profile\/(avatar-\d{2})\.webp$/);
+  const match = (participant.avatar || "").match(/(?:^|\/)assets\/profile\/(avatar-(?:\d{2}|jp|kr|vn|us))\.webp$/);
   return match ? `assets/fullbody/${match[1]}.webp` : participant.avatar || "";
 }
 
 function isOnStage(participant) {
   if (typeof participant.onStage === "boolean") return participant.onStage;
-  return /(?:^|\/)assets\/profile\/avatar-\d{2}\.webp$/.test(participant.avatar || "");
+  return /(?:^|\/)assets\/profile\/avatar-(?:\d{2}|jp|kr|vn|us)\.webp$/.test(participant.avatar || "");
 }
 
 function renderStage() {
