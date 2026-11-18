@@ -4790,7 +4790,7 @@ function renderOperationMatchup() {
     figure.append(avatar, caption);
     matchup.appendChild(figure);
   });
-  operationPanel.appendChild(matchup);
+  operationList.after(matchup);
 }
 
 function addStartButton() {
@@ -4841,7 +4841,10 @@ function addStartButton() {
 
   deleteButton.disabled = roundBusy;
 
-  operationPanel.append(start, reset, deleteButton);
+  const actions = document.getElementById("roundActions");
+  for (const button of [start, reset, deleteButton]) {
+    if (button.parentElement !== actions) actions.appendChild(button);
+  }
 }
 
 async function resetCurrentRound() {
@@ -5769,9 +5772,7 @@ function renderEquipmentDiscardPanel() {
     panel.appendChild(box);
   });
 
-  // 衣物選擇與出拳結果放在同一區。
-  resultPanel.classList.remove("hidden");
-  resultList.appendChild(panel);
+  resultPanel.before(panel);
 }
 
 function appendEquipmentDiscardMessage(record) {
@@ -5928,10 +5929,8 @@ function renderStage() {
     stage = element("section", undefined, "participant-stage");
     stage.id = "participantStage";
     stage.setAttribute("aria-label", "Game Stage");
-    // Inside the game panel, it follows the round's visibility automatically.
-    operationPanel.appendChild(stage);
+    document.getElementById("roundActions").before(stage);
   }
-  operationPanel.appendChild(stage);
   const previousScroll = stage.querySelector(".participant-stage__track")?.scrollLeft || 0;
   stage.replaceChildren();
   const cast = participants.filter(p => isOnStage(p) && getStageImage(p));
@@ -5988,10 +5987,13 @@ function animateStage(ids, effect) {
     .filter(node => targets.has(node.dataset.participantId));
   if (!figures.length) return;
   const track = figures[0].parentElement;
-  const first = figures[0];
-  if (first.offsetLeft < track.scrollLeft || first.offsetLeft + first.offsetWidth > track.scrollLeft + track.clientWidth) {
-    track.scrollTo({left: Math.max(0, first.offsetLeft - (track.clientWidth - first.offsetWidth) / 2),
-      behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+  const visible = figures.some(figure =>
+    figure.offsetLeft >= track.scrollLeft &&
+    figure.offsetLeft + figure.offsetWidth <= track.scrollLeft + track.clientWidth
+  );
+  if (!visible) {
+    const first = figures[0];
+    track.scrollLeft = first.offsetLeft - (track.clientWidth - first.offsetWidth) / 2;
   }
   figures.forEach(node => {
     node.classList.remove("is-glowing", "is-shaking");
