@@ -8,7 +8,7 @@
       "profile": "profile/avatar-mx.webp",
       "fullbody": "fullbody/avatar-mx.webp",
       "outfit": "紅色深 V 短版緞面晚禮服、紅色高跟涼鞋",
-      "appearanceNotes": "較修長橢圓臉型、自然放鬆的腰線與腰臀比例"
+      "appearanceNotes": "保留原笑容、較修長橢圓臉型、自然腰線、修長腿部比例"
     },
     {
       "id": "avatar-fr",
@@ -16,7 +16,7 @@
       "profile": "profile/avatar-fr.webp",
       "fullbody": "fullbody/avatar-fr.webp",
       "outfit": "駝色羊毛大衣、黑色高領針織衫與短裙、黑絲襪及跟踝靴",
-      "appearanceNotes": "維持短髮長度、改為深色直髮短鮑伯、親切笑容"
+      "appearanceNotes": "深色直短髮、微抬下巴輕轉頭的閉唇微笑"
     },
     {
       "id": "avatar-ru",
@@ -24,7 +24,7 @@
       "profile": "profile/avatar-ru.webp",
       "fullbody": "fullbody/avatar-ru.webp",
       "outfit": "銀色單肩亮片短版晚禮服、銀色高跟涼鞋",
-      "appearanceNotes": "柔和放鬆的眼神與眉形、自然微笑"
+      "appearanceNotes": "正面平靜柔和表情、自然薄唇、修長腿部比例、全身一致白皙象牙膚色"
     },
     {
       "id": "avatar-in",
@@ -32,7 +32,7 @@
       "profile": "profile/avatar-in.webp",
       "fullbody": "fullbody/avatar-in.webp",
       "outfit": "翡翠綠金邊露腰紗麗、金色跟鞋",
-      "appearanceNotes": "淡化法令紋與眼下紋路、自然年輕成年樣貌"
+      "appearanceNotes": "年輕成年樣貌、輕轉頭的開朗露齒笑容"
     }
   ]
 }
