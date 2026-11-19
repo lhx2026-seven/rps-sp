@@ -5609,7 +5609,7 @@ function renderEquipmentDiscardPanel() {
       "h3",
       settlement ? "結算：請選擇衣物，完成後按「夠了」。" :
       gameConfig.equipmentRule === "unlimited"
-        ? "落敗者請至少脫掉一件衣物，才可進行下一把。"
+        ? "落敗者可脫掉零件或多件衣物，完成後按「夠了」。"
         : "請選擇落敗者需脫掉的衣物"
     )
   );
@@ -5619,7 +5619,7 @@ function renderEquipmentDiscardPanel() {
       "div",
       settlement ? "可逐人脫多件，或直接按「夠了」保留衣物；全部完成後可繼續出拳。" :
       gameConfig.equipmentRule === "unlimited"
-        ? "落敗者至少脫掉一件衣物，按「夠了」才能開始下一把。"
+        ? "可直接按「夠了」保留衣物，或選擇脫掉衣物後再完成。"
         : "確認脫掉後，才可再進行下一把。",
       "small"
     )
@@ -5742,15 +5742,10 @@ function renderEquipmentDiscardPanel() {
       const finish = element("button", "夠了");
       finish.type = "button";
       finish.style.marginLeft = "8px";
-      finish.disabled =
-        roundBusy ||
-        (!participant.pendingEquipmentSettlement && (participant.pendingEquipmentDiscards || 0) < 1);
+      finish.disabled = roundBusy;
 
       finish.addEventListener("click", async () => {
-        if (!participant.pendingEquipmentSettlement && (participant.pendingEquipmentDiscards || 0) < 1) {
-          alert("無限規則，輸一把至少要脫一件。");
-          return;
-        }
+        if (roundBusy || tournamentFrozen) return;
 
         participant.pendingEquipmentSettlement = false;
         participant.pendingEquipmentLoss = false;
