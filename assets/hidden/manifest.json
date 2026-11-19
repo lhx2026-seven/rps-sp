@@ -7,28 +7,32 @@
       "nationality": "墨西哥人（西裔）",
       "profile": "profile/avatar-mx.webp",
       "fullbody": "fullbody/avatar-mx.webp",
-      "outfit": "紅色深 V 短版緞面晚禮服、紅色高跟涼鞋"
+      "outfit": "紅色深 V 短版緞面晚禮服、紅色高跟涼鞋",
+      "appearanceNotes": "較修長橢圓臉型、自然放鬆的腰線與腰臀比例"
     },
     {
       "id": "avatar-fr",
       "nationality": "法國人（白人）",
       "profile": "profile/avatar-fr.webp",
       "fullbody": "fullbody/avatar-fr.webp",
-      "outfit": "駝色羊毛大衣、黑色高領針織衫與短裙、黑絲襪及跟踝靴"
+      "outfit": "駝色羊毛大衣、黑色高領針織衫與短裙、黑絲襪及跟踝靴",
+      "appearanceNotes": "維持短髮長度、改為深色直髮短鮑伯、親切笑容"
     },
     {
       "id": "avatar-ru",
       "nationality": "俄國人",
       "profile": "profile/avatar-ru.webp",
       "fullbody": "fullbody/avatar-ru.webp",
-      "outfit": "銀色單肩亮片短版晚禮服、銀色高跟涼鞋"
+      "outfit": "銀色單肩亮片短版晚禮服、銀色高跟涼鞋",
+      "appearanceNotes": "柔和放鬆的眼神與眉形、自然微笑"
     },
     {
       "id": "avatar-in",
       "nationality": "印度人",
       "profile": "profile/avatar-in.webp",
       "fullbody": "fullbody/avatar-in.webp",
-      "outfit": "翡翠綠金邊露腰紗麗、金色跟鞋"
+      "outfit": "翡翠綠金邊露腰紗麗、金色跟鞋",
+      "appearanceNotes": "淡化法令紋與眼下紋路、自然年輕成年樣貌"
     }
   ]
 }
