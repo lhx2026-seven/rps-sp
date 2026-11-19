@@ -1640,6 +1640,7 @@ if (hasPendingEquipment()) {
 }
 
   roundBusy = true;
+  updateEquipmentSettlementButton();
   currentEquipmentDiscards = [];
 
   const button =
@@ -4406,6 +4407,7 @@ if (newParticipants.length > 64) {
 newParticipants.forEach(participant => {
   participant.roundLosses = 0;
   participant.pendingEquipmentLoss = false;
+  participant.pendingEquipmentSettlement = false;
   participant.pendingEquipmentDiscards = 0;
   participant.eliminated = false;
   participant.roundStartStats = {
@@ -4679,8 +4681,19 @@ function addStartButton() {
 
   deleteButton.disabled = roundBusy;
 
+  let settle = document.getElementById("settleEquipmentBtn");
+  if (!settle) {
+    settle = element("button", "結算");
+    settle.type = "button";
+    settle.id = "settleEquipmentBtn";
+    settle.style.marginLeft = "8px";
+    settle.addEventListener("click", startEquipmentSettlement);
+  }
+  settle.hidden = gameConfig.eliminationMode !== "none";
+  updateEquipmentSettlementButton();
+
   const actions = document.getElementById("roundActions");
-  for (const button of [start, reset, deleteButton]) {
+  for (const button of [start, settle, reset, deleteButton]) {
     if (button.parentElement !== actions) actions.appendChild(button);
   }
 }
@@ -4716,6 +4729,7 @@ async function resetCurrentRound() {
 
       participant.equipmentHistory = [];
       participant.pendingEquipmentLoss = false;
+      participant.pendingEquipmentSettlement = false;
     });
 
     teams.forEach(team => {
@@ -5253,7 +5267,35 @@ function ensureEquipment(participant) {
 
   if (!participant.pendingEquipmentLoss) {
     participant.pendingEquipmentDiscards = 0;
+    participant.pendingEquipmentSettlement = false;
   }
+}
+
+function updateEquipmentSettlementButton() {
+  const button = document.getElementById("settleEquipmentBtn");
+  if (!button) return;
+  button.disabled = tournamentFrozen || roundBusy || hasPendingEquipment() ||
+    !participants.some(participant => !participant.eliminated && participant.equipment?.length);
+}
+
+async function startEquipmentSettlement() {
+  if (tournamentFrozen || gameConfig.eliminationMode !== "none" || blockPendingEquipment()) return;
+  participants.forEach(participant => {
+    ensureEquipment(participant);
+    if (participant.eliminated || !participant.equipment.length) return;
+    participant.pendingEquipmentLoss = true;
+    participant.pendingEquipmentSettlement = true;
+    participant.pendingEquipmentDiscards = 0;
+  });
+  renderParticipantSettings();
+  renderOperationPanel();
+  renderStats();
+  saveCurrentTournamentRoundSnapshot();
+  await saveGameState();
+}
+
+function isUnlimitedEquipmentDiscard(participant) {
+  return gameConfig.equipmentRule === "unlimited" || participant.pendingEquipmentSettlement;
 }
 
 function hasPendingEquipment() {
@@ -5301,11 +5343,12 @@ function discardEquipment(participant, item) {
   participant.pendingEquipmentDiscards++;
 
   if (
-    gameConfig.equipmentRule !== "unlimited" ||
+    !isUnlimitedEquipmentDiscard(participant) ||
     participant.equipment.length === 0
   ) {
     participant.pendingEquipmentLoss = false;
     participant.pendingEquipmentDiscards = 0;
+    participant.pendingEquipmentSettlement = false;
   }
 
   const record = {
@@ -5537,6 +5580,7 @@ function renderEquipmentDiscardPanel() {
     .getElementById("equipmentDiscardPanel")
     ?.remove();
 
+  updateEquipmentSettlementButton();
   const pending = participants.filter(
     participant => participant.pendingEquipmentLoss
   );
@@ -5553,6 +5597,7 @@ function renderEquipmentDiscardPanel() {
     return;
   }
 
+  const settlement = pending.some(participant => participant.pendingEquipmentSettlement);
   const panel = element("div", undefined, "inherit-box");
   panel.id = "equipmentDiscardPanel";
 
@@ -5562,6 +5607,7 @@ function renderEquipmentDiscardPanel() {
   panel.appendChild(
     element(
       "h3",
+      settlement ? "結算：請選擇衣物，完成後按「夠了」。" :
       gameConfig.equipmentRule === "unlimited"
         ? "落敗者請至少脫掉一件衣物，才可進行下一把。"
         : "請選擇落敗者需脫掉的衣物"
@@ -5571,6 +5617,7 @@ function renderEquipmentDiscardPanel() {
   panel.appendChild(
     element(
       "div",
+      settlement ? "可逐人脫多件，或直接按「夠了」保留衣物；全部完成後可繼續出拳。" :
       gameConfig.equipmentRule === "unlimited"
         ? "落敗者至少脫掉一件衣物，按「夠了」才能開始下一把。"
         : "確認脫掉後，才可再進行下一把。",
@@ -5583,7 +5630,7 @@ function renderEquipmentDiscardPanel() {
     box.style.marginTop = "14px";
     box.appendChild(element("strong", getParticipantDisplayName(participant)));
 
-    if (gameConfig.equipmentRule === "unlimited") {
+    if (isUnlimitedEquipmentDiscard(participant)) {
       box.appendChild(
         element(
           "div",
@@ -5691,20 +5738,21 @@ function renderEquipmentDiscardPanel() {
 
     box.appendChild(confirm);
 
-    if (gameConfig.equipmentRule === "unlimited") {
+    if (isUnlimitedEquipmentDiscard(participant)) {
       const finish = element("button", "夠了");
       finish.type = "button";
       finish.style.marginLeft = "8px";
       finish.disabled =
         roundBusy ||
-        (participant.pendingEquipmentDiscards || 0) < 1;
+        (!participant.pendingEquipmentSettlement && (participant.pendingEquipmentDiscards || 0) < 1);
 
       finish.addEventListener("click", async () => {
-        if ((participant.pendingEquipmentDiscards || 0) < 1) {
+        if (!participant.pendingEquipmentSettlement && (participant.pendingEquipmentDiscards || 0) < 1) {
           alert("無限規則，輸一把至少要脫一件。");
           return;
         }
 
+        participant.pendingEquipmentSettlement = false;
         participant.pendingEquipmentLoss = false;
         participant.pendingEquipmentDiscards = 0;
         queueMicrotask(playNextGameEffect);
