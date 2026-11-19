@@ -958,6 +958,7 @@ const randomNames = createRandomParticipantNames(playerCount, randomAvatars);
       participantKey: createParticipantKey(),
       name: randomNames[i],
       avatar: randomAvatars[i],
+      initialEquipment: getInitialEquipmentForAvatar(randomAvatars[i]),
       age: createRandomParticipantAge(randomAvatars[i]),
       teamId: null,
       controlled: false,
@@ -4173,6 +4174,7 @@ if (createNew) {
       participantKey: createParticipantKey(),
       name: randomNames[i],
       avatar: randomAvatars[i],
+      initialEquipment: getInitialEquipmentForAvatar(randomAvatars[i]),
       age: createRandomParticipantAge(randomAvatars[i]),
       teamId: null,
       controlled: false,
@@ -5012,6 +5014,85 @@ const EQUIPMENT_TYPES = [
 const DEFAULT_EQUIPMENT = [
   "上衣", "裙子", "胸罩", "內褲"
 ];
+
+// Confirmed full-body clothing audit for the 68 active default characters.
+const PARTICIPANT_INITIAL_EQUIPMENT = Object.freeze({
+  "avatar-01": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-02": Object.freeze(["外套", "上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-03": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-04": Object.freeze(["外套", "上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-05": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-06": Object.freeze(["上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-07": Object.freeze(["外套", "上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-08": Object.freeze(["上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-09": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-10": Object.freeze(["外套", "上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-11": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-12": Object.freeze(["上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-13": Object.freeze(["外套", "上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-14": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-15": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-16": Object.freeze(["外套", "上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-17": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-18": Object.freeze(["外套", "上衣", "裙子", "褲襪", "胸罩", "內褲"]),
+  "avatar-19": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-20": Object.freeze(["上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-21": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-22": Object.freeze(["外套", "上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-23": Object.freeze(["外套", "上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-24": Object.freeze(["上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-25": Object.freeze(["外套", "上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-26": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-27": Object.freeze(["上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-28": Object.freeze(["上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-29": Object.freeze(["外套", "上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-30": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-31": Object.freeze(["上衣", "裙子", "褲襪", "胸罩", "內褲"]),
+  "avatar-32": Object.freeze(["外套", "上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-33": Object.freeze(["洋裝", "胸罩", "內褲"]),
+  "avatar-34": Object.freeze(["外套", "上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-35": Object.freeze(["外套", "上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-36": Object.freeze(["上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-37": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-38": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-39": Object.freeze(["洋裝", "胸罩", "內褲"]),
+  "avatar-40": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-41": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-42": Object.freeze(["洋裝", "胸罩", "內褲"]),
+  "avatar-43": Object.freeze(["外套", "上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-44": Object.freeze(["外套", "上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-45": Object.freeze(["外套", "上衣", "胸罩", "內褲"]),
+  "avatar-46": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-47": Object.freeze(["外套", "上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-48": Object.freeze(["外套", "上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-49": Object.freeze(["外套", "上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-50": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-51": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-52": Object.freeze(["外套", "上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-53": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-54": Object.freeze(["洋裝", "胸罩", "內褲"]),
+  "avatar-55": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-56": Object.freeze(["洋裝", "胸罩", "內褲"]),
+  "avatar-57": Object.freeze(["洋裝", "胸罩", "內褲"]),
+  "avatar-58": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-59": Object.freeze(["外套", "上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-60": Object.freeze(["上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-61": Object.freeze(["外套", "上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-62": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-63": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-64": Object.freeze(["外套", "上衣", "褲子", "胸罩", "內褲"]),
+  "avatar-jp": Object.freeze(["外套", "上衣", "裙子", "褲襪", "胸罩", "內褲"]),
+  "avatar-kr": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-vn": Object.freeze(["洋裝", "胸罩", "內褲"]),
+  "avatar-us": Object.freeze(["洋裝", "胸罩", "內褲"])
+});
+
+function getInitialEquipmentForAvatar(avatar) {
+  const normalized = normalizeImportedAvatar(avatar);
+  const match = /(?:^|\/)assets\/profile\/(avatar-(?:\d{2}|jp|kr|vn|us))\.webp$/.exec(normalized);
+  const equipment = match ? PARTICIPANT_INITIAL_EQUIPMENT[match[1]] : undefined;
+  return [...(equipment || DEFAULT_EQUIPMENT)];
+}
 
 // Fixed identity details for the additional international characters.
 const INTERNATIONAL_PARTICIPANT_IDENTITIES = Object.freeze({
