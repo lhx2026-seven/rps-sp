@@ -5604,22 +5604,18 @@ function renderEquipmentDiscardPanel() {
   panel.style.cssText =
     "padding:16px;margin-top:16px;border:2px solid #b33;border-radius:10px";
 
-  panel.appendChild(
-    element(
-      "h3",
-      settlement ? "結算：請選擇衣物，完成後按「夠了」。" :
-      gameConfig.equipmentRule === "unlimited"
-        ? "落敗者可脫掉零件或多件衣物，完成後按「夠了」。"
-        : "請選擇落敗者需脫掉的衣物"
-    )
-  );
+  if (settlement || gameConfig.equipmentRule !== "unlimited") {
+    panel.appendChild(element("h3", settlement
+      ? "結算：請選擇衣物，完成後按「夠了」。"
+      : "請選擇落敗者需脫掉的衣物"));
+  }
 
   panel.appendChild(
     element(
       "div",
       settlement ? "可逐人脫多件，或直接按「夠了」保留衣物；全部完成後可繼續出拳。" :
       gameConfig.equipmentRule === "unlimited"
-        ? "可直接按「夠了」保留衣物，或選擇脫掉衣物後再完成。"
+        ? "選擇完需脫掉之衣物，即可按「夠了」"
         : "確認脫掉後，才可再進行下一把。",
       "small"
     )
