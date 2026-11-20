@@ -1630,26 +1630,44 @@ function renderTeamOperation() {
 // 開始出拳
 // ============================================================
 
-function isStartRoundBlocked() {
-  if (tournamentFrozen || roundBusy || hasPendingEquipment() || gameConfig.manualSettlementState) return true;
-  if (gameConfig.eliminationMode === "loss") {
-    const contenders = gameConfig.teamMode ? teams : participants;
-    if (contenders.some(item =>
+function getRoundEndResult() {
+  if (!participants.length) return null;
+  const lossReached = gameConfig.eliminationMode === "loss" &&
+    (gameConfig.teamMode ? teams : participants).some(item =>
       Number(gameConfig.teamMode ? item.losses : item.roundLosses) >= Number(gameConfig.lossLimit)
-    )) return true;
-  }
-  if (gameConfig.eliminationMode === "equipment") {
-    const strippedCount = participants.filter(person =>
-      person.eliminated || (Array.isArray(person.equipment) && person.equipment.length === 0)
-    ).length;
-    if (strippedCount >= readPositiveInteger({ value: gameConfig.emptyEquipmentLimit })) return true;
-  }
+    );
+  const isOut = person => person.eliminated ||
+    (gameConfig.eliminationMode === "loss" && !gameConfig.teamMode &&
+      Number(person.roundLosses) >= Number(gameConfig.lossLimit)) ||
+    (gameConfig.eliminationMode === "equipment" &&
+      Array.isArray(person.equipment) && person.equipment.length === 0);
+  const equipmentReached = gameConfig.eliminationMode === "equipment" &&
+    participants.filter(isOut).length >= readPositiveInteger({ value: gameConfig.emptyEquipmentLimit });
   if (gameConfig.teamMode) {
-    return teams.filter(team => !team.eliminated && participants.some(person =>
-      person.teamId === team.id && !person.eliminated
-    )).length < 2;
+    const isTeamOut = team => team.eliminated ||
+      (gameConfig.eliminationMode === "loss" && Number(team.losses) >= Number(gameConfig.lossLimit)) ||
+      !participants.some(person => person.teamId === team.id && !isOut(person));
+    const winners = teams.filter(team => !isTeamOut(team));
+    if (!lossReached && !equipmentReached && winners.length >= 2) return null;
+    return {
+      winners: winners.map(team => team.name),
+      losers: teams.filter(team => isTeamOut(team) && (team.eliminated ||
+        participants.some(person => person.teamId === team.id))).map(team => team.name),
+      winnerLabel: "獲勝隊伍", loserLabel: "淘汰隊伍"
+    };
   }
-  return participants.filter(isParticipantEligibleToAct).length < 2;
+  const winners = participants.filter(person => !isOut(person) && isParticipantEligibleToAct(person));
+  if (!lossReached && !equipmentReached && winners.length >= 2) return null;
+  return {
+    winners: winners.map(getParticipantDisplayName),
+    losers: participants.filter(isOut).map(getParticipantDisplayName),
+    winnerLabel: "獲勝者", loserLabel: "淘汰者"
+  };
+}
+
+function isStartRoundBlocked() {
+  return !!(tournamentFrozen || roundBusy || hasPendingEquipment() ||
+    gameConfig.manualSettlementState || getRoundEndResult());
 }
 
 async function startRound() {
@@ -4603,58 +4621,23 @@ function checkGameEnd() {
     }
     return;
   }
-  if (!["loss", "equipment"].includes(gameConfig.eliminationMode)) return;
-
-  if (gameConfig.teamMode) {
-    const activeTeams = teams.filter(
-      function (team) {
-        return !team.eliminated && participants.some(participant =>
-          participant.teamId === team.id && !participant.eliminated
-        );
-      }
-    );
-
-    if (activeTeams.length === 1) {
-      const winner = activeTeams[0];
-
-      const message = document.createElement("div");
-      message.style.marginTop = "20px";
-      message.style.padding = "15px";
-      message.style.borderRadius = "10px";
-
-      const strong = document.createElement("strong");
-
-      strong.textContent =
-        `獲勝隊伍：${winner.name}`;
-
-      message.appendChild(strong);
-      resultList.appendChild(message);
-    }
-
+  const outcome = getRoundEndResult();
+  let message = document.getElementById("roundEndMessage");
+  if (!outcome) {
+    message?.remove();
     return;
   }
-
-  const activeParticipants =
-    participants.filter(function (participant) {
-      return !participant.eliminated;
-    });
-
-  if (activeParticipants.length === 1) {
-    const winner = activeParticipants[0];
-
-    const message = document.createElement("div");
-    message.style.marginTop = "20px";
-    message.style.padding = "15px";
-    message.style.borderRadius = "10px";
-
-    const strong = document.createElement("strong");
-
-    strong.textContent =
-      `獲勝者：${getParticipantDisplayName(winner)}`;
-
-    message.appendChild(strong);
+  resultPanel.classList.remove("hidden");
+  if (!message) {
+    message = element("div");
+    message.id = "roundEndMessage";
+    message.style.cssText = "margin-top:20px;padding:15px;font-weight:bold";
     resultList.appendChild(message);
   }
+  message.replaceChildren(
+    element("div", `${outcome.winnerLabel}：${outcome.winners.join("、") || "無"}`),
+    element("div", `${outcome.loserLabel}：${outcome.losers.join("、") || "無"}`)
+  );
 }
 
 // ============================================================
@@ -5609,7 +5592,7 @@ function renderEquipmentDiscardPanel() {
     .getElementById("equipmentDiscardPanel")
     ?.remove();
 
-  if (gameConfig.manualSettlementState) checkGameEnd();
+  checkGameEnd();
   updateEquipmentSettlementButton();
   const pending = participants.filter(
     participant => participant.pendingEquipmentLoss
