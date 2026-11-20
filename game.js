@@ -2084,7 +2084,7 @@ async function resolveHeadcountHandAfterDiscards() {
       "div",
       "淘汰者：" +
         eliminatedNow.map(participant => getParticipantDisplayName(participant)).join("、"),
-      "danger"
+      "danger round-elimination-notice"
     );
 
     message.style.marginTop = "15px";
@@ -2177,7 +2177,7 @@ function renderNormalResults(
     const eliminatedBox =
       document.createElement("div");
 
-    eliminatedBox.className = "danger";
+    eliminatedBox.className = "danger round-elimination-notice";
 eliminatedBox.style.cssText =
   "display:inline-block; margin-top:15px; margin-right:12px; vertical-align:middle;";
 
@@ -2507,7 +2507,7 @@ function renderTeamResults(
     const eliminatedBox =
       document.createElement("div");
 
-    eliminatedBox.className = "danger";
+    eliminatedBox.className = "danger round-elimination-notice";
     eliminatedBox.style.marginTop = "15px";
 
     eliminatedBox.textContent =
@@ -4627,6 +4627,7 @@ function checkGameEnd() {
     message?.remove();
     return;
   }
+  resultList.querySelectorAll(".round-elimination-notice").forEach(notice => notice.remove());
   resultPanel.classList.remove("hidden");
   if (!message) {
     message = element("div");
@@ -5285,12 +5286,12 @@ function updateEquipmentSettlementButton() {
   const button = document.getElementById("settleEquipmentBtn");
   if (!button) return;
   button.disabled = tournamentFrozen || roundBusy || hasPendingEquipment() ||
-    !!gameConfig.manualSettlementState || !participants.length;
+    !!gameConfig.manualSettlementState || !participants.length || roundNumber < 1;
 }
 
 async function startEquipmentSettlement() {
   if (tournamentFrozen || gameConfig.eliminationMode !== "none" ||
-      gameConfig.manualSettlementState || !participants.length || blockPendingEquipment()) return;
+      gameConfig.manualSettlementState || !participants.length || roundNumber < 1 || blockPendingEquipment()) return;
   gameConfig.manualSettlementState = "pending";
   participants.forEach(participant => {
     ensureEquipment(participant);
