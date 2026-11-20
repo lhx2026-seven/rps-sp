@@ -1630,14 +1630,30 @@ function renderTeamOperation() {
 // 開始出拳
 // ============================================================
 
-async function startRound() {
-if (tournamentFrozen) return;
-if (roundBusy || gameConfig.manualSettlementState) return;
-
-if (hasPendingEquipment()) {
-  alert("確認脫掉後，才可再進行下一把。");
-  return;
+function isStartRoundBlocked() {
+  if (tournamentFrozen || roundBusy || hasPendingEquipment() || gameConfig.manualSettlementState) return true;
+  if (gameConfig.eliminationMode === "loss") {
+    const contenders = gameConfig.teamMode ? teams : participants;
+    if (contenders.some(item =>
+      Number(gameConfig.teamMode ? item.losses : item.roundLosses) >= Number(gameConfig.lossLimit)
+    )) return true;
+  }
+  if (gameConfig.eliminationMode === "equipment") {
+    const strippedCount = participants.filter(person =>
+      person.eliminated || (Array.isArray(person.equipment) && person.equipment.length === 0)
+    ).length;
+    if (strippedCount >= readPositiveInteger({ value: gameConfig.emptyEquipmentLimit })) return true;
+  }
+  if (gameConfig.teamMode) {
+    return teams.filter(team => !team.eliminated && participants.some(person =>
+      person.teamId === team.id && !person.eliminated
+    )).length < 2;
+  }
+  return participants.filter(isParticipantEligibleToAct).length < 2;
 }
+
+async function startRound() {
+  if (isStartRoundBlocked()) return;
 
   roundBusy = true;
   updateEquipmentSettlementButton();
@@ -1671,7 +1687,7 @@ if (hasPendingEquipment()) {
       document.getElementById("startRoundBtn");
 
     if (start) {
-      start.disabled = hasPendingEquipment() || !!gameConfig.manualSettlementState;
+      start.disabled = isStartRoundBlocked();
     }
 
     const reset =
@@ -1688,7 +1704,6 @@ async function startNormalRound() {
     participants.filter(isParticipantEligibleToAct);
 
   if (activeParticipants.length < 2) {
-    alert("剩餘參賽者不足 2 人。");
     return;
   }
 
@@ -2187,7 +2202,6 @@ async function startTeamRound() {
   });
 
   if (activeTeams.length < 2) {
-    alert("剩餘隊伍不足 2 隊。");
     return;
   }
 
@@ -4659,8 +4673,7 @@ function addStartButton() {
 
   start.textContent = "START！";
   start.onclick = startRound;
-  start.disabled =
-    roundBusy || hasPendingEquipment() || !!gameConfig.manualSettlementState;
+  start.disabled = isStartRoundBlocked();
 
   let reset =
     document.getElementById("resetCurrentRoundBtn");
@@ -5606,8 +5619,7 @@ function renderEquipmentDiscardPanel() {
     document.getElementById("startRoundBtn");
 
   if (start) {
-    start.disabled =
-      roundBusy || pending.length > 0 || !!gameConfig.manualSettlementState;
+    start.disabled = isStartRoundBlocked();
   }
 
   if (!pending.length) {
