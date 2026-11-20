@@ -5622,7 +5622,7 @@ function renderEquipmentDiscardPanel() {
 
   if (settlement || gameConfig.equipmentRule !== "unlimited") {
     panel.appendChild(element("h3", settlement
-      ? "結算：請選擇衣物，完成後按「夠了」。"
+      ? "結算"
       : "請選擇落敗者需脫掉的衣物"));
   }
 
