@@ -5096,7 +5096,7 @@ const PARTICIPANT_INITIAL_EQUIPMENT = Object.freeze({
   "avatar-63": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
   "avatar-64": Object.freeze(["外套", "上衣", "褲子", "胸罩", "內褲"]),
   "avatar-jp": Object.freeze(["外套", "上衣", "裙子", "褲襪", "胸罩", "內褲"]),
-  "avatar-kr": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-kr": Object.freeze(["上衣", "褲子", "胸罩", "內褲"]),
   "avatar-vn": Object.freeze(["洋裝", "胸罩", "內褲"]),
   "avatar-us": Object.freeze(["洋裝", "胸罩", "內褲"])
 });
