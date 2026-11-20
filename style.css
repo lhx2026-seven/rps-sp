@@ -389,3 +389,18 @@ html:has(#operationPanel:not(.hidden)) { overflow-anchor: none; }
  .is-shaking .participant-stage__portrait { animation: stage-glow 200ms linear; }
  .is-glowing .participant-stage__portrait::before { animation-duration: 200ms; }
 }
+
+/* Stage footnote: empty and unfocused blends into the existing stage surface. */
+.participant-stage__note { position: relative; margin: 0 12px; padding-bottom: 16px; }
+.participant-stage .participant-stage__note-input {
+  display: block; box-sizing: border-box; width: 100%; min-height: 40px;
+  margin: 0; padding: 8px 0; border: 0; border-bottom: 1px solid transparent;
+  border-radius: 0; background: transparent; color: #667085;
+  font: inherit; font-size: 14px; line-height: 1.6; resize: none;
+  box-shadow: none; overflow: hidden;
+}
+.participant-stage .participant-stage__note-input:focus { outline: none; border-bottom-color: #98a2b3; }
+.participant-stage .participant-stage__note-input:focus-visible { outline: 1px solid #98a2b3; outline-offset: 3px; }
+.participant-stage__note-count { position: absolute; right: 0; bottom: 0; visibility: hidden; color: #667085; font-size: 12px; }
+.participant-stage__note:focus-within .participant-stage__note-count { visibility: visible; }
+@media (pointer: coarse) { .participant-stage .participant-stage__note-input { font-size: 16px; } }

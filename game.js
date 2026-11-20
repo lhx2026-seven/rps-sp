@@ -3221,6 +3221,7 @@ function importGameData(event) {
           : createJsonFileName();
 
       gameConfig = data.gameConfig;
+      gameConfig.stageNote = normalizeStageNote(gameConfig.stageNote);
 
       gameConfig.teamEquipmentSolidarity =
         gameConfig.teamEquipmentSolidarity !== false;
@@ -3707,6 +3708,7 @@ function switchTournamentRound(targetRoundNumber) {
     target.tournamentRoundNumber;
 
   gameConfig = copyObject(target.gameConfig);
+  gameConfig.stageNote = normalizeStageNote(gameConfig.stageNote);
 
   gameConfig.teamEquipmentSolidarity =
     gameConfig.teamEquipmentSolidarity !== false;
@@ -4521,6 +4523,7 @@ newParticipants.forEach(participant => {
 
   gameConfig = {
     ...gameConfig,
+    stageNote: "",
     teamMode: useTeamMode,
     teamEquipmentSolidarity: nextTeamEquipmentSolidarity,
     equipmentRule: nextEquipmentRule,
@@ -5927,6 +5930,57 @@ function isOnStage(participant) {
   return /(?:^|\/)assets\/profile\/avatar-(?:\d{2}|jp|kr|vn|us)\.webp$/.test(participant.avatar || "");
 }
 
+function stageNoteCharacters(value) {
+  const text = typeof value === "string" ? value : "";
+  if (typeof Intl.Segmenter === "function") {
+    return Array.from(new Intl.Segmenter("zh-Hant", { granularity: "grapheme" }).segment(text), item => item.segment);
+  }
+  return Array.from(text);
+}
+
+function normalizeStageNote(value) {
+  return stageNoteCharacters(value).slice(0, 100).join("");
+}
+
+function createStageNote() {
+  const wrapper = element("div", undefined, "participant-stage__note");
+  const input = element("textarea", undefined, "participant-stage__note-input");
+  input.id = "stageNote";
+  input.rows = 1;
+  input.setAttribute("aria-label", "舞台腳註，最多100字");
+  input.setAttribute("autocomplete", "off");
+  input.spellcheck = false;
+  input.readOnly = tournamentFrozen;
+  input.value = normalizeStageNote(gameConfig.stageNote);
+  gameConfig.stageNote = input.value;
+  const counter = element("div", undefined, "participant-stage__note-count");
+  counter.id = "stageNoteCount";
+  input.setAttribute("aria-describedby", counter.id);
+  let composing = false;
+  const resize = () => {
+    input.style.height = "auto";
+    input.style.height = `${Math.max(40, input.scrollHeight)}px`;
+  };
+  const update = () => {
+    if (composing) return;
+    const value = normalizeStageNote(input.value);
+    if (input.value !== value) input.value = value;
+    gameConfig.stageNote = value;
+    counter.textContent = `${stageNoteCharacters(value).length}／100`;
+    resize();
+    saveCurrentTournamentRoundSnapshot();
+  };
+  input.addEventListener("compositionstart", () => { composing = true; });
+  input.addEventListener("compositionend", () => { composing = false; update(); });
+  input.addEventListener("input", update);
+  input.addEventListener("change", () => { update(); void saveGameState(); });
+  input.addEventListener("focus", resize);
+  counter.textContent = `${stageNoteCharacters(input.value).length}／100`;
+  wrapper.append(input, counter);
+  requestAnimationFrame(resize);
+  return wrapper;
+}
+
 function renderStage() {
   let stage = document.getElementById("participantStage");
   if (!stage) {
@@ -5978,7 +6032,7 @@ function renderStage() {
     figure.append(portrait, element("figcaption", getParticipantDisplayName(p)));
     track.appendChild(figure);
   });
-  stage.append(header, track);
+  stage.append(header, track, createStageNote());
   track.scrollLeft = previousScroll;
   const updateNavigation = () => {
     const overflow = track.scrollWidth > track.clientWidth + 1;
