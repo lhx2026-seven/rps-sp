@@ -1,4 +1,4 @@
-# 隱藏版國際人物（僅資產）
+# 隱藏版人物（僅資產）
 
 四位 AI 生成的虛構成年女性，外觀約 20～25 歲。先生成頭像，再參考頭像生成全身照。沒有固定年齡或姓氏設定。
 
@@ -34,3 +34,14 @@ mx 原始頭像保留；其餘三位頭像與全身照同步表情。圖片維�
 ## fr／in 頭頸姿勢修正
 
 頭像與全身照皆恢復正面、頭頸自然置中；只用嘴型區分表情，fr 閉唇微笑，in 露齒笑，不以轉頭或歪頭製造差異。
+
+## 新增台灣人物外貌參考角色
+
+以下四位為 AI 生成的成年女性角色，外貌參考指定公眾人物，並非本人照片。每位先生成頭像，再參考頭像製作全身照。僅存放於 hidden，未接入前台或隨機抽選。
+
+| 人物 | 外貌參考 | 服裝造型 | 頭像 | 全身照 |
+|---|---|---|---|---|
+| avatar-ssm | 歌手孫淑媚 | 銀色亮片短版上衣、短裙、銀色高跟短靴；演唱會造型 | ![ssm](profile/avatar-ssm.webp) | [查看](fullbody/avatar-ssm.webp) |
+| avatar-jjw | 演員賈靜雯 | 深藍色無袖緞面膝上小禮服、黑色尖頭高跟鞋 | ![jjw](profile/avatar-jjw.webp) | [查看](fullbody/avatar-jjw.webp) |
+| avatar-tmy | 前樂天女孩沐妍 | 紅黑配色短版賽車風上衣、短裙、黑色高跟短靴；車模造型 | ![tmy](profile/avatar-tmy.webp) | [查看](fullbody/avatar-tmy.webp) |
+| avatar-lyl | YouTuber 眼肉芽 | 象牙白西裝外套、粉色上衣、膝上窄裙、裸色高跟鞋；主播造型 | ![lyl](profile/avatar-lyl.webp) | [查看](fullbody/avatar-lyl.webp) |

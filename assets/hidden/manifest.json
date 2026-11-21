@@ -1,5 +1,5 @@
 {
-  "description": "未接入前台的隱藏國際角色資產。先生成頭像，再以頭像生成全身照。外觀提示為 20～25 歲成年女性，沒有遊戲年齡或姓氏綁定。",
+  "description": "未接入前台的隱藏角色資產，包含國際人物及台灣公眾人物外貌參考創作。先生成頭像，再以頭像生成全身照；沒有遊戲年齡或姓氏綁定。",
   "status": "asset-only",
   "characters": [
     {
@@ -33,6 +33,38 @@
       "fullbody": "fullbody/avatar-in.webp",
       "outfit": "翡翠綠金邊露腰紗麗、金色跟鞋",
       "appearanceNotes": "年輕成年樣貌、正面擺正頭頸、開朗露齒笑容"
+    },
+    {
+      "id": "avatar-ssm",
+      "profile": "profile/avatar-ssm.webp",
+      "fullbody": "fullbody/avatar-ssm.webp",
+      "appearanceReference": "歌手孫淑媚",
+      "outfit": "銀色亮片短版上衣、短裙、銀色高跟短靴；演唱會造型",
+      "appearanceNotes": "AI 生成的成年女性角色；外貌參考指定公眾人物，頭像與全身照保持人物及服裝一致。"
+    },
+    {
+      "id": "avatar-jjw",
+      "profile": "profile/avatar-jjw.webp",
+      "fullbody": "fullbody/avatar-jjw.webp",
+      "appearanceReference": "演員賈靜雯",
+      "outfit": "深藍色無袖緞面膝上小禮服、黑色尖頭高跟鞋",
+      "appearanceNotes": "AI 生成的成年女性角色；外貌參考指定公眾人物，頭像與全身照保持人物及服裝一致。"
+    },
+    {
+      "id": "avatar-tmy",
+      "profile": "profile/avatar-tmy.webp",
+      "fullbody": "fullbody/avatar-tmy.webp",
+      "appearanceReference": "前樂天女孩沐妍",
+      "outfit": "紅黑配色短版賽車風上衣、短裙、黑色高跟短靴；車模造型",
+      "appearanceNotes": "AI 生成的成年女性角色；外貌參考指定公眾人物，頭像與全身照保持人物及服裝一致。"
+    },
+    {
+      "id": "avatar-lyl",
+      "profile": "profile/avatar-lyl.webp",
+      "fullbody": "fullbody/avatar-lyl.webp",
+      "appearanceReference": "YouTuber 眼肉芽",
+      "outfit": "象牙白西裝外套、粉色上衣、膝上窄裙、裸色高跟鞋；主播造型",
+      "appearanceNotes": "AI 生成的成年女性角色；外貌參考指定公眾人物，頭像與全身照保持人物及服裝一致。"
     }
   ]
 }
