@@ -38,7 +38,8 @@
       "croppedTop": true,
       "style": "牛仔外套維持原樣、奶油色短版露腰內搭、牛仔熱褲、平底樂福鞋",
       "faceSource": "原頭像臉部直接擷取、雙眼對齊、均勻色調校正及柔邊貼合；不使用梯度光影重建",
-      "facialFeatures": "微笑時自然臉頰酒窩"
+      "facialFeatures": "微笑時自然臉頰酒窩",
+      "bodyReference": "以臉部微調前的原版全身照為身形與腿部比例參考，逐張局部臉部修正。"
     },
     {
       "id": "avatar-05",
@@ -174,7 +175,8 @@
       "croppedTop": false,
       "style": "米色西裝外套、白襯衫、黑皮革膝上裙、跟鞋",
       "hosiery": "黑色薄絲襪",
-      "facialFeatures": "靠近嘴角的小梨窩"
+      "facialFeatures": "靠近嘴角的小梨窩",
+      "bodyReference": "以臉部微調前的原版全身照為身形與腿部比例參考，逐張局部臉部修正。"
     },
     {
       "id": "avatar-19",
@@ -242,7 +244,8 @@
       "footwear": "有跟鞋",
       "croppedTop": false,
       "style": "白襯衫與深藍針織背心、較豐滿胸型、深藍膝上裙、跟鞋",
-      "facialFeatures": "上唇較突出、自然唇形"
+      "facialFeatures": "上唇中央微翹、略向前突出，嘴唇微啟，隱約露出兩顆上門牙",
+      "bodyReference": "以臉部微調前的原版全身照為身形與腿部比例參考，逐張局部臉部修正。"
     },
     {
       "id": "avatar-26",
@@ -408,7 +411,8 @@
       "footwear": "平底鞋",
       "croppedTop": false,
       "style": "淡紫針織上衣搭綠色裙裝、較纖細腿型、平底鞋",
-      "facialFeatures": "自然臉頰酒窩"
+      "facialFeatures": "自然臉頰酒窩",
+      "bodyReference": "以臉部微調前的原版全身照為身形與腿部比例參考，逐張局部臉部修正。"
     },
     {
       "id": "avatar-43",
