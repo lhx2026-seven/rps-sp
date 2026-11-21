@@ -13,35 +13,13 @@
 
 頭像：320 × 320 WebP；全身照：512 × 1024 WebP。人物及服裝資料見 [manifest.json](manifest.json)。圖片為參考風格的虛構角色創作。
 
-## 外觀微調
-
-- `avatar-mx`：較修長橢圓臉型、自然放鬆的腰線與腰臀比例。
-- `avatar-fr`：維持短髮長度、改為深色直髮短鮑伯、親切笑容。
-- `avatar-ru`：柔和放鬆的眼神與眉形、自然微笑。
-- `avatar-in`：淡化法令紋與眼下紋路、自然年輕成年樣貌。
-
-頭像與全身照同步更新，仍僅為隱藏資產，沒有年齡或姓氏綁定。
-
-## 腿部比例、膚色與表情微調
-
-- `avatar-mx`：保留原笑容、較修長橢圓臉型、自然腰線、修長腿部比例。
-- `avatar-fr`：深色直短髮、正面擺正頭頸的閉唇微笑。
-- `avatar-ru`：正面平靜柔和表情、自然薄唇、修長腿部比例、全身一致白皙象牙膚色。
-- `avatar-in`：年輕成年樣貌、正面擺正頭頸的開朗露齒笑容。
-
-mx 原始頭像保留；其餘三位頭像與全身照同步表情。圖片維持等比例縮放，仍為隱藏資產。
-
-## fr／in 頭頸姿勢修正
-
-頭像與全身照皆恢復正面、頭頸自然置中；只用嘴型區分表情，fr 閉唇微笑，in 露齒笑，不以轉頭或歪頭製造差異。
-
-## 新增台灣人物外貌參考角色
+## 新增台灣特殊人物
 
 以下四位為 AI 生成的成年女性角色，外貌參考指定公眾人物，並非本人照片。每位先生成頭像，再參考頭像製作全身照。僅存放於 hidden，未接入前台或隨機抽選。
 
 | 人物 | 外貌參考 | 服裝造型 | 頭像 | 全身照 |
 |---|---|---|---|---|
-| avatar-ssm | 歌手孫淑媚 | 銀色亮片短版上衣、短裙、銀色高跟短靴；演唱會造型 | ![ssm](profile/avatar-ssm.webp) | [查看](fullbody/avatar-ssm.webp) |
-| avatar-jjw | 演員賈靜雯 | 深藍色無袖緞面膝上小禮服、黑色尖頭高跟鞋 | ![jjw](profile/avatar-jjw.webp) | [查看](fullbody/avatar-jjw.webp) |
-| avatar-tmy | 前樂天女孩沐妍 | 紅黑配色短版賽車風上衣、短裙、黑色高跟短靴；車模造型 | ![tmy](profile/avatar-tmy.webp) | [查看](fullbody/avatar-tmy.webp) |
-| avatar-lyl | YouTuber 眼肉芽 | 象牙白西裝外套、粉色上衣、膝上窄裙、裸色高跟鞋；主播造型 | ![lyl](profile/avatar-lyl.webp) | [查看](fullbody/avatar-lyl.webp) |
+| avatar-ssm | 歌手 | 銀色亮片短版上衣、短裙、銀色高跟短靴；演唱會造型 | ![ssm](profile/avatar-ssm.webp) | [查看](fullbody/avatar-ssm.webp) |
+| avatar-jjw | 演員 | 深藍色無袖緞面膝上小禮服、黑色尖頭高跟鞋 | ![jjw](profile/avatar-jjw.webp) | [查看](fullbody/avatar-jjw.webp) |
+| avatar-tmy | 啦啦隊 | 紅黑配色短版賽車風上衣、短裙、黑色高跟短靴；車模造型 | ![tmy](profile/avatar-tmy.webp) | [查看](fullbody/avatar-tmy.webp) |
+| avatar-lyl | 主播 | 象牙白西裝外套、粉色上衣、膝上窄裙、裸色高跟鞋；主播造型 | ![lyl](profile/avatar-lyl.webp) | [查看](fullbody/avatar-lyl.webp) |
