@@ -40,8 +40,8 @@
 | avatar-23 | ![頭像](../profile/avatar-23.webp) | [查看全身照](avatar-23.webp) | 上衣、短裙 | 平底鞋 |
 | avatar-24 | ![頭像](../profile/avatar-24.webp) | [查看全身照](avatar-24.webp) | 上衣、褲子 | 運動鞋 |
 | avatar-25 | ![頭像](../profile/avatar-25.webp) | [查看全身照](avatar-25.webp) | 上衣、短裙 | 有跟鞋 |
-| avatar-26 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/04d7771f4be29b83d74e8b35f15b7b3eca9fcf3d/assets/profile/avatar-26.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/04d7771f4be29b83d74e8b35f15b7b3eca9fcf3d/assets/fullbody/avatar-26.webp) | 襯衫、短裙 | 粗跟鞋 |
-| avatar-27 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/04d7771f4be29b83d74e8b35f15b7b3eca9fcf3d/assets/profile/avatar-27.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/04d7771f4be29b83d74e8b35f15b7b3eca9fcf3d/assets/fullbody/avatar-27.webp) | 運動背心、短褲 | 運動鞋 |
+| avatar-26 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/b3fc3ec48d7f1b14cbc569f40d80cf898de92195/assets/profile/avatar-26.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/04d7771f4be29b83d74e8b35f15b7b3eca9fcf3d/assets/fullbody/avatar-26.webp) | 襯衫、短裙 | 粗跟鞋 |
+| avatar-27 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/b3fc3ec48d7f1b14cbc569f40d80cf898de92195/assets/profile/avatar-27.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/04d7771f4be29b83d74e8b35f15b7b3eca9fcf3d/assets/fullbody/avatar-27.webp) | 運動背心、短褲 | 運動鞋 |
 | avatar-28 | ![頭像](../profile/avatar-28.webp) | [查看全身照](avatar-28.webp) | 上衣、褲子 | 有跟鞋 |
 | avatar-29 | ![頭像](../profile/avatar-29.webp) | [查看全身照](avatar-29.webp) | 上衣、短褲 | 有跟鞋 |
 | avatar-30 | ![頭像](../profile/avatar-30.webp) | [查看全身照](avatar-30.webp) | 上衣、短裙 | 有跟鞋 |
@@ -50,7 +50,7 @@
 | avatar-33 | ![頭像](../profile/avatar-33.webp) | [查看全身照](avatar-33.webp) | 連身裙 | 有跟鞋 |
 | avatar-34 | ![頭像](../profile/avatar-34.webp) | [查看全身照](avatar-34.webp) | 上衣、短裙 | 有跟鞋 |
 | avatar-35 | ![頭像](../profile/avatar-35.webp) | [查看全身照](avatar-35.webp) | 上衣、長裙 | 有跟鞋 |
-| avatar-36 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/04d7771f4be29b83d74e8b35f15b7b3eca9fcf3d/assets/profile/avatar-36.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/04d7771f4be29b83d74e8b35f15b7b3eca9fcf3d/assets/fullbody/avatar-36.webp) | 上衣、長褲 | 高跟鞋 |
+| avatar-36 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/b3fc3ec48d7f1b14cbc569f40d80cf898de92195/assets/profile/avatar-36.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/04d7771f4be29b83d74e8b35f15b7b3eca9fcf3d/assets/fullbody/avatar-36.webp) | 上衣、長褲 | 高跟鞋 |
 | avatar-37 | ![頭像](../profile/avatar-37.webp) | [查看全身照](avatar-37.webp) | 上衣、短裙 | 有跟鞋 |
 | avatar-38 | ![頭像](../profile/avatar-38.webp) | [查看全身照](avatar-38.webp) | 上衣、短裙 | 運動鞋 |
 | avatar-39 | ![頭像](../profile/avatar-39.webp) | [查看全身照](avatar-39.webp) | 連身裙 | 平底鞋 |
@@ -66,7 +66,7 @@
 | avatar-49 | ![頭像](../profile/avatar-49.webp) | [查看全身照](avatar-49.webp) | 上衣、短裙 | 有跟鞋 |
 | avatar-50 | ![頭像](../profile/avatar-50.webp) | [查看全身照](avatar-50.webp) | 上衣、短裙 | 有跟鞋 |
 | avatar-51 | ![頭像](../profile/avatar-51.webp) | [查看全身照](avatar-51.webp) | 上衣、長裙 | 有跟鞋 |
-| avatar-52 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/7d30c05ef09549bd4d5e7fd85e84bea9b03bd480/assets/profile/avatar-52.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/7d30c05ef09549bd4d5e7fd85e84bea9b03bd480/assets/fullbody/avatar-52.webp) | 外套、上衣、長褲 | 高跟鞋 |
+| avatar-52 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/b3fc3ec48d7f1b14cbc569f40d80cf898de92195/assets/profile/avatar-52.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/7d30c05ef09549bd4d5e7fd85e84bea9b03bd480/assets/fullbody/avatar-52.webp) | 外套、上衣、長褲 | 高跟鞋 |
 | avatar-53 | ![頭像](../profile/avatar-53.webp) | [查看全身照](avatar-53.webp) | 上衣、短裙 | 有跟鞋 |
 | avatar-54 | ![頭像](../profile/avatar-54.webp) | [查看全身照](avatar-54.webp) | 連身裙 | 有跟鞋 |
 | avatar-55 | ![頭像](../profile/avatar-55.webp) | [查看全身照](avatar-55.webp) | 上衣、短裙 | 有跟鞋 |
