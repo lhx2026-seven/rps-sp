@@ -45,7 +45,7 @@
 | avatar-28 | ![頭像](../profile/avatar-28.webp) | 上衣、褲子 |
 | avatar-29 | ![頭像](../profile/avatar-29.webp) | 上衣、短褲 |
 | avatar-30 | ![頭像](../profile/avatar-30.webp) | 上衣、短裙 |
-| avatar-31 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/04d7771f4be29b83d74e8b35f15b7b3eca9fcf3d/assets/profile/avatar-31.webp) | 上衣、短裙、褲襪 |
+| avatar-31 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/7d30c05ef09549bd4d5e7fd85e84bea9b03bd480/assets/profile/avatar-31.webp) | 上衣、短裙、褲襪 |
 | avatar-32 | ![頭像](../profile/avatar-32.webp) | 上衣、褲子 |
 | avatar-33 | ![頭像](../profile/avatar-33.webp) | 連身裙 |
 | avatar-34 | ![頭像](../profile/avatar-34.webp) | 上衣、短裙 |
@@ -66,7 +66,7 @@
 | avatar-49 | ![頭像](../profile/avatar-49.webp) | 上衣、短裙 |
 | avatar-50 | ![頭像](../profile/avatar-50.webp) | 上衣、短裙 |
 | avatar-51 | ![頭像](../profile/avatar-51.webp) | 上衣、長裙 |
-| avatar-52 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/04d7771f4be29b83d74e8b35f15b7b3eca9fcf3d/assets/profile/avatar-52.webp) | 外套、上衣、長褲 |
+| avatar-52 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/7d30c05ef09549bd4d5e7fd85e84bea9b03bd480/assets/profile/avatar-52.webp) | 外套、上衣、長褲 |
 | avatar-53 | ![頭像](../profile/avatar-53.webp) | 上衣、短裙 |
 | avatar-54 | ![頭像](../profile/avatar-54.webp) | 連身裙 |
 | avatar-55 | ![頭像](../profile/avatar-55.webp) | 上衣、短裙 |
