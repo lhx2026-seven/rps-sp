@@ -40,12 +40,12 @@
 | avatar-23 | ![頭像](../profile/avatar-23.webp) | [查看全身照](avatar-23.webp) | 上衣、短裙 | 平底鞋 |
 | avatar-24 | ![頭像](../profile/avatar-24.webp) | [查看全身照](avatar-24.webp) | 上衣、褲子 | 運動鞋 |
 | avatar-25 | ![頭像](../profile/avatar-25.webp) | [查看全身照](avatar-25.webp) | 上衣、短裙 | 有跟鞋 |
-| avatar-26 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/b3fc3ec48d7f1b14cbc569f40d80cf898de92195/assets/profile/avatar-26.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/04d7771f4be29b83d74e8b35f15b7b3eca9fcf3d/assets/fullbody/avatar-26.webp) | 襯衫、短裙 | 粗跟鞋 |
+| avatar-26 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/791678841fe0842199df55b4d10fe0b650b5017d/assets/profile/avatar-26.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/791678841fe0842199df55b4d10fe0b650b5017d/assets/fullbody/avatar-26.webp) | 襯衫、短裙 | 粗跟鞋 |
 | avatar-27 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/b3fc3ec48d7f1b14cbc569f40d80cf898de92195/assets/profile/avatar-27.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/04d7771f4be29b83d74e8b35f15b7b3eca9fcf3d/assets/fullbody/avatar-27.webp) | 運動背心、短褲 | 運動鞋 |
 | avatar-28 | ![頭像](../profile/avatar-28.webp) | [查看全身照](avatar-28.webp) | 上衣、褲子 | 有跟鞋 |
 | avatar-29 | ![頭像](../profile/avatar-29.webp) | [查看全身照](avatar-29.webp) | 上衣、短褲 | 有跟鞋 |
 | avatar-30 | ![頭像](../profile/avatar-30.webp) | [查看全身照](avatar-30.webp) | 上衣、短裙 | 有跟鞋 |
-| avatar-31 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/7d30c05ef09549bd4d5e7fd85e84bea9b03bd480/assets/profile/avatar-31.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/7d30c05ef09549bd4d5e7fd85e84bea9b03bd480/assets/fullbody/avatar-31.webp) | 上衣、短裙、褲襪 | 高跟鞋 |
+| avatar-31 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/791678841fe0842199df55b4d10fe0b650b5017d/assets/profile/avatar-31.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/791678841fe0842199df55b4d10fe0b650b5017d/assets/fullbody/avatar-31.webp) | 上衣、短裙、褲襪 | 高跟鞋 |
 | avatar-32 | ![頭像](../profile/avatar-32.webp) | [查看全身照](avatar-32.webp) | 上衣、褲子 | 有跟鞋 |
 | avatar-33 | ![頭像](../profile/avatar-33.webp) | [查看全身照](avatar-33.webp) | 連身裙 | 有跟鞋 |
 | avatar-34 | ![頭像](../profile/avatar-34.webp) | [查看全身照](avatar-34.webp) | 上衣、短裙 | 有跟鞋 |
@@ -74,7 +74,7 @@
 | avatar-57 | ![頭像](../profile/avatar-57.webp) | [查看全身照](avatar-57.webp) | 連身裙 | 有跟鞋 |
 | avatar-58 | ![頭像](../profile/avatar-58.webp) | [查看全身照](avatar-58.webp) | 上衣、短裙 | 有跟鞋 |
 | avatar-59 | ![頭像](../profile/avatar-59.webp) | [查看全身照](avatar-59.webp) | 上衣、長褲 | 有跟鞋 |
-| avatar-60 | ![頭像](../profile/avatar-60.webp) | [查看全身照](avatar-60.webp) | 上衣、褲子 | 有跟鞋 |
+| avatar-60 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/791678841fe0842199df55b4d10fe0b650b5017d/assets/profile/avatar-60.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/791678841fe0842199df55b4d10fe0b650b5017d/assets/fullbody/avatar-60.webp) | 上衣、褲子 | 有跟鞋 |
 | avatar-61 | ![頭像](../profile/avatar-61.webp) | [查看全身照](avatar-61.webp) | 上衣、短裙 | 有跟鞋 |
 | avatar-62 | ![頭像](../profile/avatar-62.webp) | [查看全身照](avatar-62.webp) | 上衣、短裙 | 有跟鞋 |
 | avatar-63 | ![頭像](../profile/avatar-63.webp) | [查看全身照](avatar-63.webp) | 上衣、長裙 | 有跟鞋 |
