@@ -5046,7 +5046,7 @@ const DEFAULT_EQUIPMENT = [
 // Confirmed full-body clothing audit for the 68 active default characters.
 const PARTICIPANT_INITIAL_EQUIPMENT = Object.freeze({
   "avatar-01": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
-  "avatar-02": Object.freeze(["外套", "上衣", "裙子", "胸罩", "內褲"]),
+  "avatar-02": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
   "avatar-03": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
   "avatar-04": Object.freeze(["外套", "上衣", "褲子", "胸罩", "內褲"]),
   "avatar-05": Object.freeze(["上衣", "裙子", "胸罩", "內褲"]),
