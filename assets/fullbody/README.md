@@ -13,72 +13,72 @@
 
 ## 逐張對照
 
-| 編號 | 原始頭像 | 全身照 | 服裝 | 鞋款 |
-|---|---|---|---|---|
-| avatar-01 | ![頭像](../profile/avatar-01.webp) | [查看全身照](avatar-01.webp) | 裙裝・膝上・短版露腰 | 有跟鞋 |
-| avatar-02 | ![頭像](../profile/avatar-02.webp) | [查看全身照](avatar-02.webp) | 一字領上衣・膝上裙 | 黑色高筒跟靴 |
-| avatar-03 | ![頭像](../profile/avatar-03.webp) | [查看全身照](avatar-03.webp) | 裙裝・膝上・短版露腰 | 有跟鞋 |
-| avatar-04 | ![頭像](../profile/avatar-04.webp) | [查看全身照](avatar-04.webp) | 牛仔熱褲・短版露腰內搭 | 平底鞋 |
-| avatar-05 | ![頭像](../profile/avatar-05.webp) | [查看全身照](avatar-05.webp) | 裙裝・膝上・短版露腰 | 平底鞋 |
-| avatar-06 | ![頭像](../profile/avatar-06.webp) | [查看全身照](avatar-06.webp) | 褲裝 | 帆布鞋 |
-| avatar-07 | ![頭像](../profile/avatar-07.webp) | [查看全身照](avatar-07.webp) | 裙裝・膝上・短版露腰 | 有跟鞋 |
-| avatar-08 | ![頭像](../profile/avatar-08.webp) | [查看全身照](avatar-08.webp) | 褲裝 | 帆布鞋 |
-| avatar-09 | ![頭像](../profile/avatar-09.webp) | [查看全身照](avatar-09.webp) | 長裙・及膝以下・短版露腰 | 平底鞋 |
-| avatar-10 | ![頭像](../profile/avatar-10.webp) | [查看全身照](avatar-10.webp) | 牛仔短裙 | 有跟鞋 |
-| avatar-11 | ![頭像](../profile/avatar-11.webp) | [查看全身照](avatar-11.webp) | 裙裝・膝上・短版露腰 | 有跟鞋 |
-| avatar-12 | ![頭像](../profile/avatar-12.webp) | [查看全身照](avatar-12.webp) | 褲裝 | 有跟鞋 |
-| avatar-13 | ![頭像](../profile/avatar-13.webp) | [查看全身照](avatar-13.webp) | 裙裝・膝上 | 帆布鞋 |
-| avatar-14 | ![頭像](../profile/avatar-14.webp) | [查看全身照](avatar-14.webp) | 牛仔短裙 | 有跟鞋 |
-| avatar-15 | ![頭像](../profile/avatar-15.webp) | [查看全身照](avatar-15.webp) | 裙裝・膝上・短版露腰 | 有跟鞋 |
-| avatar-16 | ![頭像](../profile/avatar-16.webp) | [查看全身照](avatar-16.webp) | 褲裝 | 有跟鞋 |
-| avatar-17 | ![頭像](../profile/avatar-17.webp) | [查看全身照](avatar-17.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-18 | ![頭像](../profile/avatar-18.webp) | [查看全身照](avatar-18.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-19 | ![頭像](../profile/avatar-19.webp) | [查看全身照](avatar-19.webp) | 裙裝・及膝以下 | 有跟鞋 |
-| avatar-20 | ![頭像](../profile/avatar-20.webp) | [查看全身照](avatar-20.webp) | 褲裝 | 有跟鞋 |
-| avatar-21 | ![頭像](../profile/avatar-21.webp) | [查看全身照](avatar-21.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-22 | ![頭像](../profile/avatar-22.webp) | [查看全身照](avatar-22.webp) | 一般短裙・膝上・短版露腰 | 平底鞋 |
-| avatar-23 | ![頭像](../profile/avatar-23.webp) | [查看全身照](avatar-23.webp) | 裙裝・膝上 | 平底鞋 |
-| avatar-24 | ![頭像](../profile/avatar-24.webp) | [查看全身照](avatar-24.webp) | 褲裝 | 運動鞋 |
-| avatar-25 | ![頭像](../profile/avatar-25.webp) | [查看全身照](avatar-25.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-26 | ![頭像](../profile/avatar-26.webp) | [查看全身照](avatar-26.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-27 | ![頭像](../profile/avatar-27.webp) | [查看全身照](avatar-27.webp) | 白色運動背心・素黑運動短褲 | 運動鞋 |
-| avatar-28 | ![頭像](../profile/avatar-28.webp) | [查看全身照](avatar-28.webp) | 褲裝 | 有跟鞋 |
-| avatar-29 | ![頭像](../profile/avatar-29.webp) | [查看全身照](avatar-29.webp) | 褲裝・牛仔短褲 | 有跟鞋 |
-| avatar-30 | ![頭像](../profile/avatar-30.webp) | [查看全身照](avatar-30.webp) | 裙裝・膝上・短版露腰 | 有跟鞋 |
-| avatar-31 | ![頭像](../profile/avatar-31.webp) | [查看全身照](avatar-31.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-32 | ![頭像](../profile/avatar-32.webp) | [查看全身照](avatar-32.webp) | 褲裝 | 有跟鞋 |
-| avatar-33 | ![頭像](../profile/avatar-33.webp) | [查看全身照](avatar-33.webp) | 連身裙裝・膝上 | 有跟鞋 |
-| avatar-34 | ![頭像](../profile/avatar-34.webp) | [查看全身照](avatar-34.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-35 | ![頭像](../profile/avatar-35.webp) | [查看全身照](avatar-35.webp) | 裙裝・及膝以下 | 有跟鞋 |
-| avatar-36 | ![頭像](../profile/avatar-36.webp) | [查看全身照](avatar-36.webp) | 褲裝 | 有跟鞋 |
-| avatar-37 | ![頭像](../profile/avatar-37.webp) | [查看全身照](avatar-37.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-38 | ![頭像](../profile/avatar-38.webp) | [查看全身照](avatar-38.webp) | 裙裝・膝上 | 運動鞋 |
-| avatar-39 | ![頭像](../profile/avatar-39.webp) | [查看全身照](avatar-39.webp) | 連身裙裝・膝上 | 平底鞋 |
-| avatar-40 | ![頭像](../profile/avatar-40.webp) | [查看全身照](avatar-40.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-41 | ![頭像](../profile/avatar-41.webp) | [查看全身照](avatar-41.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-42 | ![頭像](../profile/avatar-42.webp) | [查看全身照](avatar-42.webp) | 連身裙裝・膝上 | 平底鞋 |
-| avatar-43 | ![頭像](../profile/avatar-43.webp) | [查看全身照](avatar-43.webp) | 裙裝・及膝以下 | 有跟鞋 |
-| avatar-44 | ![頭像](../profile/avatar-44.webp) | [查看全身照](avatar-44.webp) | 褲裝 | 有跟鞋 |
-| avatar-45 | ![頭像](../profile/avatar-45.webp) | [查看全身照](avatar-45.webp) | 連身裙裝・膝上 | 有跟鞋 |
-| avatar-46 | ![頭像](../profile/avatar-46.webp) | [查看全身照](avatar-46.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-47 | ![頭像](../profile/avatar-47.webp) | [查看全身照](avatar-47.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-48 | ![頭像](../profile/avatar-48.webp) | [查看全身照](avatar-48.webp) | 褲裝 | 有跟鞋 |
-| avatar-49 | ![頭像](../profile/avatar-49.webp) | [查看全身照](avatar-49.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-50 | ![頭像](../profile/avatar-50.webp) | [查看全身照](avatar-50.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-51 | ![頭像](../profile/avatar-51.webp) | [查看全身照](avatar-51.webp) | 裙裝・及膝以下 | 有跟鞋 |
-| avatar-52 | ![頭像](../profile/avatar-52.webp) | [查看全身照](avatar-52.webp) | 褲裝 | 有跟鞋 |
-| avatar-53 | ![頭像](../profile/avatar-53.webp) | [查看全身照](avatar-53.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-54 | ![頭像](../profile/avatar-54.webp) | [查看全身照](avatar-54.webp) | 連身裙裝・膝上 | 有跟鞋 |
-| avatar-55 | ![頭像](../profile/avatar-55.webp) | [查看全身照](avatar-55.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-56 | ![頭像](../profile/avatar-56.webp) | [查看全身照](avatar-56.webp) | 連身裙裝・膝上 | 有跟鞋 |
-| avatar-57 | ![頭像](../profile/avatar-57.webp) | [查看全身照](avatar-57.webp) | 連身裙裝・膝上 | 有跟鞋 |
-| avatar-58 | ![頭像](../profile/avatar-58.webp) | [查看全身照](avatar-58.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-59 | ![頭像](../profile/avatar-59.webp) | [查看全身照](avatar-59.webp) | 牛仔長褲 | 有跟鞋 |
-| avatar-60 | ![頭像](../profile/avatar-60.webp) | [查看全身照](avatar-60.webp) | 褲裝 | 有跟鞋 |
-| avatar-61 | ![頭像](../profile/avatar-61.webp) | [查看全身照](avatar-61.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-62 | ![頭像](../profile/avatar-62.webp) | [查看全身照](avatar-62.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-63 | ![頭像](../profile/avatar-63.webp) | [查看全身照](avatar-63.webp) | 裙裝・及膝以下 | 有跟鞋 |
-| avatar-64 | ![頭像](../profile/avatar-64.webp) | [查看全身照](avatar-64.webp) | 褲裝 | 有跟鞋 |
+| 編號 | 目前頭像 | 全身照 | 服裝 | 鞋款 | 外型／更新說明 |
+|---|---|---|---|---|---|
+| avatar-01 | ![頭像](../profile/avatar-01.webp) | [查看全身照](avatar-01.webp) | 裙裝・膝上・短版露腰 | 有跟鞋 | — |
+| avatar-02 | ![頭像](../profile/avatar-02.webp) | [查看全身照](avatar-02.webp) | 一字領上衣・膝上裙 | 黑色高筒跟靴 | — |
+| avatar-03 | ![頭像](../profile/avatar-03.webp) | [查看全身照](avatar-03.webp) | 裙裝・膝上・短版露腰 | 有跟鞋 | — |
+| avatar-04 | ![頭像](../profile/avatar-04.webp) | [查看全身照](avatar-04.webp) | 牛仔熱褲・短版露腰內搭 | 平底鞋 | — |
+| avatar-05 | ![頭像](../profile/avatar-05.webp) | [查看全身照](avatar-05.webp) | 裙裝・膝上・短版露腰 | 平底鞋 | — |
+| avatar-06 | ![頭像](../profile/avatar-06.webp) | [查看全身照](avatar-06.webp) | 褲裝 | 帆布鞋 | — |
+| avatar-07 | ![頭像](../profile/avatar-07.webp) | [查看全身照](avatar-07.webp) | 裙裝・膝上・短版露腰 | 有跟鞋 | — |
+| avatar-08 | ![頭像](../profile/avatar-08.webp) | [查看全身照](avatar-08.webp) | 褲裝 | 帆布鞋 | — |
+| avatar-09 | ![頭像](../profile/avatar-09.webp) | [查看全身照](avatar-09.webp) | 長裙・及膝以下・短版露腰 | 平底鞋 | — |
+| avatar-10 | ![頭像](../profile/avatar-10.webp) | [查看全身照](avatar-10.webp) | 牛仔短裙 | 有跟鞋 | — |
+| avatar-11 | ![頭像](../profile/avatar-11.webp) | [查看全身照](avatar-11.webp) | 裙裝・膝上・短版露腰 | 有跟鞋 | — |
+| avatar-12 | ![頭像](../profile/avatar-12.webp) | [查看全身照](avatar-12.webp) | 褲裝 | 有跟鞋 | — |
+| avatar-13 | ![頭像](../profile/avatar-13.webp) | [查看全身照](avatar-13.webp) | 裙裝・膝上 | 帆布鞋 | — |
+| avatar-14 | ![頭像](../profile/avatar-14.webp) | [查看全身照](avatar-14.webp) | 牛仔短裙 | 有跟鞋 | — |
+| avatar-15 | ![頭像](../profile/avatar-15.webp) | [查看全身照](avatar-15.webp) | 裙裝・膝上・短版露腰 | 有跟鞋 | — |
+| avatar-16 | ![頭像](../profile/avatar-16.webp) | [查看全身照](avatar-16.webp) | 褲裝 | 有跟鞋 | — |
+| avatar-17 | ![頭像](../profile/avatar-17.webp) | [查看全身照](avatar-17.webp) | 裙裝・膝上 | 有跟鞋 | — |
+| avatar-18 | ![頭像](../profile/avatar-18.webp) | [查看全身照](avatar-18.webp) | 裙裝・膝上 | 有跟鞋 | — |
+| avatar-19 | ![頭像](../profile/avatar-19.webp) | [查看全身照](avatar-19.webp) | 裙裝・及膝以下 | 有跟鞋 | — |
+| avatar-20 | ![頭像](../profile/avatar-20.webp) | [查看全身照](avatar-20.webp) | 褲裝 | 有跟鞋 | — |
+| avatar-21 | ![頭像](../profile/avatar-21.webp) | [查看全身照](avatar-21.webp) | 裙裝・膝上 | 有跟鞋 | — |
+| avatar-22 | ![頭像](../profile/avatar-22.webp) | [查看全身照](avatar-22.webp) | 一般短裙・膝上・短版露腰 | 平底鞋 | — |
+| avatar-23 | ![頭像](../profile/avatar-23.webp) | [查看全身照](avatar-23.webp) | 裙裝・膝上 | 平底鞋 | — |
+| avatar-24 | ![頭像](../profile/avatar-24.webp) | [查看全身照](avatar-24.webp) | 褲裝 | 運動鞋 | — |
+| avatar-25 | ![頭像](../profile/avatar-25.webp) | [查看全身照](avatar-25.webp) | 裙裝・膝上 | 有跟鞋 | — |
+| avatar-26 | ![頭像](../profile/avatar-26.webp?v=1e5bddf) | [查看全身照](avatar-26.webp?v=1e5bddf) | 裙裝・膝上 | 有跟鞋 | 修長臉型・細長眉眼；服裝髮型保留 |
+| avatar-27 | ![頭像](../profile/avatar-27.webp?v=1e5bddf) | [查看全身照](avatar-27.webp?v=1e5bddf) | 白色運動背心・素黑運動短褲 | 運動鞋 | 白色背心與黑短褲；頭像服裝同步 |
+| avatar-28 | ![頭像](../profile/avatar-28.webp) | [查看全身照](avatar-28.webp) | 褲裝 | 有跟鞋 | — |
+| avatar-29 | ![頭像](../profile/avatar-29.webp) | [查看全身照](avatar-29.webp) | 褲裝・牛仔短褲 | 有跟鞋 | — |
+| avatar-30 | ![頭像](../profile/avatar-30.webp) | [查看全身照](avatar-30.webp) | 裙裝・膝上・短版露腰 | 有跟鞋 | — |
+| avatar-31 | ![頭像](../profile/avatar-31.webp?v=1e5bddf) | [查看全身照](avatar-31.webp?v=1e5bddf) | 裙裝・膝上 | 有跟鞋 | 外型參考夏帆・放鬆眉眼與淡表情；服裝髮型保留 |
+| avatar-32 | ![頭像](../profile/avatar-32.webp) | [查看全身照](avatar-32.webp) | 褲裝 | 有跟鞋 | — |
+| avatar-33 | ![頭像](../profile/avatar-33.webp) | [查看全身照](avatar-33.webp) | 連身裙裝・膝上 | 有跟鞋 | — |
+| avatar-34 | ![頭像](../profile/avatar-34.webp) | [查看全身照](avatar-34.webp) | 裙裝・膝上 | 有跟鞋 | — |
+| avatar-35 | ![頭像](../profile/avatar-35.webp) | [查看全身照](avatar-35.webp) | 裙裝・及膝以下 | 有跟鞋 | — |
+| avatar-36 | ![頭像](../profile/avatar-36.webp?v=1e5bddf) | [查看全身照](avatar-36.webp?v=1e5bddf) | 褲裝 | 有跟鞋 | 外型參考向蕙玲・柔和輪廓與自然微笑；服裝髮型保留 |
+| avatar-37 | ![頭像](../profile/avatar-37.webp) | [查看全身照](avatar-37.webp) | 裙裝・膝上 | 有跟鞋 | — |
+| avatar-38 | ![頭像](../profile/avatar-38.webp) | [查看全身照](avatar-38.webp) | 裙裝・膝上 | 運動鞋 | — |
+| avatar-39 | ![頭像](../profile/avatar-39.webp) | [查看全身照](avatar-39.webp) | 連身裙裝・膝上 | 平底鞋 | — |
+| avatar-40 | ![頭像](../profile/avatar-40.webp) | [查看全身照](avatar-40.webp) | 裙裝・膝上 | 有跟鞋 | — |
+| avatar-41 | ![頭像](../profile/avatar-41.webp) | [查看全身照](avatar-41.webp) | 裙裝・膝上 | 有跟鞋 | — |
+| avatar-42 | ![頭像](../profile/avatar-42.webp) | [查看全身照](avatar-42.webp) | 連身裙裝・膝上 | 平底鞋 | — |
+| avatar-43 | ![頭像](../profile/avatar-43.webp) | [查看全身照](avatar-43.webp) | 裙裝・及膝以下 | 有跟鞋 | — |
+| avatar-44 | ![頭像](../profile/avatar-44.webp) | [查看全身照](avatar-44.webp) | 褲裝 | 有跟鞋 | — |
+| avatar-45 | ![頭像](../profile/avatar-45.webp) | [查看全身照](avatar-45.webp) | 連身裙裝・膝上 | 有跟鞋 | — |
+| avatar-46 | ![頭像](../profile/avatar-46.webp) | [查看全身照](avatar-46.webp) | 裙裝・膝上 | 有跟鞋 | — |
+| avatar-47 | ![頭像](../profile/avatar-47.webp) | [查看全身照](avatar-47.webp) | 裙裝・膝上 | 有跟鞋 | — |
+| avatar-48 | ![頭像](../profile/avatar-48.webp) | [查看全身照](avatar-48.webp) | 褲裝 | 有跟鞋 | — |
+| avatar-49 | ![頭像](../profile/avatar-49.webp) | [查看全身照](avatar-49.webp) | 裙裝・膝上 | 有跟鞋 | — |
+| avatar-50 | ![頭像](../profile/avatar-50.webp) | [查看全身照](avatar-50.webp) | 裙裝・膝上 | 有跟鞋 | — |
+| avatar-51 | ![頭像](../profile/avatar-51.webp) | [查看全身照](avatar-51.webp) | 裙裝・及膝以下 | 有跟鞋 | — |
+| avatar-52 | ![頭像](../profile/avatar-52.webp?v=1e5bddf) | [查看全身照](avatar-52.webp?v=1e5bddf) | 褲裝 | 有跟鞋 | 心形臉・柔和拱眉；服裝髮型保留 |
+| avatar-53 | ![頭像](../profile/avatar-53.webp) | [查看全身照](avatar-53.webp) | 裙裝・膝上 | 有跟鞋 | — |
+| avatar-54 | ![頭像](../profile/avatar-54.webp) | [查看全身照](avatar-54.webp) | 連身裙裝・膝上 | 有跟鞋 | — |
+| avatar-55 | ![頭像](../profile/avatar-55.webp) | [查看全身照](avatar-55.webp) | 裙裝・膝上 | 有跟鞋 | — |
+| avatar-56 | ![頭像](../profile/avatar-56.webp) | [查看全身照](avatar-56.webp) | 連身裙裝・膝上 | 有跟鞋 | — |
+| avatar-57 | ![頭像](../profile/avatar-57.webp) | [查看全身照](avatar-57.webp) | 連身裙裝・膝上 | 有跟鞋 | — |
+| avatar-58 | ![頭像](../profile/avatar-58.webp) | [查看全身照](avatar-58.webp) | 裙裝・膝上 | 有跟鞋 | — |
+| avatar-59 | ![頭像](../profile/avatar-59.webp) | [查看全身照](avatar-59.webp) | 牛仔長褲 | 有跟鞋 | — |
+| avatar-60 | ![頭像](../profile/avatar-60.webp) | [查看全身照](avatar-60.webp) | 褲裝 | 有跟鞋 | — |
+| avatar-61 | ![頭像](../profile/avatar-61.webp) | [查看全身照](avatar-61.webp) | 裙裝・膝上 | 有跟鞋 | — |
+| avatar-62 | ![頭像](../profile/avatar-62.webp) | [查看全身照](avatar-62.webp) | 裙裝・膝上 | 有跟鞋 | — |
+| avatar-63 | ![頭像](../profile/avatar-63.webp) | [查看全身照](avatar-63.webp) | 裙裝・及膝以下 | 有跟鞋 | — |
+| avatar-64 | ![頭像](../profile/avatar-64.webp) | [查看全身照](avatar-64.webp) | 褲裝 | 有跟鞋 | — |
 
 
 ## 新增國際角色
