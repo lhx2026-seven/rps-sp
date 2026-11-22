@@ -13,19 +13,6 @@ New participants are drawn without replacement using weights: each of the 64 num
 
 Keep the numbered filenames stable: saved games may refer to these relative paths.
 
-## Regenerated identities
-
-- `avatar-35.webp`: refined feminine face, long black layered hair with wine-red highlights, glamorous rock-chic style.
-- `avatar-38.webp`: delicate face, chestnut wispy bangs and low side ponytail, pearl earrings, fresh elegant style.
-
-These two portraits were regenerated individually, replacing the original sheet-derived versions to distinguish them from avatar-33 and each other. Matching full-body images are in `../fullbody/`.
-
-## Clothing and framing alignment
-
-- 19, 27, 30, 56 and 57: visible headshot clothing updated to match their current full-body outfits.
-- 17 and 33: reframed closer to align face scale with the other avatars.
-- Full-body assets remain unchanged by this update.
-
 ## 新增國際角色
 
 四位皆為 AI 生成的虛構成年女性，圖片生成時設定為 25 歲；遊戲新生成時年齡為 22～30 歲等機率隨機分配（含兩端）。先生成頭像，再參考頭像生成全身照，保留人物特徵與服裝。頭像為 320 × 320 WebP，四位全身照均為 512 × 1024 WebP。
@@ -37,38 +24,4 @@ These two portraits were regenerated individually, replacing the original sheet-
 | avatar-vn | 越南人 | 阮 |
 | avatar-us | 美國白人 | 史密斯 |
 
-共 68 位角色，採加權不重複抽選：每位台灣人物權重為 1，4 位外國人物各為 1/4，初始總權重為 65。第一抽的外國人物合計機率為 1/65，指定外國人物為 1/260；每抽移除已選人物，後續依剩餘權重重新計算。同批可抽到多位不同外國人物，最多 4 位。新建參賽者與新回合的新人物會依頭像帶入上述姓氏，年齡則從 22～30 歲等機率隨機分配，姓名沿用「姓氏＋小姐」格式。既有／匯入人物保留已存姓名及年齡，仍可手動編輯。
-
-## 04／42／18／25 臉部微調
-
-- 04、42：自然臉頰酒窩。
-- 18：嘴角旁小梨窩。
-- 25：上唇中央微翹、略向前突出，嘴唇微啟，隱約露出兩顆上門牙。
-
-先更新頭像，再以新版頭像對應全身照；服裝、鞋款與衣物分類維持原設定，18 保留黑絲襪。
-
-### 原版身形對照修正
-
-04、42、18、25 的全身照各自以臉部微調前原圖為基準修正，保留原本身形、腿部比例及服裝鞋款。25 頭像與全身照同步為自然微翹上唇與隱約兔牙感；04／42 酒窩、18 梨窩保留。
-
-## 32 外型更新
-
-`avatar-32` 頭像與全身照同步調整，以三立主播陳宥蓉的外型氣質為參考，採柔和五官與深色直短學生頭、自然薄瀏海。服裝仍為黑西裝外套、白色上衣、牛仔長褲及黑色高跟鞋；衣物分類不變。
-
-32 頭像與全身照髮型同步改為下巴附近的直短學生頭及薄瀏海，五官、服裝與身形沿用目前設定。
-
-## 07／31／45／47／59 髮色更新
-
-五位角色的頭像與全身照同步改為淡栗棕、略帶自然金色光澤，沿用原有髮型、人物設定及服裝。檔名與圖片尺寸保持不變。
-
-## 02 外型更新
-
-`avatar-02.webp` 與全身照同步更新為虛構成年台灣與白人混血女性設定，較立體五官、偏白膚色及東亞面容，全新較青澀的成年人物臉孔（22 歲生成設定、柔和圓潤臉型、自然平眉、較圓眼型、小巧鼻唇、接近素顏的淡妝）與深栗棕側分長捲髮，身形修長，穿著米白一字領上衣、綠色膝上裙與黑色高筒跟靴。頭像由新版全身照裁切，尺寸維持 320 × 320。
-
-## 09 鳳眼與笑容更新
-
-`avatar-09` 改為細長、眼尾微揚的鳳眼，微笑時眼型自然彎起，呈現溫柔迷人的笑眼。頭像由新版全身照裁切，兩者眼型與笑容一致；髮型、服裝、身形與鞋款沿用原設定。
-
-## 03 嘴型更新
-
-`avatar-03` 以徐若瑄的嘴型感覺為參考，改為小巧、上唇自然前翹的嘴型，嘴角放鬆微笑，唇面連續平順。先生成近照，再參考近照同步全身照；服裝、髮型、身形與鞋款沿用原設定。
+共 68 位角色，採加權不重複抽選：每位台灣人物權重為 1，4 位外國人物各為 1/4，初始總權重為 65。第一抽的外國人物合計機率為 1/65，指定外國人物為 1/260；每抽移除已選人物，後續依剩餘權重重新計算。同批可抽到多位不同外國人物，最多 4 位。新建參賽者與新回合的新人物會依頭像帶入上述姓氏，年齡則從 22～30 歲等機率隨機分配，姓名沿用「姓氏＋小姐」格式。既有／匯入人物保留已存姓名及年齡，仍可手動編輯
