@@ -41,7 +41,7 @@
 | avatar-24 | ![頭像](../profile/avatar-24.webp) | [查看全身照](avatar-24.webp) | 褲裝 | 運動鞋 |
 | avatar-25 | ![頭像](../profile/avatar-25.webp) | [查看全身照](avatar-25.webp) | 裙裝・膝上 | 有跟鞋 |
 | avatar-26 | ![頭像](../profile/avatar-26.webp) | [查看全身照](avatar-26.webp) | 裙裝・膝上 | 有跟鞋 |
-| avatar-27 | ![頭像](../profile/avatar-27.webp) | [查看全身照](avatar-27.webp) | 褲裝・運動短褲 | 運動鞋 |
+| avatar-27 | ![頭像](../profile/avatar-27.webp) | [查看全身照](avatar-27.webp) | 白色運動背心・素黑運動短褲 | 運動鞋 |
 | avatar-28 | ![頭像](../profile/avatar-28.webp) | [查看全身照](avatar-28.webp) | 褲裝 | 有跟鞋 |
 | avatar-29 | ![頭像](../profile/avatar-29.webp) | [查看全身照](avatar-29.webp) | 褲裝・牛仔短褲 | 有跟鞋 |
 | avatar-30 | ![頭像](../profile/avatar-30.webp) | [查看全身照](avatar-30.webp) | 裙裝・膝上・短版露腰 | 有跟鞋 |
