@@ -449,3 +449,8 @@ html:has(#operationPanel:not(.hidden)) { overflow-anchor: none; }
 @media (prefers-reduced-motion: reduce) {
   .participant-stage__penalty-text.is-revealing { animation: none; }
 }
+
+.avatar-url-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; max-width: 100%; }
+.avatar-url-controls input[type="url"] { flex: 1 1 180px; min-width: 0; width: 100%; padding: 8px 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px; }
+.avatar-url-controls button { padding: 8px 10px; }
+.avatar-url-controls [role="status"] { flex-basis: 100%; overflow-wrap: anywhere; }
