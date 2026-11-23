@@ -1,5 +1,5 @@
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
-const ctx={participants:[],roundHistory:[],tournamentRounds:[],tournamentRoundNumber:2,gameConfig:{teamMode:false}};
+const ctx={participants:[],roundHistory:[],tournamentRounds:[],tournamentRoundNumber:2,roundNumber:1,gameConfig:{teamMode:false}};
 const source=fs.readFileSync(require('node:path').join(__dirname,'../game.js'),'utf8');
 vm.createContext(ctx);vm.runInContext(source.slice(source.indexOf('function getStageStatusData()'),source.indexOf('function renderStage()')),ctx);
 const p=(id,key,n=3)=>({id,name:key,participantKey:key,equipment:Array(n).fill('item'),eliminated:false});
@@ -10,10 +10,12 @@ ctx.roundHistory=[normal(7,'tie'),normal(7,'win')];assert.deepEqual(msgs(ctx.par
 ctx.roundHistory.push(normal(7,'loss'),normal(7,'tie'),normal(7,'loss'));assert.deepEqual(msgs(ctx.participants[0]),['2連敗']);
 ctx.participants[0].name='renamed';assert.deepEqual(msgs(ctx.participants[0]),['2連敗']);
 ctx.participants=[p(7,'A',1),p(8,'B',1)];ctx.roundHistory=[];ctx.tournamentRounds=[];
-assert.deepEqual(msgs(ctx.participants[0]),['LAST，一勝難求','一敗未嘗']);
-ctx.roundHistory=[normal(7,'win')];assert.deepEqual(msgs(ctx.participants[0]),['LAST','一敗未嘗']);
-ctx.roundHistory=[normal(7,'tie')];assert.deepEqual(msgs(ctx.participants[0]),['LAST，一勝難求','一敗未嘗']);
-ctx.roundHistory=[normal(7,'loss')];assert.deepEqual(msgs(ctx.participants[0]),['LAST，一勝難求']);
+assert.deepEqual(msgs(ctx.participants[0]),['LAST，一把定江山','一敗未嘗']);
+ctx.roundHistory=[normal(7,'win')];assert.deepEqual(msgs(ctx.participants[0]),['LAST，一把定江山','一敗未嘗']);
+ctx.roundHistory=[normal(7,'tie')];assert.deepEqual(msgs(ctx.participants[0]),['LAST，一把定江山','一敗未嘗']);
+ctx.roundHistory=[normal(7,'loss')];assert.deepEqual(msgs(ctx.participants[0]),['LAST，一把定江山']);
+ctx.participants[1].equipment.push('item');assert.deepEqual(msgs(ctx.participants[0]),['LAST，一勝難求']);
+ctx.roundHistory=[normal(7,'win')];assert.deepEqual(msgs(ctx.participants[0]),['LAST']);
 ctx.participants=[p(7,'A')];ctx.roundHistory=[];assert.deepEqual(msgs(ctx.participants[0]),[]);
 ctx.participants=[p(7,'A'),p(8,'B',0)];ctx.participants[1].eliminated=true;assert.deepEqual(msgs(ctx.participants[0]),[]);
 ctx.gameConfig.teamMode=true;ctx.participants=[{...p(7,'A'),teamId:10},{...p(8,'B'),teamId:10},{...p(9,'C'),teamId:20}];
@@ -26,3 +28,22 @@ ctx.roundHistory=[team('win')];assert.deepEqual(msgs(ctx.participants[0]),['2連
 ctx.roundHistory=[team('loss'),team('tie'),team('loss')];assert.deepEqual(msgs(ctx.participants[0]),['2連敗','團隊2連敗']);
 ctx.participants[0].equipment=['item'];assert.deepEqual(msgs(ctx.participants[0]),['2連敗','團隊2連敗','LAST，一勝難求']);
 console.log('PASS: tie skipping, cross-round identity/renaming, no snapshot duplication/future leakage, LAST and current-round stats, opponent conditions, team representatives and round boundary.');
+
+// Opening hints use this round's initial clothing counts, including participants off stage.
+ctx.gameConfig.teamMode=false;ctx.roundHistory=[];ctx.tournamentRounds=[];ctx.roundNumber=0;
+ctx.participants=[p(1,'A',2),p(2,'B',4),p(3,'C',6)];
+ctx.participants.forEach(who=>who.initialEquipment=[...who.equipment]);
+assert.deepEqual(msgs(ctx.participants[0]),['劣勢開局']);
+assert.deepEqual(msgs(ctx.participants[1]),['劣勢開局','優勢開局']);
+assert.deepEqual(msgs(ctx.participants[2]),['優勢開局']);
+ctx.participants=[p(1,'A',3),p(2,'B',4)];assert.deepEqual(msgs(ctx.participants[0]),[]);assert.deepEqual(msgs(ctx.participants[1]),[]);
+ctx.participants=[p(1,'A',2),p(2,'B',4)];ctx.roundNumber=1;
+assert.deepEqual(msgs(ctx.participants[0]),[]);assert.deepEqual(msgs(ctx.participants[1]),[]);
+ctx.roundNumber=0;ctx.gameConfig.teamMode=true;
+assert.deepEqual(msgs(ctx.participants[0]),['劣勢開局']);assert.deepEqual(msgs(ctx.participants[1]),['優勢開局']);
+ctx.participants.forEach(who=>who.equipment=['item']);ctx.roundNumber=1;
+assert.deepEqual(msgs(ctx.participants[0]),['LAST，一把定江山']);
+ctx.participants.push({...p(3,'C',0),eliminated:true});
+assert.deepEqual(msgs(ctx.participants[0]),['LAST，一勝難求']);
+ctx.participants=[p(1,'A',1)];assert.deepEqual(msgs(ctx.participants[0]),['LAST，一勝難求']);
+console.log('PASS: all-participant LAST priority, opening gap boundaries, initial-only timing and team mode.');

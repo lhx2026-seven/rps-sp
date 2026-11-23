@@ -6039,7 +6039,15 @@ function getStageStatusMessages(participant, data) {
   }
   const stats = data.current.get(key) || { wins: 0, losses: 0 };
   if (participant.equipment?.length === 1) {
-    messages.push(stats.wins === 0 ? "LAST，一勝難求" : "LAST");
+    const allLast = participants.length > 1 && participants.every(p => p.equipment?.length === 1);
+    messages.push(allLast ? "LAST，一把定江山" : stats.wins === 0 ? "LAST，一勝難求" : "LAST");
+  }
+  if (roundNumber === 0 && participants.length > 1) {
+    const startingCount = p => (p.initialEquipment || p.equipment || []).length;
+    const counts = participants.map(startingCount);
+    const count = startingCount(participant);
+    if (Math.max(...counts) - count >= 2) messages.push("劣勢開局");
+    if (count - Math.min(...counts) >= 2) messages.push("優勢開局");
   }
   const opponents = participants.filter(p => p.id !== participant.id && !p.eliminated);
   if (!gameConfig.teamMode && !participant.eliminated && participant.equipment?.length > 0 &&
