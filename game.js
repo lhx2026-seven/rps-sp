@@ -6054,7 +6054,7 @@ function updateStageStatus() {
   const data = getStageStatusData();
   document.querySelectorAll(".participant-stage__status-line").forEach(line => {
     const participant = participants.find(p => String(p.id) === line.dataset.participantId);
-    const text = participant ? getStageStatusMessages(participant, data).join("・") : "";
+    const text = participant ? getStageStatusMessages(participant, data).join("；") : "";
     line.textContent = text;
     line.title = text;
   });
