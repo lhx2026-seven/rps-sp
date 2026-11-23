@@ -17,7 +17,7 @@
 |---|---|---|---|---|
 | avatar-01 | ![頭像](../profile/avatar-01.webp) | [查看全身照](avatar-01.webp) | 短版襯衫、短裙 | 有跟鞋 |
 | avatar-02 | ![頭像](../profile/avatar-02.webp) | [查看全身照](avatar-02.webp) | 一字領上衣、短裙 | 高筒跟靴 |
-| avatar-03 | ![下巴略前突、下顎線柔和的頭像](../profile/avatar-03.webp) | [查看全身照](avatar-03.webp) | 短版泡泡袖上衣、短裙 | 有跟鞋 |
+| avatar-03 | ![偏尖長臉型、下巴略前突的頭像](../profile/avatar-03.webp) | [查看全身照](avatar-03.webp) | 短版泡泡袖上衣、短裙 | 有跟鞋 |
 | avatar-04 | ![頭像](../profile/avatar-04.webp) | [查看全身照](avatar-04.webp) | 牛仔外套、短版上衣、牛仔短褲 | 平底鞋 |
 | avatar-05 | ![頭像](../profile/avatar-05.webp) | [查看全身照](avatar-05.webp) | 短版上衣、短裙 | 平底鞋 |
 | avatar-06 | ![頭像](../profile/avatar-06.webp) | [查看全身照](avatar-06.webp) | 連帽上衣、牛仔長褲 | 帆布鞋 |
@@ -58,7 +58,7 @@
 | avatar-41 | ![頭像](../profile/avatar-41.webp) | [查看全身照](avatar-41.webp) | 襯衫、短裙 | 有跟鞋 |
 | avatar-42 | ![頭像](../profile/avatar-42.webp) | [查看全身照](avatar-42.webp) | 針織上衣、無肩帶連身裙 | 平底鞋 |
 | avatar-43 | ![頭像](../profile/avatar-43.webp) | [查看全身照](avatar-43.webp) | 西裝外套、上衣、長裙 | 有跟鞋 |
-| avatar-44 | ![柔和橢圓臉、杏眼與小嘴型的眼鏡頭像](../profile/avatar-44.webp) | [查看全身照](avatar-44.webp) | 西裝褲套裝、襯衫、針織背心 | 有跟鞋 |
+| avatar-44 | ![柔和橢圓臉、圓弧下巴與小嘴型的眼鏡頭像](../profile/avatar-44.webp) | [查看全身照](avatar-44.webp) | 西裝褲套裝、襯衫、針織背心 | 有跟鞋 |
 | avatar-45 | ![頭像](../profile/avatar-45.webp) | [查看全身照](avatar-45.webp) | 西裝式連身裙 | 有跟鞋 |
 | avatar-46 | ![頭像](../profile/avatar-46.webp) | [查看全身照](avatar-46.webp) | 襯衫、短裙 | 有跟鞋 |
 | avatar-47 | ![頭像](../profile/avatar-47.webp) | [查看全身照](avatar-47.webp) | 短版外套、上衣、短裙 | 有跟鞋 |
