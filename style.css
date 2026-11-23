@@ -379,6 +379,7 @@ html:has(#operationPanel:not(.hidden)) { overflow-anchor: none; }
 .participant-stage__person figcaption { margin-top: 8px; font-size: 14px; overflow-wrap: anywhere; }
 .participant-stage__status { height: 36px; margin-top: 4px; font-size: 12px; line-height: 18px; color: #667085; }
 .participant-stage__status-line, .participant-stage__status-reserved { height: 18px; white-space: nowrap; }
+.participant-stage__status-reserved { color: #dc2626; font-size: 12px; }
 .participant-stage__status-line, .participant-stage__status-reserved { overflow-x: auto; scrollbar-width: none; }
 .participant-stage__status-line::-webkit-scrollbar, .participant-stage__status-reserved::-webkit-scrollbar { display: none; }
 .is-glowing .participant-stage__portrait::before { animation: stage-glow 1100ms ease-out; }
