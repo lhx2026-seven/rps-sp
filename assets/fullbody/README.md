@@ -74,7 +74,7 @@
 | avatar-57 | ![頭像](../profile/avatar-57.webp) | [查看全身照](avatar-57.webp) | 七分袖連身裙 | 有跟鞋 |
 | avatar-58 | ![頭像](../profile/avatar-58.webp) | [查看全身照](avatar-58.webp) | 單肩上衣、短裙 | 有跟鞋 |
 | avatar-59 | ![頭像](../profile/avatar-59.webp) | [查看全身照](avatar-59.webp) | 粗花呢外套、上衣、牛仔長褲 | 有跟鞋 |
-| avatar-60 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/c0c9245193c4a1e2aeae57ee5e39750ce89bb897/assets/profile/avatar-60.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/c0c9245193c4a1e2aeae57ee5e39750ce89bb897/assets/fullbody/avatar-60.webp) | 蝴蝶結襯衫、長褲 | 有跟鞋 |
+| avatar-60 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/2089a9a72726fe528cbe7c9e9beac789a4c3d8ee/assets/profile/avatar-60.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/2089a9a72726fe528cbe7c9e9beac789a4c3d8ee/assets/fullbody/avatar-60.webp) | 蝴蝶結襯衫、長褲 | 有跟鞋 |
 | avatar-61 | ![頭像](../profile/avatar-61.webp) | [查看全身照](avatar-61.webp) | 西裝外套、上衣、短裙 | 有跟鞋 |
 | avatar-62 | ![頭像](../profile/avatar-62.webp) | [查看全身照](avatar-62.webp) | 垂領上衣、短裙 | 有跟鞋 |
 | avatar-63 | ![頭像](../profile/avatar-63.webp) | [查看全身照](avatar-63.webp) | 襯衫、長裙 | 有跟鞋 |
