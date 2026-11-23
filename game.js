@@ -6062,6 +6062,14 @@ function getStageStatusMessages(participant, data) {
   return messages;
 }
 
+function getStageEquipmentStatus(participant) {
+  if (!Array.isArray(participant.equipment)) return "";
+  if (participant.equipment.length === 0) return "脫光全裸";
+  return getEquipmentPatternResults(
+    participant, getAccumulatedEquipmentHistory(participant)
+  ).join("；");
+}
+
 function updateStageStatus() {
   const data = getStageStatusData();
   document.querySelectorAll(".participant-stage__status-line").forEach(line => {
@@ -6069,6 +6077,10 @@ function updateStageStatus() {
     const text = participant ? getStageStatusMessages(participant, data).join("；") : "";
     line.textContent = text;
     line.title = text;
+    const equipmentLine = line.nextElementSibling;
+    const equipmentText = participant ? getStageEquipmentStatus(participant) : "";
+    equipmentLine.textContent = equipmentText;
+    equipmentLine.title = equipmentText;
   });
 }
 

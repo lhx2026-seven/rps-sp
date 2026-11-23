@@ -71,3 +71,16 @@ assert.deepEqual(msgs(ctx.participants[0]),['LAST，一把定江山','2連勝','
 ctx.participants[0].equipment=['item','item'];
 assert.deepEqual(msgs(ctx.participants[0]),['2連勝','纏鬥中','一敗未嘗']);
 console.log('PASS: simultaneous hints ordered by LAST, personal streak/draws, undefeated, team streak.');
+
+// Stage clothing hints share the animation's exposure rules and exclude penalties.
+vm.runInContext(source.slice(source.indexOf('function getEquipmentPatternResults('),source.indexOf('function getAccumulatedEquipmentHistory(')),ctx);
+ctx.getAccumulatedEquipmentHistory=who=>who.equipmentHistory || [];
+const clothingStatus=(items,removed,penalties=[])=>ctx.getStageEquipmentStatus({equipment:items,equipmentHistory:removed.map(equipment=>({equipment})),penalties});
+assert.equal(clothingStatus(['襪子'],[]),'');
+assert.equal(clothingStatus(['襪子'],['胸罩','上衣']),'露奶');
+assert.equal(clothingStatus(['襪子'],['內褲','褲子']),'露下體');
+assert.equal(clothingStatus(['襪子'],['胸罩','內褲','洋裝']),'露奶；露下體');
+assert.equal(clothingStatus([],['胸罩','內褲','洋裝']),'脫光全裸');
+assert.equal(clothingStatus(['上衣'],[],['露奶','露下體','脫光全裸']),'');
+assert.equal(ctx.getStageEquipmentStatus({}),'');
+console.log('PASS: clothing hints, combined exposure, full undress priority and penalty exclusion.');
