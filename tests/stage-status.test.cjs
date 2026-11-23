@@ -113,16 +113,29 @@ const makeNode=(tag,text,className)=>({tag,textContent:text,className,children:[
  setAttribute(name,value){this[name]=value;},addEventListener(name,fn){this.listeners[name]=fn;},
  classList:{remove(){}}});
 ctx.element=makeNode;
-const caption=makeNode('figcaption');
-const figure={querySelector:selector=>selector==='figcaption'?caption:null};
+const caption=makeNode('div');
+const effects=[];ctx.queueGameEffect=(...args)=>effects.push(args);
+const figure={querySelector:selector=>selector==='.participant-stage__status-reserved'?caption:null};
 ctx.updateStagePenalty(figure,eliminated);
 const holder=caption.children.at(-1),button=holder.children[0];
-assert.equal(button.textContent,'罰');button.listeners.click();
+assert.equal(button.textContent,'罰');
+assert.equal(effects.length,0);
+button.listeners.click();
+assert.deepEqual(effects[0],['penalty','<b>測試處罰</b>',eliminated]);
 assert.equal(holder.children[0].textContent,'<b>測試處罰</b>');
 assert.equal(holder.children[0].tag,'span');
 ctx.updateStagePenalty(figure,eliminated);
 assert.equal(caption.children.at(-1).children[0].tag,'span');
+assert.equal(effects.length,1);
 outcome=null;ctx.updateStagePenalty(figure,eliminated);
 outcome={};ctx.updateStagePenalty(figure,eliminated);
 assert.equal(caption.children.at(-1).children[0].tag,'button');
 console.log('PASS: final penalty gating, pending settlement, team elimination, safe text reveal and restart reset.');
+
+// Elimination records state without playing the penalty before reveal.
+vm.runInContext(source.slice(source.indexOf('function markParticipantEliminated('),source.indexOf('function queueGameEffect(')),ctx);
+const newlyEliminated={eliminated:false};
+ctx.markParticipantEliminated(newlyEliminated);
+assert.equal(newlyEliminated.eliminated,true);
+assert.equal(effects.length,1);
+console.log('PASS: penalty animation waits for reveal click and does not replay on rerender.');

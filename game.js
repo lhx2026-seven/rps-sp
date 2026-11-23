@@ -5819,8 +5819,6 @@ let gameEffectScheduled = false;
 function markParticipantEliminated(participant) {
   if (participant.eliminated) return;
   participant.eliminated = true;
-  const penalty = gameConfig.eliminationPenalty?.trim();
-  if (penalty) queueGameEffect("penalty", penalty, participant);
 }
 
 function queueGameEffect(kind, text, participant) {
@@ -6095,13 +6093,14 @@ function updateStagePenalty(figure, participant) {
     button.setAttribute("aria-label", `${getParticipantDisplayName(participant)}：揭曉處罰內容`);
     button.addEventListener("click", () => {
       stagePenaltyReveals.set(participant, key);
+      queueGameEffect("penalty", penalty, participant);
       const text = element("span", penalty, "participant-stage__penalty-text is-revealing");
       holder.replaceChildren(text);
       text.addEventListener("animationend", () => text.classList.remove("is-revealing"), {once: true});
     });
     holder.appendChild(button);
   }
-  figure.querySelector("figcaption").appendChild(holder);
+  figure.querySelector(".participant-stage__status-reserved").appendChild(holder);
 }
 
 function getStageEquipmentStatus(participant) {
