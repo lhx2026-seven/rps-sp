@@ -6030,20 +6030,26 @@ function getStageStatusData() {
 function getStageStatusMessages(participant, data) {
   const messages = [];
   const key = participant.participantKey || `legacy:${participant.name}`;
+  const stats = data.current.get(key) || { wins: 0, losses: 0 };
+  if (participant.equipment?.length === 1) {
+    const allLast = participants.length > 1 && participants.every(p => p.equipment?.length === 1);
+    messages.push(allLast ? "LAST，一把定江山" : stats.wins === 0 ? "LAST，一勝難求" : "LAST");
+  }
   const streak = data.personal.get(key);
   if (streak?.count >= 2) {
     messages.push(`${streak.count}連${streak.result === "win" ? "勝" : "敗"}`);
+  }
+  if ((data.ties.get(key) || 0) >= 3) messages.push("纏鬥中");
+  const opponents = participants.filter(p => p.id !== participant.id && !p.eliminated);
+  if (!gameConfig.teamMode && !participant.eliminated && participant.equipment?.length > 0 &&
+      stats.losses === 0 && opponents.length > 0 &&
+      opponents.every(p => p.equipment?.length === 1)) {
+    messages.push("一敗未嘗");
   }
   const teamStreak = gameConfig.teamMode && participant.teamId != null
     ? data.teamStreaks.get(String(participant.teamId)) : null;
   if (teamStreak?.count >= 2) {
     messages.push(`團隊${teamStreak.count}連${teamStreak.result === "win" ? "勝" : "敗"}`);
-  }
-  if ((data.ties.get(key) || 0) >= 3) messages.push("纏鬥中");
-  const stats = data.current.get(key) || { wins: 0, losses: 0 };
-  if (participant.equipment?.length === 1) {
-    const allLast = participants.length > 1 && participants.every(p => p.equipment?.length === 1);
-    messages.push(allLast ? "LAST，一把定江山" : stats.wins === 0 ? "LAST，一勝難求" : "LAST");
   }
   if (roundNumber === 0 && participants.length > 1) {
     const startingCount = p => (p.initialEquipment || p.equipment || []).length;
@@ -6051,12 +6057,6 @@ function getStageStatusMessages(participant, data) {
     const count = startingCount(participant);
     if (Math.max(...counts) - count >= 2) messages.push("劣勢開局");
     if (count - Math.min(...counts) >= 2) messages.push("優勢開局");
-  }
-  const opponents = participants.filter(p => p.id !== participant.id && !p.eliminated);
-  if (!gameConfig.teamMode && !participant.eliminated && participant.equipment?.length > 0 &&
-      stats.losses === 0 && opponents.length > 0 &&
-      opponents.every(p => p.equipment?.length === 1)) {
-    messages.push("一敗未嘗");
   }
   return messages;
 }

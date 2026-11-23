@@ -26,7 +26,7 @@ ctx.roundHistory.push(team('win'));assert.deepEqual(msgs(ctx.participants[0]),['
 ctx.tournamentRounds=[{tournamentRoundNumber:1,participants:[{...p(1,'A'),teamId:10}],roundHistory:[team('win',1)]}];
 ctx.roundHistory=[team('win')];assert.deepEqual(msgs(ctx.participants[0]),['2連勝']);
 ctx.roundHistory=[team('loss'),team('tie'),team('loss')];assert.deepEqual(msgs(ctx.participants[0]),['2連敗','團隊2連敗']);
-ctx.participants[0].equipment=['item'];assert.deepEqual(msgs(ctx.participants[0]),['2連敗','團隊2連敗','LAST，一勝難求']);
+ctx.participants[0].equipment=['item'];assert.deepEqual(msgs(ctx.participants[0]),['LAST，一勝難求','2連敗','團隊2連敗']);
 console.log('PASS: tie skipping, cross-round identity/renaming, no snapshot duplication/future leakage, LAST and current-round stats, opponent conditions, team representatives and round boundary.');
 
 // Opening hints use this round's initial clothing counts, including participants off stage.
@@ -60,3 +60,14 @@ assert.deepEqual(msgs(ctx.participants[0]),['2連勝','纏鬥中']);
 ctx.gameConfig.teamMode=true;ctx.roundHistory=[team('tie',1),team('tie',1),team('tie',1)];
 assert.deepEqual(msgs(ctx.participants[0]),['纏鬥中']);assert.deepEqual(msgs(ctx.participants[1]),[]);
 console.log('PASS: three-plus consecutive draws, decisive result reset, other-player inactivity, cross-round identity and coexistence with win streaks.');
+
+// Priority: LAST variant, personal streak, draw streak, undefeated, team streak.
+ctx.roundNumber=1;ctx.gameConfig.teamMode=true;ctx.participants=[{...p(1,'A',1),teamId:10},p(2,'B',3)];
+ctx.tournamentRounds=[];ctx.roundHistory=[team('win',1),team('win',1),team('tie',1),team('tie',1),team('tie',1)];
+assert.deepEqual(msgs(ctx.participants[0]),['LAST','2連勝','纏鬥中','團隊2連勝']);
+ctx.gameConfig.teamMode=false;ctx.participants[1].equipment=['item'];
+ctx.roundHistory=[normal(1,'win'),normal(1,'win'),normal(1,'tie'),normal(1,'tie'),normal(1,'tie')];
+assert.deepEqual(msgs(ctx.participants[0]),['LAST，一把定江山','2連勝','纏鬥中','一敗未嘗']);
+ctx.participants[0].equipment=['item','item'];
+assert.deepEqual(msgs(ctx.participants[0]),['2連勝','纏鬥中','一敗未嘗']);
+console.log('PASS: simultaneous hints ordered by LAST, personal streak/draws, undefeated, team streak.');
