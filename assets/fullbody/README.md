@@ -42,13 +42,13 @@
 | avatar-25 | ![頭像](../profile/avatar-25.webp) | [查看全身照](avatar-25.webp) | 襯衫、針織背心、短裙 | 有跟鞋 |
 | avatar-26 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/791678841fe0842199df55b4d10fe0b650b5017d/assets/profile/avatar-26.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/791678841fe0842199df55b4d10fe0b650b5017d/assets/fullbody/avatar-26.webp) | 襯衫、短裙 | 粗跟鞋 |
 | avatar-27 | ![頭像](../profile/avatar-27.webp) | [查看全身照](avatar-27.webp) | 白色運動背心、黑色運動短褲 | 白色珊瑚橘配色運動鞋 |
-| avatar-28 | ![深髮帶紫色挑染的頭像](../profile/avatar-28.webp) | [查看全身照](avatar-28.webp) | 米白麻花針織上衣、深藍直筒長褲 | 藕粉色尖頭跟鞋 |
+| avatar-28 | ![眼神俐落、深髮帶紫色挑染的頭像](../profile/avatar-28.webp) | [查看全身照](avatar-28.webp) | 米白麻花針織上衣、深藍直筒長褲 | 藕粉色尖頭跟鞋 |
 | avatar-29 | ![頭像](../profile/avatar-29.webp) | [查看全身照](avatar-29.webp) | 牛仔外套、T恤、牛仔短褲 | 有跟鞋 |
 | avatar-30 | ![頭像](../profile/avatar-30.webp) | [查看全身照](avatar-30.webp) | 短版襯衫、短裙 | 有跟鞋 |
 | avatar-31 | ![頭像](../profile/avatar-31.webp) | [查看全身照](avatar-31.webp) | 蝴蝶結襯衫、短裙、褲襪 | 高跟鞋 |
 | avatar-32 | ![頭像](../profile/avatar-32.webp) | [查看全身照](avatar-32.webp) | 西裝外套、T恤、牛仔長褲 | 有跟鞋 |
 | avatar-33 | ![頭像](../profile/avatar-33.webp) | [查看全身照](avatar-33.webp) | 連身裙 | 有跟鞋 |
-| avatar-34 | ![小而偏短的臉型、薄唇與白皙膚色的頭像](../profile/avatar-34.webp) | [查看全身照](avatar-34.webp) | 西裝外套、襯衫、短裙 | 有跟鞋 |
+| avatar-34 | ![臉頰較飽滿、薄唇與白皙膚色的頭像](../profile/avatar-34.webp) | [查看全身照](avatar-34.webp) | 西裝外套、襯衫、短裙 | 有跟鞋 |
 | avatar-35 | ![頭像](../profile/avatar-35.webp) | [查看全身照](avatar-35.webp) | 皮外套、上衣、長裙 | 有跟鞋 |
 | avatar-36 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/b3fc3ec48d7f1b14cbc569f40d80cf898de92195/assets/profile/avatar-36.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/04d7771f4be29b83d74e8b35f15b7b3eca9fcf3d/assets/fullbody/avatar-36.webp) | 翻領針織上衣、長褲 | 高跟鞋 |
 | avatar-37 | ![頭像](../profile/avatar-37.webp) | [查看全身照](avatar-37.webp) | 襯衫、短裙 | 有跟鞋 |
