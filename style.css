@@ -373,13 +373,26 @@ html:has(#operationPanel:not(.hidden)) { overflow-anchor: none; }
 .participant-stage__person { position: relative; flex: 1 0 170px; max-width: 240px; margin: 0; text-align: center; scroll-snap-align: center; }
 .participant-stage__person:first-child { margin-left: auto; }
 .participant-stage__person:last-child { margin-right: auto; }
-.participant-stage__portrait { position: relative; isolation: isolate; height: clamp(112px, 29svh, 230px); }
+.participant-stage__portrait { position: relative; isolation: isolate; height: clamp(112px, 29svh, 230px); overflow: hidden; }
 .participant-stage__portrait::before { content: ""; position: absolute; inset: 5% 0 0; border-radius: 50%; background: radial-gradient(ellipse, #fff0b3 0%, #fff9e4 40%, transparent 72%); opacity: 0; z-index: -1; }
 .participant-stage__portrait img { width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.participant-stage__portrait.is-zoomed { cursor: zoom-in; }
+.participant-stage__portrait.is-zoomed img {
+  transform: scale(2);
+  transform-origin: var(--portrait-zoom-origin);
+  pointer-events: none;
+}
 .participant-stage__person figcaption { margin-top: 8px; font-size: 14px; overflow-wrap: anywhere; }
 .participant-stage__status { height: 36px; margin-top: 4px; font-size: 12px; line-height: 18px; color: #667085; }
 .participant-stage__status-line, .participant-stage__status-reserved { height: 18px; white-space: nowrap; }
-.participant-stage__status-reserved { color: #dc2626; font-size: 12px; }
+.participant-stage__status-reserved {
+  display: flex;
+  align-items: center;
+  justify-content: safe center;
+  gap: 4px;
+  color: #dc2626;
+  font-size: 12px;
+}
 .participant-stage__status-line, .participant-stage__status-reserved { overflow-x: auto; scrollbar-width: none; }
 .participant-stage__status-line::-webkit-scrollbar, .participant-stage__status-reserved::-webkit-scrollbar { display: none; }
 .is-glowing .participant-stage__portrait::before { animation: stage-glow 1100ms ease-out; }
@@ -410,8 +423,27 @@ html:has(#operationPanel:not(.hidden)) { overflow-anchor: none; }
 .participant-stage__note:focus-within .participant-stage__note-count { visibility: visible; }
 @media (pointer: coarse) { .participant-stage .participant-stage__note-input { font-size: 16px; } }
 
-.participant-stage__penalty { display: inline; margin-left: 4px; color: #dc2626; font-size: 12px; font-weight: normal; }
-.participant-stage__penalty-button { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; width: 14px; height: 14px; padding: 0; margin: 0; border: 0; border-radius: 2px; background: #dc2626; color: #fff; font-size: 10px; line-height: 1; vertical-align: middle; cursor: pointer; }
+.participant-stage__penalty { flex: none; color: #dc2626; font-size: 12px; font-weight: normal; }
+.participant-stage__penalty-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 2px;
+  background: #dc2626;
+  color: #fff;
+  font-size: 10px;
+  line-height: normal;
+  cursor: pointer;
+}
+.participant-stage__penalty-button:hover:not(:disabled) { background: #b91c1c; }
+.participant-stage__penalty-button:focus-visible { outline-offset: 0; }
 .participant-stage__penalty-text { display: inline; font-size: inherit; line-height: inherit; vertical-align: baseline; }
 .participant-stage__penalty-text.is-revealing { animation: stage-shake 360ms ease-out; }
 @media (prefers-reduced-motion: reduce) {
