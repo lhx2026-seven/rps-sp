@@ -1276,6 +1276,11 @@ function renderParticipantSettings() {
     avatarUrl.setAttribute("aria-label", "頭像圖片網址");
     avatarUrl.value = /^https?:\/\//i.test(participant.avatar || "")
       ? participant.avatar : "";
+    const urlStageLabel = element("label", undefined, "avatar-url-stage checkbox-setting");
+    const urlStageToggle = element("input");
+    urlStageToggle.type = "checkbox";
+    urlStageToggle.checked = participant.onStage === true;
+    urlStageLabel.append(urlStageToggle, document.createTextNode("on stage（在舞台顯示原圖）"));
     const applyUrl = element("button", "使用網址");
     applyUrl.type = "button";
     const urlStatus = element("span", "請貼上可直接開啟圖片的 HTTP／HTTPS 網址。", "small");
@@ -1295,6 +1300,7 @@ function renderParticipantSettings() {
       }
       applyUrl.disabled = true;
       avatarUrl.disabled = true;
+      urlStageToggle.disabled = true;
       urlStatus.textContent = "正在載入圖片…";
       try {
         await new Promise((resolve, reject) => {
@@ -1311,8 +1317,8 @@ function renderParticipantSettings() {
           image.src = url.href;
         });
         participant.avatar = url.href;
-        participant.stageImage = "";
-        participant.onStage = false;
+        participant.stageImage = urlStageToggle.checked ? url.href : "";
+        participant.onStage = urlStageToggle.checked;
         renderParticipantSettings();
         renderOperationPanel();
         renderTeamControls();
@@ -1323,6 +1329,7 @@ function renderParticipantSettings() {
       } finally {
         applyUrl.disabled = false;
         avatarUrl.disabled = false;
+        urlStageToggle.disabled = false;
       }
     }
     applyUrl.addEventListener("click", applyAvatarUrl);
@@ -1332,7 +1339,7 @@ function renderParticipantSettings() {
         void applyAvatarUrl();
       }
     });
-    urlControls.append(avatarUrl, applyUrl, urlStatus);
+    urlControls.append(avatarUrl, applyUrl, urlStageLabel, urlStatus);
     const sourcePicker = element("details", undefined, "avatar-source-picker");
     const sourceSummary = element("summary", "選擇圖片");
     const sourceOptions = element("div", undefined, "avatar-source-options");
