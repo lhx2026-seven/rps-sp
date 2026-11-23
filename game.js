@@ -3148,6 +3148,7 @@ async function saveRoundToHistory(roundData) {
       gameConfig.eliminationPenalty
   });
 
+  updateStageStatus();
   saveCurrentTournamentRoundSnapshot();
   await saveGameState();
 }
@@ -5982,6 +5983,83 @@ function createStageNote() {
   return wrapper;
 }
 
+// Histories are read in tournament order. The live round replaces its saved snapshot.
+function getStageStatusData() {
+  const personal = new Map();
+  const current = new Map();
+  const teamStreaks = new Map();
+  const identity = participant => participant.participantKey || `legacy:${participant.name}`;
+  const advance = (map, key, result) => {
+    if (result !== "win" && result !== "loss") return;
+    const previous = map.get(key);
+    map.set(key, { result, count: previous?.result === result ? previous.count + 1 : 1 });
+  };
+  const rounds = tournamentRounds
+    .filter(snapshot => Number(snapshot.tournamentRoundNumber) < Number(tournamentRoundNumber))
+    .sort((a, b) => Number(a.tournamentRoundNumber) - Number(b.tournamentRoundNumber));
+  rounds.push({ participants, roundHistory, current: true });
+  rounds.forEach(snapshot => {
+    const people = new Map((snapshot.participants || []).map(p => [String(p.id), p]));
+    (snapshot.roundHistory || []).forEach(record => {
+      Object.entries(record.results || {}).forEach(([id, result]) => {
+        if (!["win", "loss", "tie"].includes(result)) return;
+        let person;
+        if (record.mode === "team") {
+          if (snapshot.current) advance(teamStreaks, String(id), result);
+          person = people.get(String(record.representatives?.[`team-${id}`]));
+        } else if (record.mode === "normal") {
+          person = people.get(String(id));
+        }
+        if (!person) return;
+        const key = identity(person);
+        advance(personal, key, result);
+        if (snapshot.current) {
+          const stats = current.get(key) || { wins: 0, losses: 0 };
+          if (result === "win") stats.wins++;
+          if (result === "loss") stats.losses++;
+          current.set(key, stats);
+        }
+      });
+    });
+  });
+  return { personal, current, teamStreaks };
+}
+
+function getStageStatusMessages(participant, data) {
+  const messages = [];
+  const key = participant.participantKey || `legacy:${participant.name}`;
+  const streak = data.personal.get(key);
+  if (streak?.count >= 2) {
+    messages.push(`${streak.count}連${streak.result === "win" ? "勝" : "敗"}`);
+  }
+  const teamStreak = gameConfig.teamMode && participant.teamId != null
+    ? data.teamStreaks.get(String(participant.teamId)) : null;
+  if (teamStreak?.count >= 2) {
+    messages.push(`團隊${teamStreak.count}連${teamStreak.result === "win" ? "勝" : "敗"}`);
+  }
+  const stats = data.current.get(key) || { wins: 0, losses: 0 };
+  if (participant.equipment?.length === 1) {
+    messages.push(stats.wins === 0 ? "LAST，一勝難求" : "LAST");
+  }
+  const opponents = participants.filter(p => p.id !== participant.id && !p.eliminated);
+  if (!gameConfig.teamMode && !participant.eliminated && participant.equipment?.length > 0 &&
+      stats.losses === 0 && opponents.length > 0 &&
+      opponents.every(p => p.equipment?.length === 1)) {
+    messages.push("一敗未嘗");
+  }
+  return messages;
+}
+
+function updateStageStatus() {
+  const data = getStageStatusData();
+  document.querySelectorAll(".participant-stage__status-line").forEach(line => {
+    const participant = participants.find(p => String(p.id) === line.dataset.participantId);
+    const text = participant ? getStageStatusMessages(participant, data).join("・") : "";
+    line.textContent = text;
+    line.title = text;
+  });
+}
+
 function renderStage() {
   let stage = document.getElementById("participantStage");
   if (!stage) {
@@ -6030,10 +6108,15 @@ function renderStage() {
     image.loading = "lazy";
     image.addEventListener("error", () => { figure.hidden = true; }, {once: true});
     portrait.appendChild(image);
-    figure.append(portrait, element("figcaption", getParticipantDisplayName(p)));
+    const status = element("div", undefined, "participant-stage__status");
+    const statusLine = element("div", undefined, "participant-stage__status-line");
+    statusLine.dataset.participantId = String(p.id);
+    status.append(statusLine, element("div", undefined, "participant-stage__status-reserved"));
+    figure.append(portrait, element("figcaption", getParticipantDisplayName(p)), status);
     track.appendChild(figure);
   });
   stage.append(header, track, createStageNote());
+  updateStageStatus();
   track.scrollLeft = previousScroll;
   const updateNavigation = () => {
     const overflow = track.scrollWidth > track.clientWidth + 1;
