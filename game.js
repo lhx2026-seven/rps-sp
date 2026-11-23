@@ -4617,6 +4617,7 @@ function checkGameEnd() {
   if (gameConfig.manualSettlementState) {
     if (hasPendingEquipment()) return;
     gameConfig.manualSettlementState = "completed";
+    updateStageStatus();
     resultPanel.classList.remove("hidden");
     if (!document.getElementById("manualSettlementEndMessage")) {
       const message = element("div", "本回合已結束");
@@ -4632,6 +4633,7 @@ function checkGameEnd() {
     message?.remove();
     return;
   }
+  updateStageStatus();
   resultList.querySelectorAll(".round-elimination-notice").forEach(notice => notice.remove());
   resultPanel.classList.remove("hidden");
   if (!message) {
@@ -6062,6 +6064,46 @@ function getStageStatusMessages(participant, data) {
   return messages;
 }
 
+// Reveal state follows participant objects and resets when a round is restarted.
+const stagePenaltyReveals = new WeakMap();
+
+function getStagePenalty(participant) {
+  const penalty = gameConfig.eliminationPenalty?.trim() || "";
+  if (!penalty || hasPendingEquipment() || headcountHandTransaction) return "";
+  const completed = gameConfig.manualSettlementState === "completed" ||
+    (!gameConfig.manualSettlementState && !!getRoundEndResult());
+  if (!completed) return "";
+  const team = gameConfig.teamMode
+    ? teams.find(item => item.id === participant.teamId) : null;
+  return participant.eliminated || team?.eliminated ? penalty : "";
+}
+
+function updateStagePenalty(figure, participant) {
+  figure.querySelector(".participant-stage__penalty")?.remove();
+  const penalty = getStagePenalty(participant);
+  if (!penalty) {
+    stagePenaltyReveals.delete(participant);
+    return;
+  }
+  const key = JSON.stringify([tournamentRoundNumber, penalty]);
+  const holder = element("span", undefined, "participant-stage__penalty");
+  if (stagePenaltyReveals.get(participant) === key) {
+    holder.appendChild(element("span", penalty, "participant-stage__penalty-text"));
+  } else {
+    const button = element("button", "罰", "participant-stage__penalty-button");
+    button.type = "button";
+    button.setAttribute("aria-label", `${getParticipantDisplayName(participant)}：揭曉處罰內容`);
+    button.addEventListener("click", () => {
+      stagePenaltyReveals.set(participant, key);
+      const text = element("span", penalty, "participant-stage__penalty-text is-revealing");
+      holder.replaceChildren(text);
+      text.addEventListener("animationend", () => text.classList.remove("is-revealing"), {once: true});
+    });
+    holder.appendChild(button);
+  }
+  figure.querySelector("figcaption").appendChild(holder);
+}
+
 function getStageEquipmentStatus(participant) {
   if (!Array.isArray(participant.equipment)) return "";
   if (participant.equipment.length === 0) return "脫光全裸";
@@ -6081,6 +6123,7 @@ function updateStageStatus() {
     const equipmentText = participant ? getStageEquipmentStatus(participant) : "";
     equipmentLine.textContent = equipmentText;
     equipmentLine.title = equipmentText;
+    if (participant) updateStagePenalty(line.closest(".participant-stage__person"), participant);
   });
 }
 

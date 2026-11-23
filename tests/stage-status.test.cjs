@@ -84,3 +84,45 @@ assert.equal(clothingStatus([],['胸罩','內褲','洋裝']),'脫光全裸');
 assert.equal(clothingStatus(['上衣'],[],['露奶','露下體','脫光全裸']),'');
 assert.equal(ctx.getStageEquipmentStatus({}),'');
 console.log('PASS: clothing hints, combined exposure, full undress priority and penalty exclusion.');
+
+// Penalty badges appear only for final eliminated players, after settlement.
+let pending=false,outcome=null;
+ctx.hasPendingEquipment=()=>pending;
+ctx.getRoundEndResult=()=>outcome;
+ctx.headcountHandTransaction=null;
+ctx.gameConfig={teamMode:false,eliminationPenalty:'  測試處罰  '};
+const eliminated={id:1,name:'A',eliminated:true};
+assert.equal(ctx.getStagePenalty(eliminated),'');
+outcome={losers:['A']};
+assert.equal(ctx.getStagePenalty(eliminated),'測試處罰');
+assert.equal(ctx.getStagePenalty({...eliminated,eliminated:false}),'');
+pending=true;assert.equal(ctx.getStagePenalty(eliminated),'');pending=false;
+ctx.headcountHandTransaction={};assert.equal(ctx.getStagePenalty(eliminated),'');ctx.headcountHandTransaction=null;
+ctx.gameConfig.manualSettlementState='pending';assert.equal(ctx.getStagePenalty(eliminated),'');
+ctx.gameConfig.manualSettlementState='completed';assert.equal(ctx.getStagePenalty(eliminated),'測試處罰');
+delete ctx.gameConfig.manualSettlementState;
+ctx.gameConfig.teamMode=true;ctx.teams=[{id:10,eliminated:true}];
+assert.equal(ctx.getStagePenalty({...eliminated,eliminated:false,teamId:10}),'測試處罰');
+ctx.gameConfig.eliminationPenalty='  ';assert.equal(ctx.getStagePenalty(eliminated),'');
+
+// Reveal replaces the button with literal text and survives stage rerendering.
+ctx.gameConfig={teamMode:false,eliminationPenalty:'<b>測試處罰</b>'};
+ctx.getParticipantDisplayName=p=>p.name;
+const makeNode=(tag,text,className)=>({tag,textContent:text,className,children:[],listeners:{},
+ appendChild(child){this.children.push(child);},replaceChildren(...children){this.children=children;},
+ setAttribute(name,value){this[name]=value;},addEventListener(name,fn){this.listeners[name]=fn;},
+ classList:{remove(){}}});
+ctx.element=makeNode;
+const caption=makeNode('figcaption');
+const figure={querySelector:selector=>selector==='figcaption'?caption:null};
+ctx.updateStagePenalty(figure,eliminated);
+const holder=caption.children.at(-1),button=holder.children[0];
+assert.equal(button.textContent,'罰');button.listeners.click();
+assert.equal(holder.children[0].textContent,'<b>測試處罰</b>');
+assert.equal(holder.children[0].tag,'span');
+ctx.updateStagePenalty(figure,eliminated);
+assert.equal(caption.children.at(-1).children[0].tag,'span');
+outcome=null;ctx.updateStagePenalty(figure,eliminated);
+outcome={};ctx.updateStagePenalty(figure,eliminated);
+assert.equal(caption.children.at(-1).children[0].tag,'button');
+console.log('PASS: final penalty gating, pending settlement, team elimination, safe text reveal and restart reset.');

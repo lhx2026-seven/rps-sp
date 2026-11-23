@@ -409,3 +409,11 @@ html:has(#operationPanel:not(.hidden)) { overflow-anchor: none; }
 .participant-stage__note-count { position: absolute; right: 0; bottom: 0; visibility: hidden; color: #667085; font-size: 12px; }
 .participant-stage__note:focus-within .participant-stage__note-count { visibility: visible; }
 @media (pointer: coarse) { .participant-stage .participant-stage__note-input { font-size: 16px; } }
+
+.participant-stage__penalty { display: inline; margin-left: 4px; color: #dc2626; font-size: 12px; font-weight: normal; }
+.participant-stage__penalty-button { display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box; width: 18px; height: 18px; padding: 0; margin: 0; border: 1px solid #dc2626; border-radius: 50%; background: transparent; color: #dc2626; font-size: 12px; line-height: 1; vertical-align: middle; cursor: pointer; }
+.participant-stage__penalty-text { display: inline-block; white-space: pre-wrap; overflow-wrap: anywhere; text-align: left; vertical-align: middle; }
+.participant-stage__penalty-text.is-revealing { animation: stage-shake 360ms ease-out; }
+@media (prefers-reduced-motion: reduce) {
+  .participant-stage__penalty-text.is-revealing { animation: none; }
+}
