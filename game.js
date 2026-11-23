@@ -1596,9 +1596,20 @@ function renderNormalOperation() {
   }
 }
 
+function getTeamRoundMembers(team) {
+  if (team.eliminated) return [];
+
+  const members = participants.filter(person => person.teamId === team.id && !person.eliminated);
+  if (gameConfig.eliminationMode === "equipment" &&
+      members.every(person => Array.isArray(person.equipment) && person.equipment.length === 0)) {
+    return [];
+  }
+  return members;
+}
+
 function renderTeamOperation() {
-  for (const team of teams.filter(team => !team.eliminated)) {
-    const members = participants.filter(person => person.teamId === team.id && !person.eliminated);
+  for (const team of teams) {
+    const members = getTeamRoundMembers(team);
     if (!members.length) continue;
 
     const key = `team-${team.id}`;
@@ -2207,17 +2218,7 @@ eliminatedBox.style.cssText =
 // ============================================================
 
 async function startTeamRound() {
-  const activeTeams = teams.filter(team => {
-    return (
-      !team.eliminated &&
-      participants.some(participant => {
-        return (
-          participant.teamId === team.id &&
-          !participant.eliminated
-        );
-      })
-    );
-  });
+  const activeTeams = teams.filter(team => getTeamRoundMembers(team).length > 0);
 
   if (activeTeams.length < 2) {
     return;
