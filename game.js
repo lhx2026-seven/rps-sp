@@ -6126,6 +6126,66 @@ function updateStageStatus() {
   });
 }
 
+function enableStagePortraitZoom(portrait, image) {
+  const zoom = ({clientX, clientY}) => {
+    const bounds = portrait.getBoundingClientRect();
+    const x = Math.max(0, Math.min(bounds.width, clientX - bounds.left));
+    const y = Math.max(0, Math.min(bounds.height, clientY - bounds.top));
+    portrait.style.setProperty("--portrait-zoom-origin", `${x}px ${y}px`);
+    portrait.classList.add("is-zoomed");
+  };
+  const reset = () => portrait.classList.remove("is-zoomed");
+  const zoomWithMouse = event => {
+    if (event.pointerType === "mouse" && image.naturalWidth) zoom(event);
+  };
+  const resetMouseZoom = event => {
+    if (event.pointerType === "mouse") reset();
+  };
+  portrait.addEventListener("pointerenter", zoomWithMouse);
+  portrait.addEventListener("pointermove", zoomWithMouse);
+  portrait.addEventListener("pointerleave", resetMouseZoom);
+  portrait.addEventListener("pointercancel", resetMouseZoom);
+
+  let touchStart;
+  let holdTimer;
+  let touchZoomed = false;
+  const resetTouchZoom = () => {
+    clearTimeout(holdTimer);
+    touchStart = undefined;
+    if (touchZoomed) reset();
+    touchZoomed = false;
+  };
+
+  portrait.addEventListener("touchstart", event => {
+    resetTouchZoom();
+    if (event.touches.length !== 1 || !image.naturalWidth) return;
+    touchStart = event.touches[0];
+    holdTimer = setTimeout(() => {
+      touchZoomed = true;
+      zoom(touchStart);
+    }, 400);
+  }, {passive: true});
+  portrait.addEventListener("touchmove", event => {
+    if (!touchStart) return;
+    const touch = event.touches[0];
+    if (event.touches.length !== 1 || touch.identifier !== touchStart.identifier) {
+      resetTouchZoom();
+      return;
+    }
+    if (touchZoomed) {
+      if (event.cancelable) event.preventDefault();
+      zoom(touch);
+    } else if (Math.hypot(touch.clientX - touchStart.clientX, touch.clientY - touchStart.clientY) > 8) {
+      resetTouchZoom();
+    }
+  }, {passive: false});
+  portrait.addEventListener("touchend", resetTouchZoom);
+  portrait.addEventListener("touchcancel", resetTouchZoom);
+  portrait.addEventListener("contextmenu", event => {
+    if (touchStart) event.preventDefault();
+  });
+}
+
 function renderStage() {
   let stage = document.getElementById("participantStage");
   if (!stage) {
@@ -6173,19 +6233,7 @@ function renderStage() {
     image.alt = getParticipantDisplayName(p);
     image.loading = "lazy";
     image.addEventListener("error", () => { figure.hidden = true; }, {once: true});
-    const zoomPortrait = event => {
-      if (event.pointerType !== "mouse" || !image.naturalWidth) return;
-      const bounds = portrait.getBoundingClientRect();
-      const x = event.clientX - bounds.left;
-      const y = event.clientY - bounds.top;
-      portrait.style.setProperty("--portrait-zoom-origin", `${x}px ${y}px`);
-      portrait.classList.add("is-zoomed");
-    };
-    const resetPortraitZoom = () => portrait.classList.remove("is-zoomed");
-    portrait.addEventListener("pointerenter", zoomPortrait);
-    portrait.addEventListener("pointermove", zoomPortrait);
-    portrait.addEventListener("pointerleave", resetPortraitZoom);
-    portrait.addEventListener("pointercancel", resetPortraitZoom);
+    enableStagePortraitZoom(portrait, image);
     portrait.appendChild(image);
     const status = element("div", undefined, "participant-stage__status");
     const statusLine = element("div", undefined, "participant-stage__status-line");
