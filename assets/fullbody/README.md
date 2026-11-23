@@ -42,7 +42,7 @@
 | avatar-25 | ![頭像](../profile/avatar-25.webp) | [查看全身照](avatar-25.webp) | 襯衫、針織背心、短裙 | 有跟鞋 |
 | avatar-26 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/791678841fe0842199df55b4d10fe0b650b5017d/assets/profile/avatar-26.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/791678841fe0842199df55b4d10fe0b650b5017d/assets/fullbody/avatar-26.webp) | 襯衫、短裙 | 粗跟鞋 |
 | avatar-27 | ![頭像](../profile/avatar-27.webp) | [查看全身照](avatar-27.webp) | 白色運動背心、黑色運動短褲 | 白色珊瑚橘配色運動鞋 |
-| avatar-28 | ![紫色及下巴短髮、尖臉與銳利眼神的頭像](../profile/avatar-28.webp) | [查看全身照](avatar-28.webp) | 米白麻花針織上衣、深藍直筒長褲 | 藕粉色尖頭跟鞋 |
+| avatar-28 | ![紫色及下巴短髮、尖臉與銳利眼神的頭像](../profile/avatar-28.webp) | [查看全身照](avatar-28.webp) | 黑色騎士皮衣、炭灰上衣、黑色直筒長褲、銀色腰鏈 | 黑色粗跟短靴 |
 | avatar-29 | ![頭像](../profile/avatar-29.webp) | [查看全身照](avatar-29.webp) | 牛仔外套、T恤、牛仔短褲 | 有跟鞋 |
 | avatar-30 | ![頭像](../profile/avatar-30.webp) | [查看全身照](avatar-30.webp) | 短版襯衫、短裙 | 有跟鞋 |
 | avatar-31 | ![頭像](../profile/avatar-31.webp) | [查看全身照](avatar-31.webp) | 蝴蝶結襯衫、短裙、褲襪 | 高跟鞋 |
