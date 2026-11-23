@@ -5310,8 +5310,8 @@ async function startEquipmentSettlement() {
   await saveGameState();
 }
 
-function isUnlimitedEquipmentDiscard(participant) {
-  return gameConfig.equipmentRule === "unlimited" || participant.pendingEquipmentSettlement;
+function isUnlimitedEquipmentDiscard() {
+  return gameConfig.equipmentRule === "unlimited";
 }
 
 function hasPendingEquipment() {
@@ -5359,7 +5359,7 @@ function discardEquipment(participant, item) {
   participant.pendingEquipmentDiscards++;
 
   if (
-    !isUnlimitedEquipmentDiscard(participant) ||
+    !isUnlimitedEquipmentDiscard() ||
     participant.equipment.length === 0
   ) {
     participant.pendingEquipmentLoss = false;
@@ -5629,10 +5629,11 @@ function renderEquipmentDiscardPanel() {
   panel.appendChild(
     element(
       "div",
-      settlement ? "選擇完需脫掉之衣物，即可按「夠了」" :
       gameConfig.equipmentRule === "unlimited"
         ? "選擇完需脫掉之衣物，即可按「夠了」"
-        : "確認脫掉後，才可再進行下一把。",
+        : settlement
+          ? "每人選擇一件衣物並確認脫掉後，即完成結算。"
+          : "每次只脫一件；確認脫掉後，才可再進行下一把。",
       "small"
     )
   );
@@ -5642,7 +5643,7 @@ function renderEquipmentDiscardPanel() {
     box.style.marginTop = "14px";
     box.appendChild(element("strong", getParticipantDisplayName(participant)));
 
-    if (isUnlimitedEquipmentDiscard(participant)) {
+    if (isUnlimitedEquipmentDiscard()) {
       box.appendChild(
         element(
           "div",
@@ -5750,7 +5751,7 @@ function renderEquipmentDiscardPanel() {
 
     box.appendChild(confirm);
 
-    if (isUnlimitedEquipmentDiscard(participant)) {
+    if (isUnlimitedEquipmentDiscard()) {
       const finish = element("button", "夠了");
       finish.type = "button";
       finish.style.marginLeft = "8px";
