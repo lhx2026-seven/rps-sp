@@ -6173,6 +6173,19 @@ function renderStage() {
     image.alt = getParticipantDisplayName(p);
     image.loading = "lazy";
     image.addEventListener("error", () => { figure.hidden = true; }, {once: true});
+    const zoomPortrait = event => {
+      if (event.pointerType !== "mouse" || !image.naturalWidth) return;
+      const bounds = portrait.getBoundingClientRect();
+      const x = event.clientX - bounds.left;
+      const y = event.clientY - bounds.top;
+      portrait.style.setProperty("--portrait-zoom-origin", `${x}px ${y}px`);
+      portrait.classList.add("is-zoomed");
+    };
+    const resetPortraitZoom = () => portrait.classList.remove("is-zoomed");
+    portrait.addEventListener("pointerenter", zoomPortrait);
+    portrait.addEventListener("pointermove", zoomPortrait);
+    portrait.addEventListener("pointerleave", resetPortraitZoom);
+    portrait.addEventListener("pointercancel", resetPortraitZoom);
     portrait.appendChild(image);
     const status = element("div", undefined, "participant-stage__status");
     const statusLine = element("div", undefined, "participant-stage__status-line");
