@@ -47,3 +47,16 @@ ctx.participants.push({...p(3,'C',0),eliminated:true});
 assert.deepEqual(msgs(ctx.participants[0]),['LAST，一勝難求']);
 ctx.participants=[p(1,'A',1)];assert.deepEqual(msgs(ctx.participants[0]),['LAST，一勝難求']);
 console.log('PASS: all-participant LAST priority, opening gap boundaries, initial-only timing and team mode.');
+
+ctx.gameConfig.teamMode=false;ctx.roundNumber=1;ctx.tournamentRounds=[];ctx.participants=[p(1,'A'),p(2,'B')];
+ctx.roundHistory=[normal(1,'tie'),normal(1,'tie')];assert.deepEqual(msgs(ctx.participants[0]),[]);
+ctx.roundHistory.push(normal(1,'tie'));assert.deepEqual(msgs(ctx.participants[0]),['纏鬥中']);
+ctx.roundHistory.push(normal(2,'win'),normal(1,'tie'));assert.deepEqual(msgs(ctx.participants[0]),['纏鬥中']);
+for(const result of ['win','loss']){ctx.roundHistory=[normal(1,'tie'),normal(1,'tie'),normal(1,'tie'),normal(1,result)];assert.deepEqual(msgs(ctx.participants[0]),[]);}
+ctx.tournamentRounds=[{tournamentRoundNumber:1,participants:[p(10,'A')],roundHistory:[normal(10,'tie'),normal(10,'tie')]}];
+ctx.roundHistory=[normal(1,'tie')];assert.deepEqual(msgs(ctx.participants[0]),['纏鬥中']);
+ctx.tournamentRounds=[];ctx.roundHistory=[normal(1,'win'),normal(1,'win'),normal(1,'tie'),normal(1,'tie'),normal(1,'tie')];
+assert.deepEqual(msgs(ctx.participants[0]),['2連勝','纏鬥中']);
+ctx.gameConfig.teamMode=true;ctx.roundHistory=[team('tie',1),team('tie',1),team('tie',1)];
+assert.deepEqual(msgs(ctx.participants[0]),['纏鬥中']);assert.deepEqual(msgs(ctx.participants[1]),[]);
+console.log('PASS: three-plus consecutive draws, decisive result reset, other-player inactivity, cross-round identity and coexistence with win streaks.');

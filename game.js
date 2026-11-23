@@ -5986,6 +5986,7 @@ function createStageNote() {
 // Histories are read in tournament order. The live round replaces its saved snapshot.
 function getStageStatusData() {
   const personal = new Map();
+  const ties = new Map();
   const current = new Map();
   const teamStreaks = new Map();
   const identity = participant => participant.participantKey || `legacy:${participant.name}`;
@@ -6013,6 +6014,7 @@ function getStageStatusData() {
         if (!person) return;
         const key = identity(person);
         advance(personal, key, result);
+        ties.set(key, result === "tie" ? (ties.get(key) || 0) + 1 : 0);
         if (snapshot.current) {
           const stats = current.get(key) || { wins: 0, losses: 0 };
           if (result === "win") stats.wins++;
@@ -6022,7 +6024,7 @@ function getStageStatusData() {
       });
     });
   });
-  return { personal, current, teamStreaks };
+  return { personal, current, teamStreaks, ties };
 }
 
 function getStageStatusMessages(participant, data) {
@@ -6037,6 +6039,7 @@ function getStageStatusMessages(participant, data) {
   if (teamStreak?.count >= 2) {
     messages.push(`團隊${teamStreak.count}連${teamStreak.result === "win" ? "勝" : "敗"}`);
   }
+  if ((data.ties.get(key) || 0) >= 3) messages.push("纏鬥中");
   const stats = data.current.get(key) || { wins: 0, losses: 0 };
   if (participant.equipment?.length === 1) {
     const allLast = participants.length > 1 && participants.every(p => p.equipment?.length === 1);
