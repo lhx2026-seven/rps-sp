@@ -1120,7 +1120,9 @@ function renderParticipantSettings() {
       )
     );
 
-    top.append(avatar, info);
+    const avatarTools = element("div", undefined, "participant-avatar-tools");
+    avatarTools.appendChild(avatar);
+    top.append(avatarTools, info);
     card.appendChild(top);
 
     const controls =
@@ -1283,7 +1285,7 @@ function renderParticipantSettings() {
     urlStageLabel.append(urlStageToggle, document.createTextNode("on stage（在舞台顯示原圖）"));
     const applyUrl = element("button", "使用網址");
     applyUrl.type = "button";
-    const urlStatus = element("span", "請貼上可直接開啟圖片的 HTTP／HTTPS 網址。", "small");
+    const urlStatus = element("span", "", "small");
     urlStatus.setAttribute("role", "status");
     async function applyAvatarUrl() {
       if (applyUrl.disabled) return;
@@ -1349,7 +1351,7 @@ function renderParticipantSettings() {
       sourcePicker.open = false;
       file.click();
     });
-    const urlOption = element("button", "圖片網址");
+    const urlOption = element("button", "連結網址");
     urlOption.type = "button";
     urlOption.setAttribute("aria-expanded", "false");
     urlOption.setAttribute("aria-controls", `avatar-url-${participant.id}`);
@@ -1369,8 +1371,8 @@ function renderParticipantSettings() {
     sourceOptions.append(uploadOption, urlOption, urlControls);
     sourcePicker.append(sourceSummary, sourceOptions);
     const avatarField = element("div", undefined, "avatar-source-field");
-    avatarField.append(element("span", "頭像"), file, sourcePicker);
-    controls.appendChild(avatarField);
+    avatarField.append(file, sourcePicker);
+    avatarTools.appendChild(avatarField);
 
     card.appendChild(controls);
     renderEquipmentSettings(participant, card);
