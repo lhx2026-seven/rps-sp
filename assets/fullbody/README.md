@@ -70,7 +70,7 @@
 | avatar-48 | ![頭像](../profile/avatar-48.webp) | [查看全身照](avatar-48.webp) | 西裝外套、上衣、牛仔長褲、有跟鞋 |
 | avatar-49 | ![頭像](../profile/avatar-49.webp) | [查看全身照](avatar-49.webp) | 西裝外套、上衣、短裙、有跟鞋 |
 | avatar-50 | ![頭像](../profile/avatar-50.webp) | [查看全身照](avatar-50.webp) | 無袖上衣、短裙、有跟鞋 |
-| avatar-51 | ![頭像](../profile/avatar-51.webp) | [查看全身照](avatar-51.webp) | 無袖上衣、長裙、有跟鞋 |
+| avatar-51 | ![頭像](../profile/avatar-51.webp) | [查看全身照](avatar-51.webp) | 連身旗袍、高跟鞋 |
 | avatar-52 | ![頭像](../profile/avatar-52.webp) | [查看全身照](avatar-52.webp) | 西裝褲套裝、針織上衣、高跟鞋 |
 | avatar-53 | ![頭像](../profile/avatar-53.webp) | [查看全身照](avatar-53.webp) | 針織上衣、短裙、有跟鞋 |
 | avatar-54 | ![頭像](../profile/avatar-54.webp) | [查看全身照](avatar-54.webp) | 西裝式連身裙、有跟鞋 |
