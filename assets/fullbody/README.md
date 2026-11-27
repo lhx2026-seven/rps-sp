@@ -24,7 +24,7 @@
 | avatar-02 | ![頭像](../profile/avatar-02.webp) | [查看全身照](avatar-02.webp) | 一字領上衣、短裙、高筒跟靴 |
 | avatar-03 | ![參考 Fubon Angels 檸檬設計的頭像](../profile/avatar-03.webp) | [查看全身照](avatar-03.webp) | 短版泡泡袖上衣、短裙、有跟鞋 |
 | avatar-04 | ![頭像](../profile/avatar-04.webp) | [查看全身照](avatar-04.webp) | 牛仔外套、短版上衣、牛仔短褲、平底鞋 |
-| avatar-05 | ![頭像](../profile/avatar-05.webp) | [查看全身照](avatar-05.webp) | 短版上衣、短裙、平底鞋 |
+| avatar-05 | ![頭像](../profile/avatar-05.webp) | [查看全身照](avatar-05.webp) | 藕粉色素面細肩帶短版上衣、米白短裙、米白芭蕾平底鞋 |
 | avatar-06 | ![頭像](../profile/avatar-06.webp) | [查看全身照](avatar-06.webp) | 連帽上衣、牛仔長褲、帆布鞋 |
 | avatar-07 | ![頭像](../profile/avatar-07.webp) | [查看全身照](avatar-07.webp) | 短版外套、短版上衣、短裙、有跟鞋 |
 | avatar-08 | ![頭像](../profile/avatar-08.webp) | [查看全身照](avatar-08.webp) | 泡泡袖上衣、短褲、帆布鞋 |
@@ -41,7 +41,7 @@
 | avatar-19 | ![頭像](../profile/avatar-19.webp) | [查看全身照](avatar-19.webp) | 針織上衣、長裙、有跟鞋 |
 | avatar-20 | ![頭像](../profile/avatar-20.webp) | [查看全身照](avatar-20.webp) | 襯衫、長褲、平底鞋 |
 | avatar-21 | ![頭像](../profile/avatar-21.webp) | [查看全身照](avatar-21.webp) | 襯衫、短裙、有跟鞋 |
-| avatar-22 | ![頭像](../profile/avatar-22.webp) | [查看全身照](avatar-22.webp) | 短版外套、短版上衣、短裙、平底鞋 |
+| avatar-22 | ![頭像](../profile/avatar-22.webp) | [查看全身照](avatar-22.webp) | 霧藍韓系長版大衣、象牙白短版上衣、酒紅短裙、米白芭蕾平底鞋 |
 | avatar-23 | ![頭像](../profile/avatar-23.webp) | [查看全身照](avatar-23.webp) | 西裝外套、高領上衣、短裙、平底鞋 |
 | avatar-24 | ![頭像](../profile/avatar-24.webp) | [查看全身照](avatar-24.webp) | 長袖上衣、短褲、運動鞋 |
 | avatar-25 | ![頭像](../profile/avatar-25.webp) | [查看全身照](avatar-25.webp) | 襯衫、針織背心、短裙、有跟鞋 |
@@ -65,7 +65,7 @@
 | avatar-43 | ![頭像](../profile/avatar-43.webp) | [查看全身照](avatar-43.webp) | 西裝外套、上衣、長裙、有跟鞋 |
 | avatar-44 | ![參考廖小安設計的金框眼鏡頭像](../profile/avatar-44.webp) | [查看全身照](avatar-44.webp) | 西裝褲套裝、襯衫、針織背心、有跟鞋 |
 | avatar-45 | ![頭像](../profile/avatar-45.webp) | [查看全身照](avatar-45.webp) | 西裝式連身裙、有跟鞋 |
-| avatar-46 | ![頭像](../profile/avatar-46.webp) | [查看全身照](avatar-46.webp) | 襯衫、短裙、有跟鞋 |
+| avatar-46 | ![頭像](../profile/avatar-46.webp) | [查看全身照](avatar-46.webp) | 梅紫色單邊細肩帶上衣、灰色短裙、灰色粗跟鞋；腿部比例略微拉長 |
 | avatar-47 | ![頭像](../profile/avatar-47.webp) | [查看全身照](avatar-47.webp) | 短版外套、上衣、短裙、有跟鞋 |
 | avatar-48 | ![頭像](../profile/avatar-48.webp) | [查看全身照](avatar-48.webp) | 西裝外套、上衣、牛仔長褲、有跟鞋 |
 | avatar-49 | ![頭像](../profile/avatar-49.webp) | [查看全身照](avatar-49.webp) | 西裝外套、上衣、短裙、有跟鞋 |
@@ -104,3 +104,7 @@
 前台 68 位角色的新建人物起始衣物依遊戲程式的設定套用，適用新建遊戲與新回合的新人物。所有人包含胸罩、內褲；長短褲歸褲子，褲裙歸褲子，連身服裝歸洋裝，黑絲襪歸褲襪。
 
 13／25 的背心歸外套；42 僅列洋裝；45 依指定列外套＋上衣；47 列外套＋上衣＋裙子，64 列外套＋上衣＋褲子。已儲存、匯入及手動設定的衣物沿用原資料；仍可使用原有衣物設定控制。
+
+## 服裝更新（2026-11-27）
+
+05、22、46 的頭像與全身照已同步更新，保留原人物特徵；新版頭像由對應全身照裁切製作，以維持人物與服裝一致。05 改素色細肩帶上衣；22 改韓系長版大衣並換成霧藍／象牙白／酒紅配色；46 改單邊細肩帶上衣，腿部比例略微拉長。三位的遊戲起始衣物分類不變。
