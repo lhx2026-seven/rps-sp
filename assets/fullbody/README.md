@@ -55,7 +55,7 @@
 | avatar-33 | ![頭像](../profile/avatar-33.webp) | [查看全身照](avatar-33.webp) | 連身裙、有跟鞋 |
 | avatar-34 | ![頭像](../profile/avatar-34.webp) | [查看全身照](avatar-34.webp) | 西裝外套、襯衫、短裙、有跟鞋 |
 | avatar-35 | ![頭像](../profile/avatar-35.webp) | [查看全身照](avatar-35.webp) | 皮外套、上衣、長裙、有跟鞋 |
-| avatar-36 | ![頭像](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/b3fc3ec48d7f1b14cbc569f40d80cf898de92195/assets/profile/avatar-36.webp) | [查看全身照](https://raw.githubusercontent.com/lhx2026-seven/rps-sp/04d7771f4be29b83d74e8b35f15b7b3eca9fcf3d/assets/fullbody/avatar-36.webp) | 翻領針織上衣、長褲、高跟鞋 |
+| avatar-36 | ![頭像](../profile/avatar-36.webp) | [查看全身照](avatar-36.webp) | 翻領針織上衣、長褲、高跟鞋 |
 | avatar-37 | ![頭像](../profile/avatar-37.webp) | [查看全身照](avatar-37.webp) | 襯衫、短裙、有跟鞋 |
 | avatar-38 | ![頭像](../profile/avatar-38.webp) | [查看全身照](avatar-38.webp) | 襯衫、短裙、運動鞋 |
 | avatar-39 | ![頭像](../profile/avatar-39.webp) | [查看全身照](avatar-39.webp) | 連身裙、平底鞋 |
@@ -110,3 +110,7 @@
 服裝欄僅記錄服裝類型、材質與鞋款，不記錄花色、配色或身形描述。
 
 05、22、46、47、64 的頭像採頭部至肩膀構圖，不延伸至胸前。22 已修復臉部瑕疵；47、64 已換長版大衣。頭像與對應全身照維持人物及服裝一致，起始衣物分類不變。
+
+## 全身照臉部修復
+
+21、22、26、36、46、47、64 的全身照已對照修復後頭像進行局部臉部修復，保留現有服裝、身形與姿勢。以無損 WebP 輸出，不另加銳化；對照連結使用目前資產。
