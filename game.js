@@ -2134,18 +2134,28 @@ function beginZenraHand() {
   }
 }
 
+function beginZenraPlayoff(candidates, limit) {
+  gameConfig.zenraPlayoff = { candidates, eliminated: [], remaining: limit, includesAllZeroUnits: true };
+}
+
+function restoreZenraPlayoff() {
+  const playoff = gameConfig.zenraPlayoff;
+  if (!playoff?.remaining || playoff.includesAllZeroUnits) return;
+
+  const zeroIds = getZenraZeroIds();
+  const limit = readPositiveInteger({ value: gameConfig.emptyEquipmentLimit });
+  if (zeroIds.length > limit) beginZenraPlayoff(zeroIds, limit);
+}
+
 function resolveZenraHand() {
-  const before = gameConfig.zenraHandBefore;
-  if (!before || hasPendingEquipment()) return;
+  if (!gameConfig.zenraHandBefore || hasPendingEquipment()) return;
   delete gameConfig.zenraHandBefore;
 
   const zeroIds = getZenraZeroIds();
   const limit = readPositiveInteger({ value: gameConfig.emptyEquipmentLimit });
-  const previous = zeroIds.filter(id => before.includes(id));
-  const candidates = zeroIds.filter(id => !before.includes(id));
 
-  if (zeroIds.length > limit && previous.length < limit) {
-    gameConfig.zenraPlayoff = { candidates, eliminated: previous, remaining: limit - previous.length };
+  if (zeroIds.length > limit) {
+    beginZenraPlayoff(zeroIds, limit);
     return;
   }
 
@@ -3507,6 +3517,7 @@ function importGameData(event) {
         team.eliminated = !!team.eliminated;
       });
 
+      restoreZenraPlayoff();
       playerThrows = {};
       teamRepresentatives = {};
 
@@ -3903,6 +3914,7 @@ function switchTournamentRound(targetRoundNumber) {
     readPositiveInteger({ value: gameConfig.emptyEquipmentLimit });
   normalizeRoundLossCounters();
 
+  restoreZenraPlayoff();
   playerThrows = {};
   teamRepresentatives = {};
 
